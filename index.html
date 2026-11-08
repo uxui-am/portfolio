@@ -5,9 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Alina Matiushyna, UX/UI & Visual Designer. Product UI, websites, presentations and social creatives.">
 <title>Alina Matiushyna Portfolio</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;600;700&family=Onest:wght@300;400;600&family=Fraunces:ital,opsz,wght@1,9..144,400&family=Fustat:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;600;700&family=Onest:wght@300;400;600&family=Fraunces:ital,opsz,wght@1,9..144,400..700&family=Fustat:wght@400;600;700&display=swap">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -17,7 +20,7 @@
   --ink:#101114; --ink-2:#202A40; --muted:#6C6F76; --muted-2:#A9ABB1;
   --paper:#FFFFFF; --soft:#F6F6F7; --pill:#F1F1F3; --line:#E4E5E8;
   --dark:#161719; --dark-2:#24252A; --dark-pill:#2A2B30; --dark-line:#3A3B40;
-  --accent:#D93A0E;
+  --accent:#E11D2E;
   --gut:max(16px, env(safe-area-inset-left, 0px));
   --gut-r:max(16px, env(safe-area-inset-right, 0px));
   --side:clamp(16px, 2.78vw, 64px);          /* 40px at 1440 */
@@ -780,6 +783,124 @@ a.crow:hover .crow__t{color:var(--accent)}
 .intro{--st:clamp(34px,min(4.4vw,8vh),72px)}
 .ab3__t{max-width:19em}
 .ab3__pts{flex:1 1 auto;width:auto}
+/* About v4 = Figma 296:3429: wider statement, numbers always stacked on the right, 3-line points with wide gaps */
+.intro{--st:clamp(34px,min(3.98vw,7.6vh),80px)}
+.ab3__t{max-width:19.4em}
+.ab3__p{max-width:53em;font-size:clamp(16px,1.05vw,19px)}
+.ab3__left{gap:clamp(24px,4vh,44px)}
+.ab3__main{align-items:flex-start}
+.ab3__main .ab3__stats,.ab3__main .ab3__stats{flex-direction:column;align-items:flex-end;gap:clamp(32px,5.5vh,64px)}
+@media (min-width:1600px){.ab3__main .ab3__stats{flex-direction:column}}
+.ab3__pts{display:flex;flex:1 1 auto;width:auto;justify-content:flex-start;gap:clamp(40px,6.8vw,120px)}
+.ab3__pts .ipt{flex:0 1 25em;max-width:25em}
+.ab3__pts .ipt:last-child{max-width:25em}
+@media (max-width:820px){.ab3__main .ab3__stats{flex-direction:row;align-items:flex-start}.ab3__pts{flex-direction:column;gap:20px}.ab3__pts .ipt,.ab3__pts .ipt:last-child{max-width:none;flex:none}}
+@media (max-width:1299px){.ab3__pts .brd{display:none}}
+@media (min-width:821px){.ab3__main{gap:clamp(32px,3vw,64px)}.ab3__main .ab3__stats{width:clamp(190px,15vw,300px);align-items:flex-start}}
+/* Hero: clean white, the headline letters scatter in a wave as you scroll (and gather back) */
+.hero{background:#FFFFFF}
+.hero__glow{display:none}
+.hero__h1 .ch.wv{animation:none;transform:translate(var(--wx,0),var(--wy,0)) rotate(var(--wr,0));will-change:transform}
+/* Hero idle: a few letters at a time turn into Fraunces italic for a moment (letter boxes keep their width, so the line never jumps) */
+.hero__h1 .ch.lock{text-align:center}
+.hero__h1 .ch.alt{font-family:var(--serif);font-style:italic;font-weight:600;letter-spacing:0;animation:altIn .45s cubic-bezier(.22,1,.36,1) both}
+.hero__h1 .ch.alt.wv{animation:altIn .45s cubic-bezier(.22,1,.36,1) both}
+@keyframes altIn{from{opacity:.2;translate:0 .08em}to{opacity:1;translate:0 0}}
+.hero__h1 .ch.lock{display:inline-block;vertical-align:top;overflow:visible;position:relative}
+.hero__h1 .ch.lock.alt{line-height:inherit}
+/* Hero flip: two copies of each letter, the outgoing one rolls up and away, the incoming one rolls in from below */
+.hero__h1 .ch{position:relative;transform-style:preserve-3d}
+.hero__h1 .ch .fo,.hero__h1 .ch .fi{display:inline-block;transform-origin:50% 50% -.4em;backface-visibility:hidden}
+.hero__h1 .ch .fo{position:absolute;left:0;top:0;opacity:0}
+.hero__h1 .ch.flip .fo{animation:flOut .65s cubic-bezier(.65,0,.35,1) var(--fd,0ms) both}
+.hero__h1 .ch.flip .fi{animation:flIn .65s cubic-bezier(.65,0,.35,1) var(--fd,0ms) both}
+@keyframes flOut{from{transform:none;opacity:1}to{transform:translateY(-.2em) rotateX(90deg);opacity:0}}
+@keyframes flIn{from{transform:translateY(.2em) rotateX(-90deg);opacity:0}to{transform:none;opacity:1}}
+/* flip v2: one shared perspective per line (real drum depth), letters not clipped while rolling, bigger headline */
+.hero__h1{font-size:clamp(50px,min(12.2vw,19.5vh),176px)}
+.hero__h1 .ln>span{perspective:900px;transform-style:preserve-3d}
+.hero__h1.flipping .ln{overflow:visible}
+/* hero fits one screen: tighter rhythm, CV circle smaller, heart hidden for now */
+.hero__in{padding-top:clamp(14px,2.4vh,36px);padding-bottom:clamp(14px,2.4vh,36px);gap:clamp(8px,1.5vh,22px)}
+.hero__h1{font-size:clamp(50px,min(12.2vw,17.8vh),176px)}
+.hero-cv{margin-top:clamp(8px,1.6vh,24px)}
+/* fit Latest projects and Get in touch into one screen height */
+@media (min-width:821px){
+  .projects{padding-top:clamp(28px,min(5vw,6vh),96px);padding-bottom:clamp(20px,3.6vh,48px)}
+  .projects .cover{max-height:max(220px,calc(100vh - 520px))}
+  .contact--dark{padding-top:clamp(24px,4vh,64px);padding-bottom:clamp(20px,3.4vh,48px);gap:clamp(10px,1.8vh,24px)}
+  .cform{gap:clamp(8px,1.5vh,20px)}
+  .cfield{gap:6px}
+  .send-btn{width:auto;aspect-ratio:auto;height:52px;padding:0 28px;border-radius:999px;font-size:15px}
+}
+@media (min-width:821px){.send-btn{flex-direction:row;white-space:nowrap;gap:.4em}.contact--dark{min-height:100vh;min-height:100svh}}
+.send-btn .ar{font-size:1.1em}
+.send-btn:hover{background:#FFFFFF;color:var(--ink);transform:none}
+/* word peek: hovering UX·UI, VISUAL or DESIGN floats a work over the word, following the cursor (like What I can do) */
+.hero__h1 .wd{position:relative;display:inline-block;white-space:nowrap}
+.hero__h1 .wd-img{display:none}
+.wpeek{position:fixed;left:0;top:0;z-index:50;width:clamp(240px,22vw,380px);height:auto;border-radius:6px;pointer-events:none;opacity:0;box-shadow:0 24px 60px -20px rgba(16,17,20,.35);transform:translate(-50%,-50%) rotate(calc(var(--rot,0deg) * 1.4)) scale(.86);transition:opacity .3s,transform .5s cubic-bezier(.22,1,.36,1)}
+.wpeek.on{opacity:1;transform:translate(-50%,-50%) rotate(var(--rot,0deg)) scale(1)}
+.wpeek{aspect-ratio:4/3;object-fit:cover}
+.wpeek{width:384px;height:288px;aspect-ratio:auto;object-fit:cover;transform:translate(-50%,-50%) rotate(var(--rot,0deg)) scale(.92);backface-visibility:hidden}
+.wpeek.on{transform:translate(-50%,-50%) rotate(var(--rot,0deg))}
+.wpeek.sq{width:384px;height:384px}
+.wpeek{width:320px;height:240px}
+.wpeek.sq{width:320px;height:320px}
+.wpeek.sq{width:256px;height:256px}
+.wpeek.amp{width:320px;height:232px;object-fit:contain;border-radius:10px}
+.wpeek{object-fit:contain}
+.wpeek.png{border-radius:10px}
+.wpeek{transform:translate(-50%,-50%) rotate(var(--rot,0deg)) scale(.55);transition:opacity .25s ease,transform .6s cubic-bezier(.22,1.25,.36,1)}
+.wpeek.on{transform:translate(-50%,-50%) rotate(var(--rot,0deg)) scale(1)}
+/* hero cursor: the dot from UX·UI follows the mouse */
+
+.hdot{position:fixed;left:0;top:0;z-index:60;border-radius:50%;background:var(--ink);pointer-events:none;transform:translate(-50%,-50%) scale(0);transition:transform .25s cubic-bezier(.22,1,.36,1)}
+.hdot.on{transform:translate(-50%,-50%) scale(1)}
+.hdot.link{transform:translate(-50%,-50%) scale(1.6)}
+/* all four cards at once */
+.hcards{position:absolute;inset:0;pointer-events:none;z-index:5}
+.hcard{position:absolute;width:300px;height:auto;max-width:none;border-radius:6px;box-shadow:0 24px 60px -20px rgba(16,17,20,.35);opacity:0;transform:translate(-50%,-50%) rotate(var(--rot,0deg)) scale(.55);transition:opacity .25s ease,transform .6s cubic-bezier(.22,1.25,.36,1)}
+.hcard.png{border-radius:10px}
+.hero__h1.cards-on .hcard{opacity:1;transform:translate(-50%,-50%) rotate(var(--rot,0deg)) scale(1)}
+.wpeek{display:none!important}
+.hero__h1{position:relative}
+.hcard.on{opacity:1;transform:translate(-50%,-50%) rotate(var(--rot,0deg)) scale(1)}
+.hcard{width:256px}
+/* cards flip in behind the headline */
+.hero__h1{isolation:isolate}
+.hcards{z-index:-1}
+.hcard,.hero__h1.cards-on .hcard,.hcard.on{width:240px;transform-origin:50% 100%;transition:opacity .2s ease,transform .6s cubic-bezier(.65,0,.35,1);transition-delay:0ms!important}
+.hcard{opacity:0;transform:translate(-50%,-50%) perspective(900px) rotate(var(--rot,0deg)) rotateX(-90deg)}
+.hcard.on{opacity:1;transform:translate(-50%,-50%) perspective(900px) rotate(var(--rot,0deg)) rotateX(0)}
+.hcard.out{opacity:0;transform:translate(-50%,-50%) perspective(900px) rotate(var(--rot,0deg)) rotateX(90deg)}
+/* back to hover: cards in front, zoom in */
+.hcards{z-index:5}
+.hcard{width:256px;opacity:0;transform:translate(-50%,-50%) rotate(var(--rot,0deg)) scale(.55);transform-origin:50% 50%;transition:opacity .25s ease,transform .6s cubic-bezier(.22,1.25,.36,1)}
+.hcard.on{opacity:1;transform:translate(-50%,-50%) rotate(var(--rot,0deg)) scale(1)}
+.hcard{transform:translate(-50%,-50%) rotate(var(--rot,0deg)) scale(.96);transition:opacity .4s ease,transform .5s cubic-bezier(.22,1,.36,1)}
+.hcard.on{transform:translate(-50%,-50%) rotate(var(--rot,0deg)) scale(1)}
+.hcards{display:none!important}
+.hero__in{position:relative;z-index:1}
+.hdot{background:var(--accent)}
+.hdot{background:var(--ink)}
+
+html.dotcur,html.dotcur *{cursor:none!important}
+html.dotcur input,html.dotcur textarea,html.dotcur [contenteditable]{cursor:text!important}
+.hdot{background:#FFFFFF;mix-blend-mode:difference;z-index:9999}
+/* the dot in UX·UI rolls with the letters */
+.hero__h1 .ch--dot{transform-origin:50% 50% -.4em}
+.hero__h1 .ch--dot.flip{animation:dotFlip .65s cubic-bezier(.65,0,.35,1) 160ms both}
+@keyframes dotFlip{0%{transform:none;opacity:1}49%{transform:translateY(-.2em) rotateX(90deg);opacity:0}51%{transform:translateY(.2em) rotateX(-90deg);opacity:0}100%{transform:none;opacity:1}}
+/* warm palette: background swirls tinted carrot/peach */
+.hero{isolation:isolate}
+.hero__bg{filter:grayscale(1) contrast(1.15)}
+.hero__tint{position:absolute;inset:0;background:var(--accent);mix-blend-mode:screen;pointer-events:none}
+.hero__love,.hero__tint,.hero__bg{display:none!important}
+/* hero canvas: dot grid that swells around the cursor (ref: Framer AisolRippleDots) */
+.hero-dots{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.hero__in{position:relative;z-index:1}
+.hero-cv{margin-top:clamp(12px,calc(100vh - 820px),64px)}
 </style>
 
 <script>
@@ -790,17 +911,16 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 
 
 <header class="hero">
-  <video class="hero__bg" src="img/hero-bg-2.mp4" poster="img/hero-bg-2-poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
     <div class="hero__in wrap">
     <span class="hero__ava-wrap">
       <img class="hero__ava" src="img/avatar.png" alt="Portrait of Alina Matiushyna">
-      <svg class="hero__love" viewBox="0 0 39 33" fill="none" aria-hidden="true"><path d="M32.499 0C32.0357 2.87696 29.7547 5.47627 26.7461 5.66699L26.7451 0.942383C23.4743 0.998725 20.7175 2.33151 18.6182 4.83887C18.134 4.28724 17.7154 3.83014 17.1455 3.36133C15.0101 1.58013 12.2512 0.727719 9.4834 0.995117C6.73323 1.26639 4.20256 2.61627 2.44531 4.74902C-1.1991 9.20418 -0.736923 15.6833 3.61426 19.5264C4.28288 20.1168 4.95445 20.7243 5.62402 21.3164L9.70605 24.9268L15.6445 30.1855C16.5959 31.0264 17.659 32.0163 18.6299 32.8115L29.4541 23.2207L32.3428 20.668C33.2593 19.858 34.0353 19.2192 34.8223 18.2773C36.4819 16.2961 37.1506 14.0834 37.2373 11.542C35.6885 11.5157 34.0698 11.5382 32.5156 11.5371C32.5149 11.5632 32.5131 11.5892 32.5117 11.6152C32.3447 14.4566 31.2008 15.3371 29.2441 17.0664L26.8047 19.2207L18.6182 26.4688C16.8695 24.9988 15.1735 23.3906 13.4443 21.8906C11.1906 19.9364 8.98579 17.9142 6.7373 15.9541C4.25145 13.7871 4.04447 9.97195 6.29785 7.53906C7.3365 6.42722 8.77532 5.77366 10.2959 5.72266C11.8346 5.67165 13.3294 6.2429 14.4424 7.30664C15.6881 8.49316 16.1935 9.85211 16.2393 11.5371L20.9697 11.541C21.0209 10.699 21.1056 10.0161 21.4541 9.23242C22.4354 7.026 24.3665 5.78411 26.7461 5.71973V5.66797C28.0452 5.9805 28.9071 6.23962 30.0156 7.09766C31.3261 8.11211 32.2883 9.75764 32.4883 11.4092C32.5908 11.3085 32.6629 10.7118 32.7158 10.5371C33.6058 7.602 35.4802 6.41785 38.2148 5.66504C35.8672 5.48264 33.7397 3.66908 32.917 1.50488C32.7356 1.02758 32.6252 0.495914 32.499 0Z" fill="url(#loveGrad)"/><path class="ai-star" d="M32.6 -3.4 Q34.6 3.7 41.7 5.7 Q34.6 7.7 32.6 14.8 Q30.6 7.7 23.5 5.7 Q30.6 3.7 32.6 -3.4Z" fill="url(#starGrad)" stroke="#FFFFFF" stroke-width="1.6" stroke-linejoin="round" paint-order="stroke"/><defs><linearGradient id="starGrad" x1="24" y1="-3" x2="41" y2="15" gradientUnits="userSpaceOnUse"><stop stop-color="#FF5794"/><stop offset="1" stop-color="#CA53FF"/></linearGradient><linearGradient id="loveGrad" x1="19.1076" y1="0" x2="32.5265" y2="25.9497" gradientUnits="userSpaceOnUse"><stop stop-color="#FF5794"/><stop offset="0.442308" stop-color="#CA53FF"/><stop offset="1" stop-color="#005AFF"/></linearGradient></defs></svg>
+      <svg class="hero__love" viewBox="0 0 39 33" fill="none" aria-hidden="true"><path d="M32.499 0C32.0357 2.87696 29.7547 5.47627 26.7461 5.66699L26.7451 0.942383C23.4743 0.998725 20.7175 2.33151 18.6182 4.83887C18.134 4.28724 17.7154 3.83014 17.1455 3.36133C15.0101 1.58013 12.2512 0.727719 9.4834 0.995117C6.73323 1.26639 4.20256 2.61627 2.44531 4.74902C-1.1991 9.20418 -0.736923 15.6833 3.61426 19.5264C4.28288 20.1168 4.95445 20.7243 5.62402 21.3164L9.70605 24.9268L15.6445 30.1855C16.5959 31.0264 17.659 32.0163 18.6299 32.8115L29.4541 23.2207L32.3428 20.668C33.2593 19.858 34.0353 19.2192 34.8223 18.2773C36.4819 16.2961 37.1506 14.0834 37.2373 11.542C35.6885 11.5157 34.0698 11.5382 32.5156 11.5371C32.5149 11.5632 32.5131 11.5892 32.5117 11.6152C32.3447 14.4566 31.2008 15.3371 29.2441 17.0664L26.8047 19.2207L18.6182 26.4688C16.8695 24.9988 15.1735 23.3906 13.4443 21.8906C11.1906 19.9364 8.98579 17.9142 6.7373 15.9541C4.25145 13.7871 4.04447 9.97195 6.29785 7.53906C7.3365 6.42722 8.77532 5.77366 10.2959 5.72266C11.8346 5.67165 13.3294 6.2429 14.4424 7.30664C15.6881 8.49316 16.1935 9.85211 16.2393 11.5371L20.9697 11.541C21.0209 10.699 21.1056 10.0161 21.4541 9.23242C22.4354 7.026 24.3665 5.78411 26.7461 5.71973V5.66797C28.0452 5.9805 28.9071 6.23962 30.0156 7.09766C31.3261 8.11211 32.2883 9.75764 32.4883 11.4092C32.5908 11.3085 32.6629 10.7118 32.7158 10.5371C33.6058 7.602 35.4802 6.41785 38.2148 5.66504C35.8672 5.48264 33.7397 3.66908 32.917 1.50488C32.7356 1.02758 32.6252 0.495914 32.499 0Z" fill="url(#loveGrad)"/><path class="ai-star" d="M32.6 -3.4 Q34.6 3.7 41.7 5.7 Q34.6 7.7 32.6 14.8 Q30.6 7.7 23.5 5.7 Q30.6 3.7 32.6 -3.4Z" fill="url(#starGrad)" stroke="#FFFFFF" stroke-width="1.6" stroke-linejoin="round" paint-order="stroke"/><defs><linearGradient id="starGrad" x1="24" y1="-3" x2="41" y2="15" gradientUnits="userSpaceOnUse"><stop stop-color="#E11D2E"/><stop offset="1" stop-color="#FF9A6B"/></linearGradient><linearGradient id="loveGrad" x1="8" y1="0" x2="32" y2="30" gradientUnits="userSpaceOnUse"><stop stop-color="#E11D2E"/><stop offset="1" stop-color="#FF9A6B"/></linearGradient></defs></svg>
     </span>
     <div class="hero__name">Alina Matiushyna</div>
     <h1 class="hero__h1" aria-label="UX/UI &amp; Visual Design"><span class="ln"><span>UX·UI &amp; Visual</span></span><span class="ln"><span>Design</span></span></h1>
     <p class="hero__lead">I help businesses make complex things feel simple — from websites and landing pages to presentations, social creatives and print, powered by AI.</p>
     <div class="hero__word">portfolio</div>
-    <a class="tk-btn hero-cv" href="https://linkedin.com/in/am-uix/" target="_blank" rel="noopener">CV <svg class="dl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10.5 5 5 5-5"/><path d="M5 20h14"/></svg></a>
+    <a class="tk-btn hero-cv cvb" href="https://linkedin.com/in/am-uix/" target="_blank" rel="noopener">CV <svg class="dl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10.5 5 5 5-5"/><path d="M5 20h14"/></svg></a>
   </div>
   <div class="ticker" aria-label="Skills">
     <div class="ticker__track">
@@ -813,13 +933,13 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 <main>
 <section class="intro wrap" id="about-me" aria-label="About me">
   <div class="head">
-    <h2 class="head__t" data-r="wipe">About</h2>
-    <span class="head__n" data-r style="--d:.25s">/02</span>
+    <h2 class="head__t" data-r="wipe">About me</h2>
+    <span class="head__n" data-r style="--d:.25s">/01</span>
   </div>
   <div class="ab3__main" data-r style="--d:.1s">
     <div class="ab3__left">
-    <p class="ab3__t">I’m a <em class="it">versatile designer</em> with a background in digital products, branding, and visual communication.</p>
-    <p class="ab3__p">I enjoy moving between disciplines — shaping an interface, developing an identity, or exploring a new visual direction. Whatever the format, I care about making things clear, useful, and visually compelling.</p>
+    <p class="ab3__t">I work confidently across <em class="it">digital products</em>, <em class="it">branding</em>, and <em class="it">visual communication</em>, adapting to a wide range of design challenges.</p>
+    <p class="ab3__p">I enjoy moving between disciplines — shaping an interface, developing an identity, or exploring a new visual direction. Whatever the format, I aim to meet user needs and business goals through clear, thoughtful design.</p>
     </div>
     <div class="ab3__stats">
       <div class="istat"><b>6<sup>+</sup></b><span>years in UX/UI design</span></div>
@@ -827,8 +947,8 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
     </div>
   </div>
   <div class="ab3__foot" data-r style="--d:.3s">
-    <div class="ab3__pts"><div class="ipt"><b>Visual craft</b><p>My background in graphic design informs everything I make — from typography and layout to the details that give a design its character.</p></div><div class="ipt"><b>AI in my process</b><p>I use AI throughout my design process — to explore ideas, experiment with visuals, build prototypes, and automate repetitive tasks.</p></div><div class="ipt"><b>From concept to delivery</b><p>I work across the full design process, connecting the initial idea with the details that bring it to life.</p></div></div>
-    <a class="tk-btn hero-cv ab3__cv" href="https://linkedin.com/in/am-uix/" target="_blank" rel="noopener">CV <svg class="dl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10.5 5 5 5-5"/><path d="M5 20h14"/></svg></a>
+    <div class="ab3__pts"><div class="ipt"><b>Visual craft</b><p>My background in graphic design informs everything I make — from typography and layout to the details that give a design its character.</p></div><div class="ipt"><b>AI in the workflow</b><p>I use AI throughout my design process — to explore ideas, experiment with visuals, build prototypes, and automate repetitive tasks.</p></div><div class="ipt"><b>End to end</b><p>I work across the full design process,<br class="brd"> connecting the initial idea with the details<br class="brd"> that bring it to life.</p></div></div>
+    <a class="tk-btn hero-cv ab3__cv cvb" href="https://linkedin.com/in/am-uix/" target="_blank" rel="noopener">CV <svg class="dl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10.5 5 5 5-5"/><path d="M5 20h14"/></svg></a>
   </div>
 </section>
 
@@ -838,7 +958,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   <div class="kicker kicker--top" data-r><mark class="sel">2025–2026</mark></div>
   <div class="head">
     <h2 class="head__t" data-r="wipe">Latest projects</h2>
-    <span class="head__n" data-r style="--d:.25s">/03</span>
+    <span class="head__n" data-r style="--d:.25s">/02</span>
   </div>
 
   <div class="cases-view">
@@ -846,7 +966,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
     <article class="case" data-r style="--d:0.00s">
       <span class="case__lab">One design language, online and on site</span>
       <a class="cover" href="#" aria-label="Case study: HoSS">
-        <video src="img/hoss-cover-2.mp4" poster="img/hoss-cover-2-poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+        <video src="img/hoss-cover-3.mp4" poster="img/hoss-cover-3-poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
         <span class="vc vc--light">Case study <span class="ar">↗</span></span>
       </a>
       <div>
@@ -911,11 +1031,11 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   <div class="head wrap">
     <h2 class="head__t" data-r="wipe">Experience</h2>
     <div class="xlinks" data-r style="--d:.3s"><a class="xlink" href="https://www.behance.net/AlinaMatiyushyna" target="_blank" rel="noopener">Behance <span class="ar">↗</span></a><a class="xlink" href="https://dribbble.com/AlinaMatiushyna" target="_blank" rel="noopener">Dribbble <span class="ar">↗</span></a></div>
-    <span class="head__n" data-r style="--d:.25s">/04</span>
+    <span class="head__n" data-r style="--d:.25s">/03</span>
   </div>
-  <div class="kicker wrap" data-r style="--d:.35s"><mark class="sel">Since 2008</mark> · Print, branding, presentations, ad creatives and banners, apps and websites</div>
+  <div class="kicker wrap" data-r style="--d:.35s"><mark class="sel">Since 2006</mark> · Print, branding, presentations, ad creatives and banners, apps and websites</div>
   <div class="strips">
-    <div class="strip" role="img" aria-label="Selected works from 2008 to 2026: print, presentations, apps and websites">
+    <div class="strip" role="img" aria-label="Selected works from 2006 to 2026: print, presentations, apps and websites">
       <div class="strip__set">
       <img src="img/works/w50.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
       <img src="img/works/w03.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
@@ -939,7 +1059,6 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
       <img src="img/works/w35.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
       <img src="img/works/w07.jpg" width="538" height="400" alt="" loading="lazy" decoding="async">
       <img src="img/works/w48.jpg" width="282" height="400" alt="" loading="lazy" decoding="async">
-      <span class="tone"><img src="img/works/w17.jpg" width="534" height="400" alt="" loading="lazy" decoding="async"></span>
       <img src="img/works/w67.jpg" width="824" height="400" alt="" loading="lazy" decoding="async">
       <img src="img/works/w33.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
       <img src="img/works/w61.jpg" width="538" height="400" alt="" loading="lazy" decoding="async">
@@ -973,7 +1092,6 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
       <img src="img/works/w35.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
       <img src="img/works/w07.jpg" width="538" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
       <img src="img/works/w48.jpg" width="282" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
-      <span class="tone"><img src="img/works/w17.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true"></span>
       <img src="img/works/w67.jpg" width="824" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
       <img src="img/works/w33.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
       <img src="img/works/w61.jpg" width="538" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
@@ -1067,12 +1185,12 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 <section class="do wrap" id="about">
   <img class="peek" alt="" aria-hidden="true">
   <div class="head">
-    <h2 class="head__t" data-r="wipe">What I can do for you</h2>
-    <span class="head__n" data-r style="--d:.25s">/05</span>
+    <h2 class="head__t" data-r="wipe">What I can do</h2>
+    <span class="head__n" data-r style="--d:.25s">/04</span>
   </div>
   <div class="rows">
     <div class="row" data-img="img/works/w38.jpg"><span class="row__n">01</span><div class="row__txt"><div class="row__t">Product UI<span class="row__ar ar" aria-hidden="true">↗</span></div><div class="row__d">Interfaces, flows and prototypes for one product over time</div></div><div class="pills"><span class="pill pill--light">Qvocab</span><span class="pill pill--light">Whinder</span><span class="pill pill--light">Petfood</span></div><span class="row__go ar" aria-hidden="true">↗</span></div>
-    <div class="row" data-img="img/works/w13.jpg" data-rot="5"><span class="row__n">02</span><div class="row__txt"><div class="row__t">Websites<span class="row__ar ar" aria-hidden="true">↗</span></div><div class="row__d">From structure and visuals to a working site built with AI tools</div></div><div class="pills"><span class="pill pill--light">Breeze</span><span class="pill pill--light">HoSS</span><span class="pill pill--light">Kordie</span></div><span class="row__go ar" aria-hidden="true">↗</span></div>
+    <div class="row" data-img="img/peek-breeze.jpg" data-rot="5"><span class="row__n">02</span><div class="row__txt"><div class="row__t">Websites<span class="row__ar ar" aria-hidden="true">↗</span></div><div class="row__d">From structure and visuals to a working site built with AI tools</div></div><div class="pills"><span class="pill pill--light">Breeze</span><span class="pill pill--light">HoSS</span><span class="pill pill--light">Kordie</span></div><span class="row__go ar" aria-hidden="true">↗</span></div>
     <div class="row" data-img="img/peek-presentations.jpg" data-rot="-5"><span class="row__n">03</span><div class="row__txt"><div class="row__t">Presentations<span class="row__ar ar" aria-hidden="true">↗</span></div><div class="row__d">Decks, banners and ads in the same visual language as the product</div></div><div class="pills"><span class="pill pill--light">HoSS</span><span class="pill pill--light">Kordie</span></div><span class="row__go ar" aria-hidden="true">↗</span></div>
     <div class="row" data-img="img/works/w60.jpg" data-rot="5"><span class="row__n">04</span><div class="row__txt"><div class="row__t">Social creatives<span class="row__ar ar" aria-hidden="true">↗</span></div><div class="row__d">Ad creatives and social media banners, including AI-generated visuals</div></div><div class="pills"><span class="pill pill--light">Kordie</span></div><span class="row__go ar" aria-hidden="true">↗</span></div>
   </div>
@@ -1090,7 +1208,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 <section class="contact contact--dark wrap" id="contact">
     <div class="head">
     <h2 class="head__t" data-r="wipe">Get in touch</h2>
-    <span class="head__n" data-r style="--d:.25s">/06</span>
+    <span class="head__n" data-r style="--d:.25s">/05</span>
   </div>
   <div class="kicker" data-r style="--d:.3s">Open to a full-time role or a long-term contract · I speak English, Ukrainian and Russian</div>
   <div class="cgrid">
@@ -1109,7 +1227,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
         <div class="chips" role="radiogroup"><label class="chip"><input type="radio" name="budget" value="Under €1,000"><span>Under €1,000</span></label><label class="chip"><input type="radio" name="budget" value="€1,000–2,500"><span>€1,000–2,500</span></label><label class="chip"><input type="radio" name="budget" value="€2,500–5,000"><span>€2,500–5,000</span></label><label class="chip"><input type="radio" name="budget" value="€5,000+"><span>€5,000+</span></label><label class="chip"><input type="radio" name="budget" value="Not sure yet"><span>Not sure yet</span></label></div>
       </div>
       <div class="cfield"><label for="cf-msg">About the project</label><textarea id="cf-msg" name="msg" rows="1" placeholder="Product, task, timing — whatever you already know"></textarea></div>
-      <div class="csend"><button type="submit" class="send-btn"><span>Send<br>request</span><span class="ar">↗</span></button><p class="cnote" aria-live="polite"></p></div>
+      <div class="csend"><button type="submit" class="send-btn"><span>Send request</span><span class="ar">↗</span></button><p class="cnote" aria-live="polite"></p></div>
     </form>
     <aside class="cdirect">
       <span class="clab">Or directly</span>
@@ -1221,6 +1339,72 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 (function(){var b=document.querySelector('.talk'),hero=document.querySelector('.hero'),ct=document.getElementById('contact');if(!b||!hero||!ct)return;
   function upd(){var it=document.querySelector('.intro'),y=0,x=it;while(x){y+=x.offsetTop;x=x.offsetParent}var past=scrollY>y+it.offsetHeight*.6,near=ct.getBoundingClientRect().top<innerHeight*.6;b.classList.toggle('on',past&&!near)}
   addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();})();
+</script>
+<script>
+// headline flip (ref: Framer 'Slot Text with 3D'): on hover every letter rolls over itself, left to right
+(function(){var h1=document.querySelector('.hero__h1');if(!h1)return;
+  var cs=[].slice.call(h1.querySelectorAll('.ch')).filter(function(c){return !c.classList.contains('ch--dot')});
+  cs.forEach(function(c,i){var t=c.textContent;c.innerHTML='<span class="fo" aria-hidden="true">'+t+'</span><span class="fi">'+t+'</span>';c.style.setProperty('--fd',(i*80)+'ms')});
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var busy=false,dur=650+cs.length*80;
+  function play(){if(busy)return;busy=true;cs=[].slice.call(h1.querySelectorAll('.ch'));h1.classList.add('flipping');setTimeout(function(){h1.classList.remove('flipping')},dur+60);cs.forEach(function(c){c.classList.remove('flip')});void h1.offsetWidth;cs.forEach(function(c){c.classList.add('flip')});setTimeout(function(){busy=false},dur+50)}
+  
+  h1.addEventListener('mouseenter',play);})();
+</script>
+<script>
+// word reveal: hovering UX·UI, VISUAL or DESIGN swaps the word for a large picture of the same size
+(function(){var h1=document.querySelector('.hero__h1');if(!h1||!matchMedia('(hover: hover)').matches)return;
+  var pics={'UX·UI':'img/works/hero-uxui.jpg','&':'img/works/hero-amp.png','VISUAL':'img/works/w12.jpg','DESIGN':'img/works/hero-design.jpg'};
+  [].forEach.call(h1.querySelectorAll('.ln>span'),function(line){var nodes=[].slice.call(line.childNodes),cur=[];
+    function flush(){if(!cur.length)return;var word=cur.map(function(n){var f=n.querySelector&&n.querySelector(".fi");return f?f.textContent:n.textContent}).join('').toUpperCase().replace(/\s/g,'');var src=pics[word];
+      if(src){var w=document.createElement('span');w.className='wd';line.insertBefore(w,cur[0]);cur.forEach(function(n){w.appendChild(n)});
+        var im=document.createElement('img');im.className='wd-img';im.src=src;im.alt='';im.setAttribute('aria-hidden','true');w.appendChild(im)}cur=[]}
+    nodes.forEach(function(n){if(n.nodeType===3&&/\s/.test(n.textContent)){flush()}else if(n.nodeType===1)cur.push(n)});flush();});})();
+</script>
+<script>
+// works flip in from behind the headline one by one, in step with the letter wave
+(function(){var h1=document.querySelector('.hero__h1');if(!h1)return;
+  var lines=h1.querySelectorAll('.ln'),ws=h1.querySelectorAll('.wd');if(lines.length<2||!ws.length)return;
+  var set=[['img/works/hero-funnel.png',-6],['img/works/hero-amp.png',-3],['img/works/hero-engaged.png',6],['img/works/w12.jpg',3]];
+  var box=document.createElement('div');box.className='hcards';box.setAttribute('aria-hidden','true');h1.appendChild(box);
+  var cards=set.map(function(c){var im=document.createElement('img');im.src=c[0];im.alt='';im.className='hcard'+(/\.png$/.test(c[0])?' png':'');
+    im.style.setProperty('--rot',c[1]+'deg');box.appendChild(im);return im});
+  function place(){var b=h1.getBoundingClientRect(),a=lines[0].getBoundingClientRect(),d=lines[1].getBoundingClientRect();
+    var y1=(a.top+a.bottom)/2-b.top,y2=(d.top+d.bottom)/2-b.top;
+    [[1/6,y1],[3/6,y1],[5/6,y1],[1/2,y2]].forEach(function(p,i){cards[i].style.left=Math.round(b.width*p[0])+'px';cards[i].style.top=Math.round(p[1])+'px'})}
+  place();addEventListener('resize',place);if(document.fonts)document.fonts.ready.then(place);setTimeout(place,2500);
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  if(!matchMedia('(hover: hover)').matches)return;
+  [].forEach.call(ws,function(w,i){var c=cards[i];if(!c)return;
+    w.addEventListener('mouseenter',function(){place();c.classList.add('on')});
+    w.addEventListener('mouseleave',function(){c.classList.remove('on')});});})();
+</script>
+<script>
+// dot grid: spacing 28, dot 2.5px, dots near the cursor grow (smoothstep falloff, spring), click sends a ring
+(function(){var hero=document.querySelector('.hero');if(!hero)return;
+  var cv=document.createElement('canvas');cv.className='hero-dots';cv.setAttribute('aria-hidden','true');hero.insertBefore(cv,hero.firstChild);
+  var ctx=cv.getContext('2d'),S=28,DS=2.5,REACH=160,STR=.55,COLOR='#ECEDF0',HOT='#B9BDC5';
+  var W=0,H=0,dpr=1,dots=[],px=-1e4,py=-1e4,inside=false,rings=[],raf=0,last=0;
+  var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function build(){var r=hero.getBoundingClientRect();W=r.width;H=r.height;dpr=Math.min(devicePixelRatio||1,2);
+    cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);
+    var ox=(W%S-S)/2+S/2,oy=(H%S-S)/2+S/2;dots=[];
+    for(var y=oy;y<H+S/2;y+=S)for(var x=ox;x<W+S/2;x+=S)dots.push({x:x,y:y,s:1,v:0});draw()}
+  function draw(){ctx.clearRect(0,0,W,H);ctx.fillStyle=COLOR;ctx.beginPath();
+    for(var i=0;i<dots.length;i++){var d=dots[i],r=DS/2*d.s;ctx.moveTo(d.x+r,d.y);ctx.arc(d.x,d.y,r,0,6.2832)}ctx.fill();ctx.fillStyle=HOT;for(var j=0;j<dots.length;j++){var e=dots[j],a=Math.min(1,Math.max(0,(e.s-1)/1.4));if(a<.02)continue;ctx.globalAlpha=a;ctx.beginPath();ctx.arc(e.x,e.y,DS/2*e.s,0,6.2832);ctx.fill()}ctx.globalAlpha=1}
+  function step(t){raf=0;var dt=Math.min(.05,(t-(last||t))/1000);last=t;var busy=false,damp=Math.exp(-dt*11);
+    rings=rings.filter(function(g){g.t+=dt;return g.t<1.4});
+    for(var i=0;i<dots.length;i++){var d=dots[i],ts=1;
+      if(inside){var dx=d.x-px,dy=d.y-py,dist=Math.sqrt(dx*dx+dy*dy);if(dist<REACH){var f=1-dist/REACH,g=f*f*(3-2*f);ts+=g*2.2*STR}}
+      for(var k=0;k<rings.length;k++){var R=rings[k],ddx=d.x-R.x,ddy=d.y-R.y,band=Math.abs(Math.sqrt(ddx*ddx+ddy*ddy)-R.t*900);
+        if(band<70){var ff=1-band/70;ts+=ff*ff*1.8*(1-R.t/1.4)*STR}}
+      d.v=(d.v+(ts-d.s)*180*dt)*damp;d.s+=d.v*dt;if(Math.abs(ts-d.s)>.004||Math.abs(d.v)>.02)busy=true}
+    draw();if(busy||rings.length)raf=requestAnimationFrame(step);else last=0}
+  function wake(){if(!raf&&!still)raf=requestAnimationFrame(step)}
+  hero.addEventListener('mousemove',function(e){var r=cv.getBoundingClientRect();px=e.clientX-r.left;py=e.clientY-r.top;inside=true;wake()});
+  hero.addEventListener('mouseleave',function(){inside=false;wake()});
+  hero.addEventListener('pointerdown',function(e){if(still)return;var r=cv.getBoundingClientRect();rings.push({x:e.clientX-r.left,y:e.clientY-r.top,t:0});if(rings.length>4)rings.shift();wake()});
+  var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(build,150)});build();})();
 </script>
 </body>
 </html>
