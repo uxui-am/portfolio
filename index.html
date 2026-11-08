@@ -1,0 +1,1226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Alina Matiushyna, UX/UI & Visual Designer. Product UI, websites, presentations and social creatives.">
+<title>Alina Matiushyna Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;600;700&family=Onest:wght@300;400;600&family=Fraunces:ital,opsz,wght@1,9..144,400&family=Fustat:wght@400;600;700&display=swap">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<style>
+/* Single light look, on purpose: the design is a white page with one dark band */
+:root{
+  --ink:#101114; --ink-2:#202A40; --muted:#6C6F76; --muted-2:#A9ABB1;
+  --paper:#FFFFFF; --soft:#F6F6F7; --pill:#F1F1F3; --line:#E4E5E8;
+  --dark:#161719; --dark-2:#24252A; --dark-pill:#2A2B30; --dark-line:#3A3B40;
+  --accent:#D93A0E;
+  --gut:max(16px, env(safe-area-inset-left, 0px));
+  --gut-r:max(16px, env(safe-area-inset-right, 0px));
+  --side:clamp(16px, 2.78vw, 64px);          /* 40px at 1440 */
+  --display:"Gabarito","Onest",Helvetica,Arial,sans-serif;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --text:"Onest",Helvetica,Arial,sans-serif;
+  --arrow:"Fustat","Onest",Helvetica,Arial,sans-serif;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img,video{max-width:100%}
+.ar{font-family:var(--arrow)}
+.wrap{padding-left:max(var(--side),var(--gut));padding-right:max(var(--side),var(--gut))}
+h1,h2,h3{margin:0;text-wrap:balance}
+.up{text-transform:uppercase}
+
+/* ---------- Ticker ---------- */
+.ticker{position:relative;z-index:2;background:var(--ink);color:#FFFFFF;overflow:hidden;white-space:nowrap;font-size:15px;line-height:1.25}
+.ticker__track{display:inline-flex;gap:40px;padding:16px 20px;animation:run 60s linear infinite}
+.ticker__track span{flex:none}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* ---------- Hero ---------- */
+/* Hero fills one screen: ticker (~51px) + hero = 100svh. Sizes follow the smaller of width and height */
+.hero{position:relative;overflow:hidden;min-height:calc(100vh - 51px);min-height:calc(100svh - 51px);display:flex;flex-direction:column;justify-content:center}
+.hero__glow{position:absolute;pointer-events:none;object-fit:cover}
+.hero__glow--r{left:72%;top:-10vw;width:44vw;aspect-ratio:634/663;height:auto}
+.hero__glow--l{left:-8%;bottom:-17vw;width:38vw;aspect-ratio:639/663;height:auto}
+
+/* ---------- Hero entrance ---------- */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes lineUp{from{transform:translateY(105%)}to{transform:none}}
+@keyframes blurIn{from{opacity:0;filter:blur(14px);transform:translateY(10px) scale(.96)}to{opacity:1;filter:blur(0);transform:none}}
+@keyframes popIn{0%{opacity:0;transform:scale(.6)}70%{opacity:1;transform:scale(1.04)}100%{opacity:1;transform:none}}
+@keyframes glowR{from{opacity:0;transform:translate(8%,-8%) scale(1.08)}to{opacity:1;transform:none}}
+@keyframes glowL{from{opacity:0;transform:translate(-8%,8%) scale(1.08)}to{opacity:1;transform:none}}
+@keyframes tickerIn{from{transform:translateY(-100%)}to{transform:none}}
+.ticker{animation:tickerIn .7s cubic-bezier(.22,1,.36,1) both}
+.hero__glow--r{animation:glowR 2.2s cubic-bezier(.22,1,.36,1) .15s both}
+.hero__glow--l{animation:glowL 2.2s cubic-bezier(.22,1,.36,1) .35s both}
+.hero__ava{animation:popIn .9s cubic-bezier(.22,1,.36,1) .25s both}
+.hero__love{animation:popIn .7s cubic-bezier(.22,1,.36,1) .95s both;transform-origin:50% 60%}
+.hero__name{animation:fadeUp .8s cubic-bezier(.22,1,.36,1) .45s both}
+.hero__h1 .ln{display:block;overflow:hidden;padding-top:.08em;margin-top:-.08em}
+.hero__h1 .ln>span{display:block;animation:lineUp 1.1s cubic-bezier(.22,1,.36,1) both}
+.hero__h1 .ln:nth-child(1)>span{animation-delay:.55s}
+.hero__h1 .ln:nth-child(2)>span{animation-delay:.7s}
+.hero__lead{animation:fadeUp .9s cubic-bezier(.22,1,.36,1) 1.05s both}
+.hero__word{animation:blurIn 1.4s cubic-bezier(.22,1,.36,1) 1.2s both}
+.hero__in{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(12px,min(1.74vw,2.8vh),30px);padding-top:clamp(28px,min(4.9vw,7.6vh),100px);padding-bottom:clamp(28px,min(4.9vw,7.6vh),100px)}
+.hero__ava{width:clamp(72px,min(10.14vw,16.2vh),180px);aspect-ratio:1;border-radius:50%;object-fit:cover}
+.hero__ava-wrap{position:relative;display:block;line-height:0}
+.hero__love{position:absolute;right:-5%;bottom:4%;width:27%;height:auto;filter:drop-shadow(0 2px 4px rgba(16,17,20,.12))}
+.hero__name{font-family:var(--display);font-weight:600;font-size:clamp(18px,min(1.8vw,2.9vh),32px);line-height:.72;letter-spacing:-.016em;color:var(--ink-2)}
+.hero__h1{font-family:var(--display);font-weight:700;font-size:clamp(50px,min(12vw,19.2vh),230px);line-height:.86;letter-spacing:-.055em;text-transform:uppercase}
+.hero__lead{max-width:554px;margin:0;font-size:16px;line-height:1.6}
+.hero__word{font-family:var(--serif);font-style:italic;font-size:clamp(48px,min(7.64vw,12.2vh),140px);line-height:1;letter-spacing:-.03em;margin-top:-.12em}
+
+/* ---------- Section heads ---------- */
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.head__t{font-family:var(--display);font-weight:600;font-size:clamp(44px,9.17vw,170px);line-height:.9;letter-spacing:-.045em;text-transform:uppercase}
+.head__n{flex:none;font-family:var(--serif);font-style:italic;font-size:clamp(24px,2.36vw,40px);line-height:1}
+
+/* ---------- Latest projects ---------- */
+.projects{background:var(--dark);color:#FFFFFF;padding-top:clamp(48px,5vw,96px);padding-bottom:18px;display:flex;flex-direction:column;gap:40px}
+.projects .head{border-bottom-color:var(--dark-line)}
+.projects__side{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;gap:16px}
+.toggle{display:flex;gap:10px}
+.toggle button{width:34px;height:30px;border:0;border-radius:8px;display:grid;place-items:center;padding:0;cursor:pointer}
+.toggle .on{background:var(--dark-2)}
+.toggle .off{background:#000000}
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;padding:0 0 64px;border-bottom:1px solid var(--dark-line)}
+.case{display:flex;flex-direction:column;gap:20px;min-width:0}
+.case__lab{font-size:13px;color:#8E9097}
+.cover{position:relative;display:block;aspect-ratio:437/273;border-radius:10px;overflow:hidden;background:var(--dark-2);isolation:isolate}
+.cover>img,.cover>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.01);transition:transform .8s cubic-bezier(.22,1,.36,1)}
+.cover:hover>img,.cover:hover>video{transform:scale(1.04)}
+.cover>img.breeze-word{inset:auto;left:27%;top:33%;width:47.6%;height:auto;object-fit:contain;transform:none;z-index:1}
+.cover:hover>img.breeze-word{transform:none}
+.cover--shade::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.2);z-index:0;pointer-events:none}
+.vc{position:absolute;z-index:2;left:16px;bottom:16px;border-radius:999px;padding:9px 14px;font-family:var(--display);font-weight:600;font-size:clamp(15px,1.25vw,18px);line-height:1;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s}
+.vc--light{background:#FFFFFF;color:var(--ink)}
+.vc--dark{background:var(--dark);color:#FFFFFF}
+.cover:hover .vc{background:var(--accent);color:#FFFFFF}
+.case__t{padding-top:10px;font-family:var(--display);font-weight:600;font-size:clamp(20px,1.67vw,28px);line-height:1.2;text-transform:uppercase;max-width:30ch}
+.pills{display:flex;flex-wrap:wrap;gap:8px;padding-top:18px}
+.pill{border-radius:999px;padding:6px 14px;font-size:13px;line-height:1.3}
+.pill--dark{background:var(--dark-pill);color:#8E9097}
+.pill--light{background:var(--pill)}
+
+/* Qvocab layered cover */
+.qv{background:#F1EEFC}
+.qv__in{position:absolute;inset:0 -0.46%}
+.qv .l{position:absolute;left:-10.04%;top:-16.21%;width:120.08%;transition:transform .8s cubic-bezier(.22,1,.36,1);pointer-events:none}
+.qv .l img{display:block;width:100%;height:auto}
+.qv:hover .bg{transform:scale(1.03)}
+.qv:hover .t-plus{transform:translate(-1.2%,-1%) rotate(-4deg)}
+.qv:hover .t-sets{transform:translate(.6%,-1.6%) rotate(3deg)}
+.qv:hover .t-speaker{transform:translate(-.8%,1%) rotate(-3deg)}
+.qv:hover .t-star{transform:translate(.8%,1.4%) rotate(4deg)}
+.qv:hover .t-play{transform:translate(1.4%,-.6%) rotate(4deg)}
+.qv:hover .logo{transform:translate(.4%,-1.4%) scale(1.04) rotate(-2deg)}
+.qv:hover .hand{transform:scale(1.05)}
+.qv .hand{transform-origin:30% 55%}
+.qv .logo{transform-origin:70% 56%}
+
+/* ---------- More work ---------- */
+.more{padding-top:20px;display:flex;flex-direction:column;gap:20px;overflow:hidden}
+.more__row{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.more__t{font-family:var(--display);font-weight:600;font-size:16px;line-height:1.2;text-transform:uppercase;color:#FFFFFF}
+.more__links{display:flex;gap:28px;font-size:16px;color:var(--muted-2)}
+.more__links a{text-decoration:none;transition:color .2s}
+.more__links a:hover{color:#FFFFFF}
+.projects .more__row{margin-top:clamp(16px,2.2vw,40px)}
+.strip{display:flex;width:max-content;animation:run 240s linear infinite}
+.strip__set{display:flex;gap:20px;padding-right:20px}
+.strip img{display:block;height:clamp(140px,13.9vw,240px);width:auto;max-width:none;border-radius:10px;object-fit:cover}
+.strip .tone{display:block;flex:none;border-radius:10px;overflow:hidden;background:#E9EBEF}
+.strip .tone img{mix-blend-mode:multiply;border-radius:0}
+
+/* ---------- What I do ---------- */
+.do{padding-top:clamp(64px,6.67vw,128px);padding-bottom:40px}
+.rows{padding-left:29.17%}
+.row{display:flex;align-items:flex-end;gap:16px;padding-top:26px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.row:nth-child(2){padding-left:4.17vw}.row:nth-child(3){padding-left:8.33vw}.row:nth-child(4){padding-left:12.5vw}.row:nth-child(5){padding-left:16.67vw}
+.row__n{flex:none;width:40px;align-self:flex-start;padding-top:10px;font-size:12px}
+.row__txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:10px}
+.row__t{font-family:var(--display);font-weight:500;font-size:clamp(32px,4.44vw,84px);line-height:1;letter-spacing:-.035em;text-transform:uppercase}
+.row__d{font-size:13px;text-transform:uppercase}
+.row .pills{padding-top:0;gap:4px;justify-content:flex-end}
+.row__t{transition:transform .5s cubic-bezier(.22,1,.36,1),color .3s}
+.row:hover .row__t{transform:translateX(12px);color:var(--accent)}
+
+/* ---------- How I work ---------- */
+.how{padding-top:clamp(64px,6.67vw,128px);padding-bottom:40px;display:flex;flex-direction:column;gap:40px}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px}
+.step{min-height:330px;background:var(--soft);border-radius:10px;box-shadow:0 6px 18px rgba(16,17,20,.06);padding:18px;display:flex;flex-direction:column;gap:10px;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.step:hover{transform:translateY(-6px)}
+.step__n{font-size:12px}
+.step__t{padding-top:18px;font-family:var(--display);font-weight:600;font-size:20px;line-height:1.2;text-transform:uppercase}
+.step__d{font-size:14px;line-height:1.3;color:var(--muted)}
+.step__sp{flex:1;min-height:24px;border-bottom:1px solid var(--line)}
+.goal{align-self:flex-start;background:var(--ink);color:#FFFFFF;border-radius:999px;padding:4px 12px;font-size:12px}
+.step__g{font-size:14px;line-height:1.3}
+.step--dark{background:var(--ink);color:#FFFFFF;box-shadow:none}
+.step--dark .step__d{color:var(--muted-2)}
+.step--dark .step__sp{border-color:var(--dark-line)}
+.step--dark .goal{background:var(--accent)}
+
+/* ---------- Contact ---------- */
+.contact{padding-top:clamp(72px,8.33vw,160px);padding-bottom:clamp(72px,8.33vw,160px);display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center}
+.contact__t{max-width:1100px;font-family:var(--display);font-weight:600;font-size:clamp(34px,5vw,96px);line-height:1;letter-spacing:-.035em;text-transform:uppercase}
+.contact__s{font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.08vw,36px)}
+.talk{display:inline-flex;align-items:center;gap:14px;background:var(--ink);color:#FFFFFF;border-radius:999px;padding:7px 26px 7px 7px;text-decoration:none;text-align:left;transition:background .25s}
+.talk:hover{background:var(--accent)}
+.talk img{width:48px;height:48px;border-radius:50%;object-fit:cover}
+.talk b{display:block;font-weight:600;font-size:16px;line-height:1.25}
+.talk small{display:block;font-size:13px;line-height:1.25;color:var(--muted-2)}
+.talk:hover small{color:#FFFFFF}
+
+/* ---------- Footer ---------- */
+.foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:22px;padding-bottom:22px;border-top:1px solid var(--line);font-size:13px;letter-spacing:.03em;text-transform:uppercase}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--accent)}
+.foot nav{display:flex;gap:24px;flex-wrap:wrap}
+
+/* ---------- Breakpoints ---------- */
+@media (max-width:1100px){
+  .cases{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .rows{padding-left:12%}
+}
+@media (max-width:820px){
+  .rows{padding-left:0}
+  .row,.row:nth-child(n){padding-left:0;flex-wrap:wrap}
+  .row .pills{width:100%;justify-content:flex-start;padding-left:56px}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .step{min-height:280px}
+  .hero{min-height:0}
+  .hero__glow--r{left:48%;top:-8vw;width:66vw}
+  .hero__glow--l{top:auto;bottom:-20vw;width:60vw}
+}
+@media (max-width:640px){
+  .cases{grid-template-columns:minmax(0,1fr)}
+  .steps{grid-template-columns:minmax(0,1fr)}
+  .step{min-height:0}
+  .step__sp{min-height:28px}
+  .row .pills{padding-left:56px}
+  .foot{justify-content:center;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){
+  .ticker__track,.strip,.ticker,.hero__glow,.hero__ava,.hero__love,.hero__name,.hero__h1 .ln>span,.hero__lead,.hero__word{animation:none}
+  .cover>img,.cover>video,.qv .l,.row__t,.step{transition:none}
+}
+
+/* ---------- Scroll reveal (only when JS runs; content stays visible without it) ---------- */
+.js [data-r]{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.22,1,.36,1) var(--d,0s),transform 1.1s cubic-bezier(.22,1,.36,1) var(--d,0s)}
+.js [data-r=side]{transform:translateX(-40px)}
+.js [data-r=wipe]{opacity:1;transform:translateY(30%);clip-path:inset(0 0 100% 0);transition:clip-path 1.1s cubic-bezier(.22,1,.36,1) var(--d,0s),transform 1.1s cubic-bezier(.22,1,.36,1) var(--d,0s)}
+.js [data-r].in{opacity:1;transform:none;clip-path:inset(-10% -5% -10% -5%)}
+.js .step[data-r].in:hover{transform:translateY(-6px)}
+@media (prefers-reduced-motion:reduce){.js [data-r]{opacity:1;transform:none;clip-path:none;transition:none}}
+
+/* ---------- Stacked screens: each next block slides over the previous one ---------- */
+.ticker{position:sticky;top:0;z-index:1}
+.hero{position:sticky;top:51px;z-index:1}
+main>section,.foot{position:sticky;top:0}
+.projects{z-index:3}.more{z-index:4;background:var(--paper)}.do{z-index:5;background:var(--paper);overflow-x:clip}.how{z-index:6;background:var(--paper)}.contact{z-index:7;background:var(--paper)}.foot{z-index:8;background:var(--paper)}
+.more,.do,.how,.contact{box-shadow:0 -30px 60px -30px rgba(16,17,20,.14)}
+.projects{box-shadow:0 -40px 80px -20px rgba(16,17,20,.25)}
+.hero__in{will-change:transform,opacity;transform-origin:50% 30%}
+/* Hero letters */
+.hero__h1 .ln>span.split{animation:none}
+.hero__h1 .ch{display:inline-block;animation:chIn 1s cubic-bezier(.22,1,.36,1) both;animation-delay:calc(.5s + var(--i) * 32ms)}
+@keyframes chIn{from{transform:translateY(105%) rotate(7deg)}to{transform:none}}
+.hero__glow,.hero__ava-wrap{transition:translate .9s cubic-bezier(.22,1,.36,1)}
+.row{will-change:transform}
+@media (prefers-reduced-motion:reduce){.hero__h1 .ch{animation:none}}
+
+/* ---------- One screen per block (desktop) ---------- */
+:root{--sh:clamp(110px,30vw,170px)}
+.strip img,.strip .tone img{height:var(--sh)}
+.strips{display:flex;flex-direction:column;justify-content:center;gap:20px;overflow:hidden}
+.strip--rev{animation-direction:reverse;animation-duration:280s}
+.more{padding-top:clamp(48px,8vw,96px);padding-bottom:32px;gap:28px}
+.more>.head{margin-left:max(var(--side),var(--gut));margin-right:max(var(--side),var(--gut-r));padding-left:0;padding-right:0}
+.more__foot{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.more__note{font-size:13px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted)}
+.more .more__links{gap:32px;font-family:var(--display);font-weight:600;font-size:clamp(18px,1.6vw,26px);text-transform:uppercase;color:var(--ink)}
+.more .more__links a:hover{color:var(--accent)}
+@media (min-width:821px){
+  :root{--sh:clamp(120px,22vh,250px)}
+  .projects,.more,.do,.how{min-height:100vh;min-height:100svh}
+  .contact{min-height:calc(100vh - 62px);min-height:calc(100svh - 62px);justify-content:center}
+  .head__t{font-size:clamp(44px,min(9.17vw,13.5vh),170px)}
+  .projects{padding-top:clamp(32px,min(5vw,7vh),96px);padding-bottom:clamp(24px,5vh,64px);gap:clamp(20px,4vh,40px)}
+  .cases{padding-bottom:0;border-bottom:0}
+  .more{padding-top:clamp(32px,min(6.67vw,8vh),128px);padding-bottom:clamp(20px,4vh,48px);gap:clamp(16px,3vh,32px)}
+  .strips{flex:1}
+  .do{padding-top:clamp(32px,min(6.67vw,8vh),128px);padding-bottom:clamp(16px,3vh,40px)}
+  .row{padding-top:clamp(8px,2.1vh,26px);padding-bottom:clamp(8px,2.1vh,26px)}
+  .row__t{font-size:clamp(28px,min(4.44vw,6.4vh),84px)}
+  .how{padding-top:clamp(32px,min(6.67vw,8vh),128px);gap:clamp(20px,4vh,40px)}
+  .step{min-height:min(330px,40vh)}
+}
+/* pause: the stuck screen stays in view for a while before the next one slides over */
+.hold{height:0}
+@media (min-width:821px){.hold{height:60vh}.hold--long{height:90vh}.hold--do{height:100vh}}
+.more__big{display:flex;flex-wrap:wrap;column-gap:.45em;font-size:clamp(36px,min(7vw,11vh),130px)}
+.more__big a{text-decoration:none;transition:color .25s}
+.more__big a:hover{color:var(--accent)}
+.more__foot{justify-content:space-between}
+/* slower strips, smaller corners */
+.strip{animation-duration:300s}
+.strip--rev{animation-duration:320s}
+.cover,.strip img,.strip .tone,.step{border-radius:6px}
+.strip .tone img{border-radius:0}
+@media (min-width:821px){.projects{justify-content:center}}
+.more__scale{font-family:var(--display);font-weight:600;font-size:clamp(22px,2.4vw,40px);line-height:1;letter-spacing:-.02em;text-transform:uppercase}
+.more__foot{align-items:flex-end}
+/* What I do: title stays pinned, the list scrolls under it and builds the staircase */
+.do .head{position:relative;z-index:2;background:var(--paper);will-change:transform}
+@media (min-width:821px){
+  .do{min-height:0;padding-top:0;padding-bottom:18vh}
+  .do .head{padding-top:clamp(28px,5vh,56px)}
+  .row{padding-top:clamp(26px,6vh,64px);padding-bottom:clamp(26px,6vh,64px)}
+  .row__t{font-size:clamp(32px,4.44vw,84px)}
+}
+
+.hero__in{z-index:1}
+.kicker{font-size:13px;line-height:1;text-transform:uppercase;color:var(--muted)}
+.projects .kicker{color:var(--muted-2)}
+.projects .kicker--top{margin-bottom:calc(-1 * clamp(8px,2vh,24px))}
+.more>.xrow,.more>.kicker{margin-top:calc(-1 * clamp(4px,1.5vh,16px))}
+/* skills ticker now opens the Behance / Dribbble screen; hero takes the full screen */
+.hero{top:0;min-height:100vh;min-height:100svh}
+.more{padding-top:0}
+.more>.head{margin-top:clamp(28px,6vh,72px)}
+.hero .ticker{position:absolute;left:0;right:0;top:0;bottom:auto;z-index:2}
+.hero{padding-top:51px}
+@media (min-width:821px){.more{padding-top:0}}
+@media (min-width:821px){.more{height:100vh;height:100svh;min-height:0}.more .strips{flex:1;min-height:0;gap:clamp(12px,2vh,20px)}}
+/* years highlighted like a text selection */
+.sel{color:inherit;padding:.25em .4em;border-radius:3px;background:linear-gradient(var(--accent),var(--accent)) left/0% 100% no-repeat;transition:background-size .9s cubic-bezier(.22,1,.36,1) .5s,color .3s .75s}
+.kicker.in .sel,html:not(.js) .sel{background-size:100% 100%;color:#FFFFFF}
+.more{z-index:4}.do{z-index:5}
+/* What I do: fits one screen again, staircase builds while the screen is pinned */
+@media (min-width:821px){
+  .do{min-height:100vh;min-height:100svh;padding-top:clamp(32px,min(6.67vw,8vh),128px);padding-bottom:clamp(16px,3vh,40px)}
+  .do .head{padding-top:0}
+  .row{padding-top:clamp(12px,3.4vh,40px);padding-bottom:clamp(12px,3.4vh,40px)}
+  .row__t{font-size:clamp(28px,min(4.44vw,6.4vh),84px)}
+  .hold--do{height:170vh}
+}
+.projects__more{display:flex;justify-content:flex-end}
+.more-btn{display:inline-flex;align-items:center;gap:.3em;background:transparent;color:#FFFFFF;box-shadow:inset 0 0 0 1px #4A4C52;border-radius:999px;padding:12px 22px;font-family:var(--display);font-weight:600;font-size:clamp(16px,1.25vw,20px);line-height:1;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s}
+.more-btn:hover{background:var(--accent);color:#FFFFFF;box-shadow:inset 0 0 0 1px var(--accent)}
+/* What I do: hover a service, a project preview slides in at an angle and follows the cursor */
+.row{cursor:default}
+.row__ar{display:inline-block;margin-left:.25em;font-size:.6em;vertical-align:.35em;opacity:0;transform:translate(-10px,10px);transition:opacity .3s,transform .5s cubic-bezier(.22,1,.36,1)}
+.row:hover .row__ar{opacity:1;transform:none}
+.peek{position:fixed;left:0;top:0;z-index:50;width:clamp(220px,22vw,360px);height:auto;border-radius:6px;pointer-events:none;opacity:0;box-shadow:0 24px 60px -20px rgba(16,17,20,.35);transform:translate(-50%,-50%) rotate(calc(var(--rot,-5deg) * 1.4)) scale(.7);transition:opacity .35s,transform .6s cubic-bezier(.22,1,.36,1)}
+.peek.on{opacity:1;transform:translate(-50%,-50%) rotate(var(--rot,-5deg)) scale(1)}
+@media (hover:none){.peek{display:none}}
+@media (min-width:821px){.projects{justify-content:flex-start;padding-bottom:clamp(24px,4.5vh,48px)}.projects .cases{margin-block:auto}.projects__more{margin-top:0}}
+/* services end up aligned in one straight column */
+.row:nth-child(n){padding-left:0}
+/* Hero: more air on short screens */
+.hero__in{gap:clamp(10px,min(1.74vw,2.2vh),30px);padding-top:clamp(20px,min(4.9vw,5vh),100px);padding-bottom:clamp(20px,min(4.9vw,5vh),100px)}
+.hero__ava{width:clamp(72px,min(10.14vw,13vh),180px)}
+.hero__h1{font-size:clamp(50px,min(12vw,16vh),230px)}
+.hero__word{font-size:clamp(58px,min(9.6vw,12.6vh),176px)}
+/* What I do: rows fill the screen height */
+@media (min-width:821px){
+  .do{display:flex;flex-direction:column}
+  .do .rows{flex:1;display:flex;flex-direction:column}
+  .do .row{flex:1;align-items:center}
+}
+/* quiet light ticker */
+.hero .ticker{background:rgba(255,255,255,.32);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);color:#3F4147;font-weight:400;border-bottom:1px solid rgba(16,17,20,.06)}
+.hero .ticker__track{gap:36px;font-size:14px}
+/* AI heart: bigger, pops in and beats once */
+.hero__love{overflow:visible;animation:popIn .7s cubic-bezier(.22,1,.36,1) .95s both}
+@keyframes loveIn{0%{opacity:0;transform:scale(.4) rotate(-12deg)}30%{opacity:1;transform:scale(1.06) rotate(0)}42%{transform:scale(1)}56%{transform:scale(1.22)}66%{transform:scale(.97)}76%{transform:scale(1.14)}88%{transform:scale(.99)}100%{opacity:1;transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.hero__love{animation:none}}
+/* AI sparkle: appears after the heart with a turn, then twinkles now and then */
+.ai-star{transform-box:fill-box;transform-origin:center;animation:starIn .9s cubic-bezier(.22,1,.36,1) 2.1s both,starTw 4.5s ease-in-out 3.6s infinite}
+@keyframes starIn{0%{transform:scale(0) rotate(-120deg);opacity:0}60%{transform:scale(1.4) rotate(12deg);opacity:1}100%{transform:scale(1) rotate(0)}}
+@keyframes starTw{0%,78%,100%{transform:scale(1) rotate(0)}86%{transform:scale(1.3) rotate(45deg)}93%{transform:scale(.92) rotate(90deg)}}
+@media (prefers-reduced-motion:reduce){.ai-star{animation:none}}
+/* service numbers: same italic serif as the section numbers, light grey */
+.do .row__n{width:40px;align-self:flex-start;padding-top:.6em;font-family:var(--text);font-weight:400;font-style:normal;font-size:13px;line-height:1;letter-spacing:0;color:var(--muted)}
+/* skills ticker: white frosted glass, a faint colour on the left that slowly shifts blue > violet > pink */
+@property --tkc{syntax:'<color>';inherits:false;initial-value:rgba(150,205,255,.17)}
+.hero .ticker{background-color:rgba(255,255,255,.34);background-image:none;animation:none}
+@keyframes tkHue{0%,100%{--tkc:rgba(150,205,255,.17)}33%{--tkc:rgba(186,162,255,.17)}66%{--tkc:rgba(244,176,226,.15)}}
+@media (prefers-reduced-motion:reduce){.hero .ticker{animation:none}}
+/* year highlight fills on its own, a moment after the screen appears */
+.kicker .sel{transition:background-size 1.1s cubic-bezier(.65,0,.35,1) 1.3s,color .4s 1.9s}
+/* hero content sits a little higher */
+.hero__in{margin-top:0}
+.hero .ticker{border:0}
+/* CV links */
+.contact__btns{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px}
+.cv-btn{display:inline-flex;align-items:center;gap:.35em;height:62px;padding:0 26px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line);color:var(--ink);text-decoration:none;font-weight:600;font-size:16px;transition:background .25s,color .25s,box-shadow .25s}
+.cv-btn:hover{background:var(--accent);color:#FFFFFF;box-shadow:inset 0 0 0 1px var(--accent)}
+.cv-pill{position:absolute;z-index:3;top:calc(51px + 8px);right:max(var(--side),var(--gut-r));display:inline-flex;align-items:center;gap:.3em;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px rgba(16,17,20,.1);color:var(--ink);text-decoration:none;font-size:14px;font-weight:600;transition:background .25s,color .25s;animation:fadeUp .8s cubic-bezier(.22,1,.36,1) 1.4s both}
+.cv-pill:hover{background:var(--accent);color:#FFFFFF}
+/* link arrows move in their own direction on hover */
+.ar{display:inline-block}
+@keyframes arNE{0%{transform:none;opacity:1}45%{transform:translate(.55em,-.55em);opacity:0}46%{transform:translate(-.55em,.55em);opacity:0}100%{transform:none;opacity:1}}
+@keyframes arS{0%{transform:none;opacity:1}45%{transform:translateY(.6em);opacity:0}46%{transform:translateY(-.6em);opacity:0}100%{transform:none;opacity:1}}
+@keyframes arN{0%{transform:none;opacity:1}45%{transform:translateY(-.6em);opacity:0}46%{transform:translateY(.6em);opacity:0}100%{transform:none;opacity:1}}
+a:hover .ar,.cover:hover .vc .ar,.more-btn:hover .ar{animation:arNE .55s cubic-bezier(.22,1,.36,1)}
+.cv-btn:hover .ar,.cv-pill:hover .ar{animation:arS .55s cubic-bezier(.22,1,.36,1)}
+.foot a:hover .ar-up{animation:arN .55s cubic-bezier(.22,1,.36,1)}
+@media (prefers-reduced-motion:reduce){a:hover .ar,.cover:hover .vc .ar,.cv-btn:hover .ar,.cv-pill:hover .ar{animation:none}}
+/* hero background video: one full-screen glass loop */
+.hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;animation:fxIn 1.6s cubic-bezier(.22,1,.36,1) .1s both}
+@keyframes fxIn{from{opacity:0}to{opacity:1}}
+/* hero CV button matches the Download CV button below */
+.cv-pill{height:48px;padding:0 22px;background:#FFFFFF;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:inset 0 0 0 1px var(--line);font-size:15px}
+.cv-pill:hover{box-shadow:inset 0 0 0 1px var(--accent)}
+/* longer services title stays on one line */
+.do .head__t{font-size:clamp(34px,min(6.6vw,10.5vh),130px)}
+/* a bit more air around the name */
+.hero__name{margin:clamp(6px,1.3vh,14px) 0}
+/* Latest projects: More slides the row and brings in a 4th card */
+.more-btn{border:0;cursor:pointer;font-family:var(--display)}
+@media (min-width:1101px){
+  .cases-view{overflow:hidden;margin:-12px;padding:12px}
+  .projects .cases{display:flex;gap:24px;transition:transform .5s cubic-bezier(.2,.9,.25,1)}
+  .projects .case{flex:0 0 calc((100% - 48px) / 3)}
+  .projects.shifted .cases{transform:translateX(calc((100% + 24px) / -3))}
+}
+@media (max-width:1100px){.projects__more{display:none}}
+/* all small labels look the same: caps, 13px, no letter-spacing */
+.case__lab,.kicker,.more__note,.foot{font-size:13px;text-transform:uppercase;letter-spacing:0}
+.hero .ticker__track{font-size:13px;text-transform:uppercase;letter-spacing:0}
+/* top row under the ticker: CV on the left, e-mail on the right */
+.cv-pill{left:max(var(--side),var(--gut));right:auto;top:calc(51px + 12px)}
+.mail-pill{left:auto;right:max(var(--side),var(--gut-r))}
+/* fixed actions in the middle of the skills ticker; the moving text fades out around them */
+.tk-actions{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;gap:8px;padding:0 64px;z-index:2;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.96) 56px,rgba(255,255,255,.96) calc(100% - 56px),rgba(255,255,255,0))}
+.tk-btn{display:inline-flex;align-items:center;gap:.3em;height:35px;padding:0 16px;border-radius:999px;background:#FFFFFF;box-shadow:inset 0 0 0 1px var(--line);color:var(--ink);text-decoration:none;font-family:var(--text);font-size:14px;font-weight:600;text-transform:none;white-space:nowrap;transition:background .25s,color .25s,box-shadow .25s}
+.tk-btn--main{background:var(--ink);color:#FFFFFF;box-shadow:none}
+.tk-btn:hover{background:var(--accent);color:#FFFFFF;box-shadow:inset 0 0 0 1px var(--accent)}
+.hero .ticker{overflow:hidden}
+@media (max-width:640px){.tk-actions{padding:0 28px}.tk-btn{padding:0 12px;font-size:13px}}
+/* e-mail on the contact screen */
+.mail{display:flex;align-items:center;gap:10px;font-size:16px;color:var(--muted)}
+.mail__a{user-select:all;color:var(--ink)}
+.mail__copy{border:0;cursor:pointer;height:30px;padding:0 12px;border-radius:999px;background:var(--pill);font:600 13px var(--text);color:var(--ink);transition:background .2s,color .2s}
+.mail__copy:hover{background:var(--accent);color:#FFFFFF}
+/* hero actions in the bottom corners, same quiet white style */
+.hero-act{position:absolute;z-index:3;bottom:clamp(20px,3.5vh,40px);height:44px;padding:0 20px;font-size:15px;box-shadow:inset 0 0 0 1px var(--line),0 8px 24px -12px rgba(16,17,20,.22);animation:fadeUp .8s cubic-bezier(.22,1,.36,1) 1.5s both}
+.hero-act--l{left:max(var(--side),var(--gut))}
+.hero-act--r{right:max(var(--side),var(--gut-r))}
+/* hero corner buttons: frosted glass, no outline */
+.hero-act{background:rgba(255,255,255,.42);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);box-shadow:0 6px 22px -14px rgba(16,17,20,.3)}
+.hero-act:hover{background:var(--accent);color:#FFFFFF;box-shadow:none}
+/* every button speaks the same way: Gabarito, semibold, caps (like CASE STUDY / MORE) */
+.tk-btn,.hero-act,.cv-btn,.mail__copy,.talk b,.more-btn,.vc{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:0}
+.hero-act,.cv-btn{font-size:clamp(15px,1.15vw,17px)}
+.talk b{font-size:16px}
+.mail__copy{font-size:13px}
+/* skills ticker: black band, white caps */
+.hero .ticker{background:var(--ink);background-image:none;-webkit-backdrop-filter:none;backdrop-filter:none;color:#FFFFFF}
+/* hero buttons arrive one after another: red flash, then settle into frosted glass */
+@keyframes actIn{0%{opacity:0;transform:translateY(18px);background-color:var(--accent);color:#FFFFFF}18%{opacity:1;transform:none;background-color:var(--accent);color:#FFFFFF}62%{background-color:var(--accent);color:#FFFFFF}100%{opacity:1;transform:none;background-color:rgba(255,255,255,.42);color:var(--ink)}}
+.hero-act--l{animation:actIn 2.2s cubic-bezier(.22,1,.36,1) 1.5s backwards}
+.hero-act--r{animation:actIn 2.2s cubic-bezier(.22,1,.36,1) 2.3s backwards}
+@media (prefers-reduced-motion:reduce){.hero-act--l,.hero-act--r{animation:none}}
+/* calmer ticker: dark grey, half speed */
+.hero .ticker{background:#2A2B30}
+.hero .ticker__track{animation-duration:120s}
+/* hero buttons: smaller, lighter, quick red-to-glass flick one right after the other */
+.hero-act{height:38px;padding:0 16px;font-size:clamp(13px,.95vw,14px);font-weight:500}
+@keyframes actQuick{0%{opacity:0;transform:translateY(10px);background-color:var(--accent);color:#FFFFFF}30%{opacity:1;transform:none;background-color:var(--accent);color:#FFFFFF}100%{opacity:1;transform:none;background-color:rgba(255,255,255,.42);color:var(--ink)}}
+.hero-act--l{animation:actQuick .85s cubic-bezier(.22,1,.36,1) 1.4s backwards}
+.hero-act--r{animation:actQuick .85s cubic-bezier(.22,1,.36,1) 1.65s backwards}
+/* slimmer skills ticker */
+.hero .ticker__track{padding-top:11px;padding-bottom:11px;line-height:1.2}
+.hero{padding-top:38px}
+/* What I can do for you: full-width list, quick tilted preview, arrow on the right (ref: mariia-rudenko) */
+.do .row__ar{display:none}
+.row__go{flex:none;align-self:center;font-size:clamp(28px,2.6vw,44px);line-height:1;color:var(--accent);opacity:0;transform:translate(-14px,14px);transition:opacity .2s,transform .35s cubic-bezier(.22,1,.36,1)}
+.row:hover .row__go{opacity:1;transform:none}
+.row__t{transition:transform .35s cubic-bezier(.22,1,.36,1),color .2s}
+.row:hover .row__t{transform:translateX(24px)}
+.peek{width:clamp(260px,26vw,440px);border-radius:2px;transform:translate(-50%,-50%) perspective(900px) rotateY(-16deg) rotateX(7deg) rotate(var(--rot,-5deg)) scale(.86);transition:opacity .16s linear,transform .3s cubic-bezier(.22,1,.36,1);box-shadow:0 30px 60px -24px rgba(16,17,20,.45)}
+.peek.on{transform:translate(-50%,-50%) perspective(900px) rotateY(-12deg) rotateX(5deg) rotate(var(--rot,-5deg)) scale(1)}
+/* snappier hero intro */
+.hero__ava{animation:popIn .6s cubic-bezier(.22,1,.36,1) .1s both}
+.hero__love{animation:popIn .5s cubic-bezier(.22,1,.36,1) .45s both}
+.ai-star{animation:starIn .7s cubic-bezier(.22,1,.36,1) 1.1s both,starTw 4.5s ease-in-out 2.4s infinite}
+.hero__name{animation:fadeUp .5s cubic-bezier(.22,1,.36,1) .2s both}
+.hero__h1 .ch{animation:chIn .6s cubic-bezier(.22,1,.36,1) both;animation-delay:calc(.25s + var(--i) * 18ms)}
+.hero__lead{animation:fadeUp .55s cubic-bezier(.22,1,.36,1) .6s both}
+.hero__word{animation:blurIn .8s cubic-bezier(.22,1,.36,1) .65s both}
+.hero__bg{animation-duration:1s}
+.hero-act--l{animation:actQuick .7s cubic-bezier(.22,1,.36,1) .85s backwards}
+.hero-act--r{animation:actQuick .7s cubic-bezier(.22,1,.36,1) 1.05s backwards}
+/* big arrows on the service rows */
+.row__go{font-size:clamp(40px,min(4.44vw,6.4vh),84px)}
+/* services: no arrow, no 3D distortion, no line under the last row */
+.row__go{display:none}
+.peek{border-radius:6px;transform:translate(-50%,-50%) rotate(calc(var(--rot,-5deg) * 1.4)) scale(.86);box-shadow:0 24px 60px -20px rgba(16,17,20,.35)}
+.peek.on{transform:translate(-50%,-50%) rotate(var(--rot,-5deg)) scale(1)}
+.do .row:last-child{border-bottom:0}
+/* final block: dark, request form on the left, direct contacts on the right (ref: ponomar.academy) */
+.contact--dark{background:var(--dark);color:#FFFFFF;text-align:left;align-items:stretch;justify-content:flex-start;gap:clamp(18px,3vh,32px);padding-top:clamp(40px,7vh,96px);padding-bottom:clamp(40px,7vh,96px);min-height:100vh;min-height:100svh}
+.contact--dark .head{border-bottom-color:var(--dark-line)}
+.contact--dark .kicker{color:var(--muted-2)}
+.cgrid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:clamp(32px,6vw,120px)}
+.cform{display:flex;flex-direction:column;gap:clamp(16px,2.6vh,28px)}
+.cfield{display:flex;flex-direction:column;gap:10px}
+.cfield label,.clab{font-size:13px;text-transform:uppercase;color:var(--muted-2)}
+.cfield input[type=text],.cfield textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--dark-line);color:#FFFFFF;font:400 18px var(--text);padding:8px 0 10px;outline:none;resize:vertical;transition:border-color .2s}
+.cfield input::placeholder,.cfield textarea::placeholder{color:#5D5F66}
+.cfield input:focus,.cfield textarea:focus{border-bottom-color:#FFFFFF}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative;cursor:pointer}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-block;padding:8px 16px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--dark-line);font-size:14px;color:#D4D5D9;transition:background .2s,color .2s,box-shadow .2s}
+.chip:hover span{box-shadow:inset 0 0 0 1px #6C6F76;color:#FFFFFF}
+.chip input:checked+span{background:#FFFFFF;color:var(--ink);box-shadow:none}
+.chip input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.csend{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.send-btn{border:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:.3em;width:clamp(120px,10vw,150px);aspect-ratio:1;border-radius:50%;background:var(--accent);color:#FFFFFF;font:600 15px var(--display);text-transform:uppercase;text-align:center;padding:0 14px;transition:transform .3s cubic-bezier(.22,1,.36,1),background .2s}
+.send-btn:hover{transform:scale(1.06);background:#D32747}
+.cnote{margin:0;max-width:34ch;font-size:14px;line-height:1.4;color:var(--muted-2)}
+.cdirect{display:flex;flex-direction:column}
+.cdirect .clab{margin-bottom:14px}
+.crow{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid var(--dark-line);color:#FFFFFF;text-decoration:none}
+.crow__t{font-family:var(--display);font-weight:600;font-size:clamp(20px,1.8vw,28px)}
+.crow__s{display:inline-flex;align-items:center;gap:10px;font-size:14px;color:var(--muted-2)}
+a.crow:hover .crow__t{color:var(--accent)}
+.contact--dark .mail__a{color:#FFFFFF}
+.contact--dark .mail__copy{background:#2A2B30;color:#FFFFFF}
+.contact--dark .mail__copy:hover{background:var(--accent)}
+@media (max-width:900px){.cgrid{grid-template-columns:minmax(0,1fr)}}
+.chip span{text-transform:none;padding:7px 15px}
+.cform{gap:clamp(12px,2vh,22px)}
+.cfield{gap:8px}
+.cfield input[type=text],.cfield textarea{font-size:17px;padding:6px 0 8px}
+.send-btn{width:clamp(104px,8vw,128px);font-size:14px}
+.contact--dark{gap:clamp(14px,2.2vh,26px);padding-top:clamp(32px,5vh,72px);padding-bottom:clamp(28px,4vh,56px)}
+.contact--dark .head__t{font-size:clamp(40px,min(7.6vw,11vh),150px)}
+/* send request: big round red button, centred, text over arrow */
+.csend{justify-content:center;flex-direction:column;gap:12px;text-align:center}
+.cnote{text-align:center}
+.send-btn{flex-direction:column;gap:6px;width:clamp(140px,11.5vw,180px);font-size:clamp(16px,1.25vw,19px);line-height:1.05}
+.send-btn .ar{font-size:1.3em}
+/* shared hover: a red circle grows from the centre of the button */
+.fill-btn{position:relative;overflow:hidden;isolation:isolate}
+.fill-btn::before{content:"";position:absolute;left:50%;top:50%;width:150%;aspect-ratio:1;border-radius:50%;background:var(--accent);transform:translate(-50%,-50%) scale(0);transition:transform .45s cubic-bezier(.22,1,.36,1);z-index:-1}
+.fill-btn:hover::before{transform:translate(-50%,-50%) scale(1)}
+.fill-btn:hover,.hero-act.fill-btn:hover,.more-btn.fill-btn:hover{color:#FFFFFF;background-color:transparent}
+.more-btn.fill-btn:hover{box-shadow:inset 0 0 0 1px var(--accent)}
+.hero-act.fill-btn:hover{background-color:rgba(255,255,255,.42)}
+/* direct contacts stretch to the height of the form */
+.cgrid{align-items:stretch}
+.cdirect .crow{flex:1}
+.cdirect .crow:first-of-type{border-top:1px solid var(--dark-line)}
+/* hover: the button turns into a red circle with its arrow (label fades out, box keeps its size so nothing flickers) */
+.hero-act.morph{position:absolute}
+.morph{isolation:isolate;overflow:visible}
+.morph:not(.hero-act){position:relative}
+.morph .lbl{display:inline-flex;align-items:center;gap:.3em;transition:opacity .18s,transform .3s cubic-bezier(.22,1,.36,1)}
+.morph::before{content:"";position:absolute;left:50%;top:50%;width:60px;height:60px;border-radius:50%;background:var(--accent);transform:translate(-50%,-50%) scale(.3);opacity:0;transition:transform .4s cubic-bezier(.22,1,.36,1),opacity .2s;z-index:-1}
+.morph::after{content:attr(data-ar);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.6);opacity:0;color:#FFFFFF;font:600 22px var(--arrow);transition:opacity .2s,transform .35s cubic-bezier(.22,1,.36,1);pointer-events:none}
+.morph:hover,.hero-act.morph:hover,.more-btn.morph:hover{background-color:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;color:#FFFFFF}
+.morph:hover::before{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.morph:hover::after{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.morph:hover .lbl{opacity:0;transform:scale(.85)}
+.morph:hover .ar{animation:none}
+@media (prefers-reduced-motion:reduce){.morph::before,.morph::after,.morph .lbl{transition:none}}
+/* the hero glass, very faint, closes the page on the dark block */
+.contact--dark{overflow:hidden;isolation:isolate}
+.contact--dark>*:not(.contact__glow){position:relative;z-index:1}
+.contact__glow{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:0;filter:invert(1) hue-rotate(180deg) saturate(1.4);mix-blend-mode:screen;opacity:.32}
+@media (prefers-reduced-motion:reduce){.contact__glow{display:none}}
+/* footer on dark, continuing the final block */
+.foot{background:var(--dark);color:#D4D5D9;border-top:1px solid var(--dark-line)}
+.foot a:hover{color:var(--accent)}
+/* /05: the client form leads, direct contacts become a compact side note */
+.contact--dark{min-height:0}
+.cgrid{grid-template-columns:minmax(0,2.6fr) minmax(220px,1fr);align-items:start;gap:clamp(40px,7vw,140px)}
+.cform{gap:clamp(22px,3.4vh,36px)}
+.crow2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,48px)}
+.cfield{gap:12px}
+.cfield label,.clab{font-size:13px;color:#A9ABB1}
+.cfield input[type=text],.cfield textarea{font-size:20px;padding:8px 0 12px}
+.chip span{padding:9px 18px;font-size:15px}
+.chips{gap:10px}
+.csend{align-items:flex-start;text-align:left}
+.cnote{text-align:left}
+.cdirect{padding-top:4px}
+.cdirect .crow{flex:none;padding:14px 0}
+.cdirect .crow:first-of-type{border-top:0}
+.crow__t{font-size:17px;font-weight:600}
+.crow__s{font-size:13px}
+@media (max-width:640px){.crow2{grid-template-columns:1fr}}
+/* hover v2: a big red circle the width of the label, label stays inside (white) */
+.morph::before{width:max(calc(100% + 18px),118px);height:auto;aspect-ratio:1}
+.morph::after{display:none}
+.morph:hover .lbl{opacity:1;transform:none;color:#FFFFFF}
+.morph:hover .ar{animation:arNE .55s cubic-bezier(.22,1,.36,1)}
+.hero-act--l.morph:hover .ar{animation:arS .55s cubic-bezier(.22,1,.36,1)}
+.hero-act{bottom:clamp(24px,4vh,44px)}
+.more-btn.morph{z-index:2}
+/* hover v3: hero buttons become a circle a bit smaller than the avatar, label in two lines with the arrow below */
+.morph--stack::before{width:clamp(96px,min(9vw,11.6vh),150px)}
+.morph--stack::after{display:block;content:attr(data-stack);white-space:pre;text-align:center;font:600 13px/1.05 var(--display);text-transform:uppercase;color:#FFFFFF;opacity:0;transform:translate(-50%,-50%) scale(.8)}
+.morph--stack:hover::after{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.morph--stack:hover .lbl{opacity:0}
+/* More: circle exactly as wide as the button */
+.more-btn.morph::before{width:100%}
+/* footer: quieter */
+.foot,.foot a{color:#6C6F76}
+.foot a:hover{color:#FFFFFF}
+/* reveal must not clip hover circles */
+.js [data-r].in:not([data-r=wipe]){clip-path:none}
+/* hero hover v4: label stays on one line, circle just around it */
+.morph--stack::after{display:none}
+.morph--stack:hover .lbl{opacity:1}
+.morph--stack::before{width:calc(100% + 14px)}
+.hero-act{font-size:13px;padding:0 14px}
+/* accent: Crimson on light surfaces, Cherry on dark ones */
+.projects,.contact--dark,.foot,.hero .ticker{--accent:#E9481B}
+/* back to plain buttons: no circle, hover simply fills with the accent */
+.morph::before,.morph::after{display:none!important}
+.morph:hover .lbl{opacity:1;transform:none}
+.hero-act.morph:hover,.more-btn.morph:hover{background-color:var(--accent);color:#FFFFFF;box-shadow:none}
+.more-btn.morph:hover{box-shadow:inset 0 0 0 1px var(--accent)}
+/* year highlights: rounder */
+.sel{border-radius:999px;padding:.3em .7em}
+.strip img.edge{outline:1px solid rgba(16,17,20,.08);outline-offset:-1px}
+/* About (replaces How I work): photo + numbers on the left, short story + experience on the right */
+.about{gap:clamp(24px,4vh,48px)}
+.about__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr);gap:clamp(32px,6vw,120px);align-items:start}
+.about__side{display:flex;flex-direction:column;gap:clamp(20px,3vh,32px)}
+.about__photo{width:100%;max-width:300px;aspect-ratio:1;object-fit:cover;border-radius:6px;filter:grayscale(.15)}
+.about__stats{display:flex;gap:clamp(24px,3vw,48px)}
+.stat{display:flex;flex-direction:column;gap:6px}
+.stat b{font-family:var(--display);font-weight:600;font-size:clamp(44px,4.4vw,72px);line-height:.9;letter-spacing:-.03em}
+.stat span{font-size:13px;text-transform:uppercase;color:var(--muted)}
+.about__main{display:flex;flex-direction:column;gap:clamp(16px,2.6vh,28px);max-width:820px}
+.about__lead{margin:0;font-family:var(--display);font-weight:500;font-size:clamp(24px,2.2vw,36px);line-height:1.18;letter-spacing:-.015em}
+.about__p{margin:0;font-size:clamp(16px,1.15vw,18px);line-height:1.6;color:#3F4147;max-width:64ch}
+.exp{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.exp__row{display:grid;grid-template-columns:150px minmax(0,1fr) minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.exp__y{color:var(--muted)}
+.exp__c{font-weight:600}
+.exp__r{color:var(--muted)}
+.about__tools{margin:0;font-size:13px;text-transform:uppercase;color:var(--muted)}
+@media (max-width:820px){.about__grid{grid-template-columns:minmax(0,1fr)}.exp__row{grid-template-columns:110px minmax(0,1fr)}.exp__r{display:none}}
+.about-cv{align-self:flex-start;height:44px;padding:0 20px;font-size:15px}
+.about-cv:hover{background:var(--accent);color:#FFFFFF;box-shadow:inset 0 0 0 1px var(--accent)}
+.about-cv:hover .ar{animation:arS .55s cubic-bezier(.22,1,.36,1)}
+.about__photo{max-width:180px}
+.hl{font-style:normal;color:var(--accent)}
+/* numbers: thin and large, red plus, two columns split by a hairline (ref) */
+.about__stats{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);width:100%;max-width:420px}
+.stat{padding:clamp(16px,2.4vh,28px) 0 4px;gap:10px}
+.stat+.stat{border-left:1px solid var(--line);padding-left:clamp(18px,2vw,32px)}
+.stat b{font-family:var(--text);font-weight:300;font-size:clamp(64px,6.2vw,112px);line-height:.88;letter-spacing:-.05em;color:var(--ink)}
+.stat b sup{font-size:.42em;font-weight:400;color:var(--accent);vertical-align:.95em;margin-left:.04em;letter-spacing:0}
+.stat span{font-size:15px;text-transform:none;color:var(--muted)}
+/* wide numbers row across the About block */
+.about__stats--wide{max-width:none;grid-template-columns:repeat(3,minmax(0,1fr))}
+.about__stats--wide .stat b{font-size:clamp(64px,min(7vw,11vh),132px)}
+.about__stats--wide .stat+.stat{padding-left:clamp(20px,3vw,48px)}
+.about .exp__row{padding:9px 0}
+@media (max-width:640px){.about__stats--wide{grid-template-columns:1fr 1fr}.about__stats--wide .stat:nth-child(3){grid-column:1/-1;border-left:0;padding-left:0;border-top:1px solid var(--line)}}
+/* numbers stacked under the photo */
+.about__stats--col{grid-template-columns:1fr;max-width:340px;border-top:0}
+.about__stats--col .stat{display:grid;grid-template-columns:auto 1fr;align-items:end;column-gap:18px;padding:14px 0;border-top:1px solid var(--line)}
+.about__stats--col .stat+.stat{border-left:0;padding-left:0}
+.about__stats--col .stat b{font-size:clamp(56px,min(5.4vw,8.6vh),100px)}
+.about__stats--col .stat span{padding-bottom:.5em}
+.about__stats--col .stat{grid-template-columns:clamp(104px,8.6vw,160px) 1fr}
+/* single small CV pill under portfolio */
+.hero-cv{height:32px;padding:0 14px;font-size:13px;margin-top:clamp(28px,5vh,56px);background:rgba(255,255,255,.5);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px var(--line);animation:fadeUp .6s cubic-bezier(.22,1,.36,1) .9s both}
+.hero-cv:hover{background:var(--accent);color:#FFFFFF;box-shadow:inset 0 0 0 1px var(--accent)}
+.hero-cv:hover .ar{animation:arS .55s cubic-bezier(.22,1,.36,1)}
+/* About me v2: how I work in a team + two numbers in a row */
+.ab__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:clamp(32px,6vw,120px);align-items:start}
+.ab__photo{width:100%;max-width:200px;aspect-ratio:1;object-fit:cover;border-radius:50%}
+.ab__main{display:flex;flex-direction:column;gap:clamp(20px,3.4vh,36px)}
+.ab__pts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(24px,3vw,56px);border-top:1px solid var(--line)}
+.ab__pt{display:flex;flex-direction:column;gap:6px;padding:clamp(14px,2.2vh,22px) 0;border-bottom:1px solid var(--line)}
+.ab__pt b{font-family:var(--display);font-weight:600;font-size:clamp(17px,1.3vw,21px);text-transform:uppercase}
+.ab__pt span{font-size:clamp(15px,1.05vw,16px);line-height:1.5;color:#3F4147}
+.ab__foot{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.ab__stats{display:flex;gap:0}
+.ab__stats .stat{padding:0 clamp(24px,3vw,48px) 0 0;border-top:0}
+.ab__stats .stat+.stat{border-left:1px solid var(--line);padding-left:clamp(24px,3vw,48px);padding-top:0}
+.ab__stats .stat b{font-size:clamp(56px,min(5.6vw,9vh),104px)}
+@media (max-width:820px){.ab__grid{grid-template-columns:1fr}.ab__pts{grid-template-columns:1fr}.ab__photo{max-width:140px}}
+/* CV button sits on the same baseline as the number labels */
+.ab__foot{align-items:flex-end}
+.ab__foot .about-cv{align-self:flex-end;margin-bottom:-10px}
+.ab__p{max-width:72ch;margin-top:calc(-1 * clamp(6px,1.2vh,14px))}
+/* CV button right next to the numbers, filled and visible */
+.ab__foot{justify-content:flex-start;gap:clamp(32px,4vw,64px)}
+.ab__foot .about-cv{height:52px;padding:0 26px;font-size:16px;background:var(--ink);color:#FFFFFF;box-shadow:none;margin-bottom:-14px}
+.ab__foot .about-cv:hover{background:var(--accent);box-shadow:none}
+/* cases centred in the free space, More pinned to the bottom of the screen */
+@media (min-width:821px){.projects .cases-view{margin-block:auto}.projects__more{margin-top:auto}}
+/* projects fit one screen on wide, short windows: covers give up height first */
+@media (min-width:821px){.projects{gap:clamp(18px,2.4vh,40px)}}
+/* About moved to screen 2: one value line, short text, three facts (ref: ponomar) */
+.intro{z-index:2;background:var(--paper);box-shadow:0 -30px 60px -30px rgba(16,17,20,.14);min-height:100vh;min-height:100svh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;gap:clamp(56px,12vh,140px);padding-block:clamp(56px,10vh,120px)}
+.intro__top,.intro__stats{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px}
+.intro__t{grid-column:2/9;margin:0;font-family:var(--text);font-weight:400;font-size:clamp(38px,4.3vw,82px);line-height:1.02;letter-spacing:-.045em;text-wrap:balance}
+.intro__p{grid-column:10/13;margin:.5em 0 0;font-size:clamp(15px,1.05vw,17px);line-height:1.55;color:#3F4147}
+.intro__stats{border-top:1px solid var(--line)}
+.istat{position:relative;grid-column:span 4;display:flex;flex-direction:column;justify-content:flex-end;gap:14px;padding:clamp(48px,9vh,110px) clamp(16px,2vw,40px) 0}
+.istat:first-child{grid-column:2/5;padding-left:0}
+.istat+.istat{border-left:1px solid var(--line)}
+.istat b{font-family:var(--text);font-weight:300;font-size:clamp(64px,min(7vw,13vh),128px);line-height:.85;letter-spacing:-.05em;color:var(--ink)}
+.istat b sup{font-size:.42em;font-weight:400;color:var(--accent);vertical-align:.95em;margin-left:.04em;letter-spacing:0}
+.istat span{font-size:clamp(14px,1vw,16px);color:#3F4147}
+.istat--word b{font-weight:400;font-size:clamp(48px,min(5vw,9vh),92px);letter-spacing:-.05em}
+.intro__btn{position:absolute;top:0;left:clamp(16px,2vw,40px);transform:translateY(-50%);display:grid;place-items:center;width:clamp(120px,9vw,168px);aspect-ratio:1;border-radius:50%;background:var(--ink);color:#FFFFFF;text-decoration:none;font:600 15px var(--display);text-transform:uppercase;transition:transform .35s cubic-bezier(.22,1,.36,1),background .25s}
+.intro__btn:hover{transform:translateY(-50%) scale(1.06);background:var(--accent)}
+@media (max-width:820px){
+  .intro__top,.intro__stats{grid-template-columns:minmax(0,1fr);row-gap:20px}
+  .intro__t,.intro__p,.istat,.istat:first-child{grid-column:1/-1}
+  .istat,.istat:first-child{padding:28px 0 0}
+  .istat+.istat{border-left:0;border-top:1px solid var(--line)}
+  .intro__btn{position:static;transform:none;width:120px;margin-bottom:12px}
+  .intro__btn:hover{transform:scale(1.04)}
+}
+/* /03 Experience: links as two outlined pills on the kicker line */
+.xrow{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.more>.xrow .kicker{padding:0}
+.xlinks{display:flex;gap:10px}
+.xlink{display:inline-flex;align-items:center;gap:.35em;padding:12px 22px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--ink);color:var(--ink);text-decoration:none;font:600 15px var(--display);text-transform:uppercase;transition:background .25s,color .25s}
+.xlink:hover{background:var(--ink);color:#FFFFFF}
+/* floating "Let's talk": shows after Hero, hides over the contact block */
+.talk{position:fixed;z-index:50;top:calc(20px + env(safe-area-inset-top,0px));right:max(var(--side),var(--gut-r));padding:14px 24px;border-radius:999px;background:var(--ink);color:#FFFFFF;text-decoration:none;font:600 15px var(--display);text-transform:uppercase;box-shadow:0 10px 30px rgba(16,17,20,.25),inset 0 0 0 1px rgba(255,255,255,.18);opacity:0;transform:translateY(-12px);pointer-events:none;transition:opacity .35s,transform .35s cubic-bezier(.22,1,.36,1),background .25s}
+.talk.on{opacity:1;transform:none;pointer-events:auto}
+.talk:hover{background:var(--accent)}
+/* hero: the slash in UX/UI drawn lighter, in the italic serif of the /0x numbers */
+.hero__h1 .ch--sl{font-family:var(--display);font-weight:700;font-size:.5em;letter-spacing:0;margin:0 .06em;vertical-align:.32em}
+.intro__stats{border-top:0;column-gap:0}.istat{border-top:1px solid var(--line)}
+@media (max-width:820px){.istat:first-child{border-top:1px solid var(--line)}}
+@media (max-width:820px){.talk{top:auto;bottom:calc(16px + env(safe-area-inset-bottom,0px));padding:12px 20px;font-size:14px}}
+.hero__h1 .ch--dot{width:.125em;height:.125em;border-radius:50%;background:currentColor;font-size:inherit;color:transparent;overflow:hidden;vertical-align:.3em;margin:0 .065em 0 -.05em}
+.hero__h1 .ch--dot{background:var(--ink)}
+.intro{justify-content:flex-start;padding-top:clamp(40px,7vh,96px)}.intro__top{margin-top:auto}.intro__stats{margin-bottom:auto}
+.more .head .xlinks{margin-left:auto;margin-right:clamp(16px,2.5vw,48px);align-self:flex-end;margin-bottom:.4em}
+@media (max-width:820px){.more .head{flex-wrap:wrap}.more .head .xlinks{order:3;margin:0;width:100%}}
+/* one size for every section heading; the longest (Experience + links, What I can do for you) fits one line */
+.head__t,.do .head__t,.contact--dark .head__t,.intro .head__t{font-size:clamp(34px,min(6.6vw,11vh),132px)}
+.dl-ico{width:1.15em;height:1.15em;flex:none;vertical-align:-.2em;margin-left:.15em}
+.hero-cv{display:inline-flex;align-items:center;gap:.3em}
+.hero-cv{height:44px;padding:0 20px;font-size:16px}
+.head__sm{font-size:.24em;font-weight:600;letter-spacing:0;vertical-align:baseline;margin-left:.3em;white-space:nowrap}
+.more .head .xlinks{margin-left:clamp(20px,2.4vw,40px);margin-right:auto;align-self:flex-end;margin-bottom:.5em}
+@media (max-width:820px){.more .head .xlinks{margin:0}}
+/* About v3 (canvas "Final B"): big line with italic accents, text beside the numbers, three short points + CV */
+.intro{justify-content:flex-start;gap:clamp(28px,5vh,56px)}
+.ab3__t{margin:0;max-width:1240px;font-family:var(--text);font-weight:400;font-size:clamp(36px,min(5.3vw,8.6vh),96px);line-height:1.02;letter-spacing:-.045em;text-wrap:balance}
+.ab3__t .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.02em}
+.ab3__mid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;align-items:start}
+.ab3__p{grid-column:1/8;margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.6;color:#3F4147}
+.ab3__stats{grid-column:9/13;display:flex;gap:clamp(32px,4vw,64px)}
+.ab3__stats .istat{grid-column:auto;padding:0;border:0;gap:10px;justify-content:flex-start}
+.ab3__stats .istat b{font-size:clamp(56px,min(6.1vw,10vh),112px)}
+.ab3__foot{margin-top:auto;display:flex;align-items:flex-end;gap:40px;border-top:1px solid var(--line);padding-top:clamp(18px,3vh,28px)}
+.ab3__pts{flex-grow:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+.ipt{display:flex;flex-direction:column;gap:8px}
+.ipt b{font-family:var(--display);font-weight:600;font-size:clamp(16px,1.25vw,19px);text-transform:uppercase}
+.ipt p{margin:0;font-size:clamp(14px,1.1vw,16px);line-height:1.5;color:#3F4147}
+.ab3__cv{flex-shrink:0;margin-top:0}
+@media (max-width:820px){
+  .ab3__mid{grid-template-columns:minmax(0,1fr);row-gap:28px}
+  .ab3__p,.ab3__stats{grid-column:1/-1}
+  .ab3__foot{flex-direction:column;align-items:flex-start;gap:24px}
+  .ab3__pts{grid-template-columns:minmax(0,1fr);gap:20px}
+}
+/* About grid from Figma: statement + text on the left, numbers on the right (stacked up to 1600px, in a row on wide screens) */
+.ab3__main{display:flex;justify-content:space-between;align-items:center;gap:clamp(40px,6vw,108px)}
+.ab3__left{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:clamp(18px,2.6vh,28px)}
+.ab3__t{max-width:14.6em}
+.ab3__p{max-width:44em}
+.ab3__main .ab3__stats{flex:none;display:flex;flex-direction:column;gap:clamp(28px,4.5vh,58px)}
+.ab3__main .ab3__stats .istat b{font-size:clamp(64px,6vw,120px)}
+.ab3__main .ab3__stats .istat span{font-size:clamp(14px,.95vw,18px)}
+@media (min-width:1600px){.ab3__main .ab3__stats{flex-direction:row;gap:clamp(56px,4vw,90px)}}
+@media (max-width:820px){.ab3__main{flex-direction:column;align-items:flex-start}.ab3__main .ab3__stats{flex-direction:row;gap:32px}}
+.ab3__t{font-size:clamp(36px,min(5.3vw,8.6vh),84px)}
+.ab3__cv{background:var(--ink);color:#FFFFFF;box-shadow:none;animation:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.ab3__cv:hover{background:var(--accent);color:#FFFFFF;box-shadow:none}
+/* bottom points span exactly the statement width (lines up with it), fixed line breaks */
+.intro{--st:clamp(36px,min(5.3vw,8.6vh),84px)}
+.ab3__t{font-size:var(--st)}
+.ab3__pts{flex:none;display:flex;justify-content:space-between;gap:24px;width:min(calc(var(--st) * 14.1),100%)}
+.ab3__pts .ipt{flex:none}
+.ab3__cv{margin-left:auto}
+@media (max-width:820px){.ab3__pts{width:100%;flex-direction:column}.brd{display:none}}
+/* About: bottom points on a full-bleed dark band (sketch) */
+.intro{padding-bottom:0}
+.ab3__foot{--accent:#E9481B;margin-inline:calc(-1 * max(var(--side),var(--gut)));padding:clamp(32px,6vh,64px) max(var(--side),var(--gut)) clamp(40px,7vh,72px);background:var(--dark);border-top:0;color:#FFFFFF;align-items:center}
+.ab3__foot .ipt b{color:#FFFFFF}
+.ab3__foot .ipt p{color:#A9ABB1}
+.ab3__foot .ab3__cv{background:var(--accent);color:#FFFFFF}
+.ab3__foot .ab3__cv:hover{background:#FFFFFF;color:var(--ink)}
+.projects .kicker--top{margin-bottom:0}
+.ab3__pts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(24px,3vw,56px)}
+.ab3__pts .ipt{flex:initial}
+@media (max-width:820px){.ab3__pts{grid-template-columns:minmax(0,1fr);row-gap:20px}}
+/* About text v2: statement in 3 lines, points spread across the full row */
+.intro{--st:clamp(34px,min(4.4vw,8vh),72px)}
+.ab3__t{max-width:19em}
+.ab3__pts{flex:1 1 auto;width:auto}
+</style>
+
+<script>
+// always start from the first screen after a reload
+if('scrollRestoration' in history)history.scrollRestoration='manual';
+window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window.scrollTo(0,0)});
+</script>
+
+
+<header class="hero">
+  <video class="hero__bg" src="img/hero-bg-2.mp4" poster="img/hero-bg-2-poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+    <div class="hero__in wrap">
+    <span class="hero__ava-wrap">
+      <img class="hero__ava" src="img/avatar.png" alt="Portrait of Alina Matiushyna">
+      <svg class="hero__love" viewBox="0 0 39 33" fill="none" aria-hidden="true"><path d="M32.499 0C32.0357 2.87696 29.7547 5.47627 26.7461 5.66699L26.7451 0.942383C23.4743 0.998725 20.7175 2.33151 18.6182 4.83887C18.134 4.28724 17.7154 3.83014 17.1455 3.36133C15.0101 1.58013 12.2512 0.727719 9.4834 0.995117C6.73323 1.26639 4.20256 2.61627 2.44531 4.74902C-1.1991 9.20418 -0.736923 15.6833 3.61426 19.5264C4.28288 20.1168 4.95445 20.7243 5.62402 21.3164L9.70605 24.9268L15.6445 30.1855C16.5959 31.0264 17.659 32.0163 18.6299 32.8115L29.4541 23.2207L32.3428 20.668C33.2593 19.858 34.0353 19.2192 34.8223 18.2773C36.4819 16.2961 37.1506 14.0834 37.2373 11.542C35.6885 11.5157 34.0698 11.5382 32.5156 11.5371C32.5149 11.5632 32.5131 11.5892 32.5117 11.6152C32.3447 14.4566 31.2008 15.3371 29.2441 17.0664L26.8047 19.2207L18.6182 26.4688C16.8695 24.9988 15.1735 23.3906 13.4443 21.8906C11.1906 19.9364 8.98579 17.9142 6.7373 15.9541C4.25145 13.7871 4.04447 9.97195 6.29785 7.53906C7.3365 6.42722 8.77532 5.77366 10.2959 5.72266C11.8346 5.67165 13.3294 6.2429 14.4424 7.30664C15.6881 8.49316 16.1935 9.85211 16.2393 11.5371L20.9697 11.541C21.0209 10.699 21.1056 10.0161 21.4541 9.23242C22.4354 7.026 24.3665 5.78411 26.7461 5.71973V5.66797C28.0452 5.9805 28.9071 6.23962 30.0156 7.09766C31.3261 8.11211 32.2883 9.75764 32.4883 11.4092C32.5908 11.3085 32.6629 10.7118 32.7158 10.5371C33.6058 7.602 35.4802 6.41785 38.2148 5.66504C35.8672 5.48264 33.7397 3.66908 32.917 1.50488C32.7356 1.02758 32.6252 0.495914 32.499 0Z" fill="url(#loveGrad)"/><path class="ai-star" d="M32.6 -3.4 Q34.6 3.7 41.7 5.7 Q34.6 7.7 32.6 14.8 Q30.6 7.7 23.5 5.7 Q30.6 3.7 32.6 -3.4Z" fill="url(#starGrad)" stroke="#FFFFFF" stroke-width="1.6" stroke-linejoin="round" paint-order="stroke"/><defs><linearGradient id="starGrad" x1="24" y1="-3" x2="41" y2="15" gradientUnits="userSpaceOnUse"><stop stop-color="#FF5794"/><stop offset="1" stop-color="#CA53FF"/></linearGradient><linearGradient id="loveGrad" x1="19.1076" y1="0" x2="32.5265" y2="25.9497" gradientUnits="userSpaceOnUse"><stop stop-color="#FF5794"/><stop offset="0.442308" stop-color="#CA53FF"/><stop offset="1" stop-color="#005AFF"/></linearGradient></defs></svg>
+    </span>
+    <div class="hero__name">Alina Matiushyna</div>
+    <h1 class="hero__h1" aria-label="UX/UI &amp; Visual Design"><span class="ln"><span>UX·UI &amp; Visual</span></span><span class="ln"><span>Design</span></span></h1>
+    <p class="hero__lead">I help businesses make complex things feel simple — from websites and landing pages to presentations, social creatives and print, powered by AI.</p>
+    <div class="hero__word">portfolio</div>
+    <a class="tk-btn hero-cv" href="https://linkedin.com/in/am-uix/" target="_blank" rel="noopener">CV <svg class="dl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10.5 5 5 5-5"/><path d="M5 20h14"/></svg></a>
+  </div>
+  <div class="ticker" aria-label="Skills">
+    <div class="ticker__track">
+      <span>Product UI</span><span>AI</span><span>Vibecoding</span><span>Design systems</span><span>Prototyping</span><span>Social creatives</span><span>Web design</span><span>Presentations</span><span>Visual design</span><span>Figma</span><span>AI-assisted build</span><span>User-friendly UX</span>
+      <span aria-hidden="true">Product UI</span><span aria-hidden="true">AI</span><span aria-hidden="true">Vibecoding</span><span aria-hidden="true">Design systems</span><span aria-hidden="true">Prototyping</span><span aria-hidden="true">Social creatives</span><span aria-hidden="true">Web design</span><span aria-hidden="true">Presentations</span><span aria-hidden="true">Visual design</span><span aria-hidden="true">Figma</span><span aria-hidden="true">AI-assisted build</span><span aria-hidden="true">User-friendly UX</span>
+    </div>
+    </div>
+</header>
+
+<main>
+<section class="intro wrap" id="about-me" aria-label="About me">
+  <div class="head">
+    <h2 class="head__t" data-r="wipe">About</h2>
+    <span class="head__n" data-r style="--d:.25s">/02</span>
+  </div>
+  <div class="ab3__main" data-r style="--d:.1s">
+    <div class="ab3__left">
+    <p class="ab3__t">I’m a <em class="it">versatile designer</em> with a background in digital products, branding, and visual communication.</p>
+    <p class="ab3__p">I enjoy moving between disciplines — shaping an interface, developing an identity, or exploring a new visual direction. Whatever the format, I care about making things clear, useful, and visually compelling.</p>
+    </div>
+    <div class="ab3__stats">
+      <div class="istat"><b>6<sup>+</sup></b><span>years in UX/UI design</span></div>
+      <div class="istat"><b>12<sup>+</sup></b><span>years in graphic design</span></div>
+    </div>
+  </div>
+  <div class="ab3__foot" data-r style="--d:.3s">
+    <div class="ab3__pts"><div class="ipt"><b>Visual craft</b><p>My background in graphic design informs everything I make — from typography and layout to the details that give a design its character.</p></div><div class="ipt"><b>AI in my process</b><p>I use AI throughout my design process — to explore ideas, experiment with visuals, build prototypes, and automate repetitive tasks.</p></div><div class="ipt"><b>From concept to delivery</b><p>I work across the full design process, connecting the initial idea with the details that bring it to life.</p></div></div>
+    <a class="tk-btn hero-cv ab3__cv" href="https://linkedin.com/in/am-uix/" target="_blank" rel="noopener">CV <svg class="dl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10.5 5 5 5-5"/><path d="M5 20h14"/></svg></a>
+  </div>
+</section>
+
+<div class="hold" aria-hidden="true"></div>
+
+<section class="projects wrap" id="work">
+  <div class="kicker kicker--top" data-r><mark class="sel">2025–2026</mark></div>
+  <div class="head">
+    <h2 class="head__t" data-r="wipe">Latest projects</h2>
+    <span class="head__n" data-r style="--d:.25s">/03</span>
+  </div>
+
+  <div class="cases-view">
+  <div class="cases">
+    <article class="case" data-r style="--d:0.00s">
+      <span class="case__lab">One design language, online and on site</span>
+      <a class="cover" href="#" aria-label="Case study: HoSS">
+        <video src="img/hoss-cover-2.mp4" poster="img/hoss-cover-2-poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+        <span class="vc vc--light">Case study <span class="ar">↗</span></span>
+      </a>
+      <div>
+        <h3 class="case__t">HoSS: website and UI system for an international hospitality conference</h3>
+        <div class="pills"><span class="pill pill--dark">Figma</span><span class="pill pill--dark">Design system</span><span class="pill pill--dark">Desktop and mobile</span></div>
+      </div>
+    </article>
+
+    <article class="case" data-r style="--d:0.12s">
+      <span class="case__lab">Own product, vibe coding</span>
+      <a class="cover qv" href="#" aria-label="Case study: Qvocab">
+        <span class="qv__in">
+          <span class="l bg"><img src="img/bg.jpg" alt=""></span>
+          <span class="l t-sets"><img src="img/tile-sets.webp" alt=""></span>
+          <span class="l t-star"><img src="img/tile-star.webp" alt=""></span>
+          <span class="l t-speaker"><img src="img/tile-speaker.webp" alt=""></span>
+          <span class="l t-plus"><img src="img/tile-plus.webp" alt=""></span>
+          <span class="l hand"><img src="img/hand.webp" alt="Qvocab app on a phone"></span>
+          <span class="l t-play"><img src="img/tile-play.webp" alt=""></span>
+          <span class="l logo"><img src="img/logo.webp" alt=""></span>
+        </span>
+        <span class="vc vc--dark">Case study <span class="ar">↗</span></span>
+      </a>
+      <div>
+        <h3 class="case__t">Qvocab: vocabulary trainer, a Chrome extension and a web app</h3>
+        <div class="pills"><span class="pill pill--dark">Figma</span><span class="pill pill--dark">Claude Code</span></div>
+      </div>
+    </article>
+
+    <article class="case" data-r style="--d:0.24s">
+      <span class="case__lab">Redesign of an AI-built site</span>
+      <a class="cover cover--shade" href="#" aria-label="Case study: Breeze">
+        <video src="img/breeze-cover.mp4" poster="img/breeze-poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+        <img class="breeze-word" src="img/breeze-word.png" alt="Breeze">
+        <span class="vc vc--light">Case study <span class="ar">↗</span></span>
+      </a>
+      <div>
+        <h3 class="case__t">Breeze: apartment complex website, from visual concept to booking</h3>
+        <div class="pills"><span class="pill pill--dark">Figma</span><span class="pill pill--dark">Animation</span><span class="pill pill--dark">AI-assisted build</span></div>
+      </div>
+    </article>
+
+    <article class="case case--extra">
+      <span class="case__lab">Decks and course materials</span>
+      <a class="cover" href="#" aria-label="Case study: Kordie presentations">
+        <img src="img/cover-kordie.jpg" alt="Kordie presentation slides">
+        <span class="vc vc--light">Case study <span class="ar">↗</span></span>
+      </a>
+      <div>
+        <h3 class="case__t">Kordie: presentations, decks and masterclass materials</h3>
+        <div class="pills"><span class="pill pill--dark">Figma</span><span class="pill pill--dark">Presentations</span><span class="pill pill--dark">Visual system</span></div>
+      </div>
+    </article>
+  </div>
+  </div>
+  <div class="projects__more" data-r style="--d:.4s"><button type="button" class="more-btn morph" data-ar="→" aria-expanded="false"><span class="lbl"><span class="more-btn__t">More</span> <span class="ar">→</span></span></button></div>
+</section>
+
+<div class="hold hold--long" aria-hidden="true"></div>
+
+<section class="more" id="archive" aria-label="Experience: more work on Behance and Dribbble">
+  <div class="head wrap">
+    <h2 class="head__t" data-r="wipe">Experience</h2>
+    <div class="xlinks" data-r style="--d:.3s"><a class="xlink" href="https://www.behance.net/AlinaMatiyushyna" target="_blank" rel="noopener">Behance <span class="ar">↗</span></a><a class="xlink" href="https://dribbble.com/AlinaMatiushyna" target="_blank" rel="noopener">Dribbble <span class="ar">↗</span></a></div>
+    <span class="head__n" data-r style="--d:.25s">/04</span>
+  </div>
+  <div class="kicker wrap" data-r style="--d:.35s"><mark class="sel">Since 2008</mark> · Print, branding, presentations, ad creatives and banners, apps and websites</div>
+  <div class="strips">
+    <div class="strip" role="img" aria-label="Selected works from 2008 to 2026: print, presentations, apps and websites">
+      <div class="strip__set">
+      <img src="img/works/w50.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w03.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
+      <span class="tone"><img src="img/works/w57.jpg" width="532" height="400" alt="" loading="lazy" decoding="async"></span>
+      <img src="img/works/w21.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w66.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w47.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w25.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
+      <span class="tone"><img src="img/works/w15.jpg" width="634" height="400" alt="" loading="lazy" decoding="async"></span>
+      <img src="img/works/w68.jpg" width="512" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w31.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w58.jpg" width="454" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w34.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w52.jpg" width="712" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w64.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w37.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w46.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w20.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
+      <span class="tone"><img src="img/works/w18.jpg" width="632" height="400" alt="" loading="lazy" decoding="async"></span>
+      <img src="img/works/w26.jpg" width="600" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w35.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w07.jpg" width="538" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w48.jpg" width="282" height="400" alt="" loading="lazy" decoding="async">
+      <span class="tone"><img src="img/works/w17.jpg" width="534" height="400" alt="" loading="lazy" decoding="async"></span>
+      <img src="img/works/w67.jpg" width="824" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w33.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w61.jpg" width="538" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w04.jpg" width="602" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w02.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w22.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w51.jpg" width="600" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w19.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w44.jpg" width="268" height="400" alt="" loading="lazy" decoding="async">
+      </div>
+      <div class="strip__set" aria-hidden="true">
+      <img src="img/works/w50.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w03.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <span class="tone"><img src="img/works/w57.jpg" width="532" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true"></span>
+      <img src="img/works/w21.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w66.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w47.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w25.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <span class="tone"><img src="img/works/w15.jpg" width="634" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true"></span>
+      <img src="img/works/w68.jpg" width="512" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w31.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w58.jpg" width="454" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w34.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w52.jpg" width="712" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w64.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w37.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w46.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w20.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <span class="tone"><img src="img/works/w18.jpg" width="632" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true"></span>
+      <img src="img/works/w26.jpg" width="600" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w35.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w07.jpg" width="538" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w48.jpg" width="282" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <span class="tone"><img src="img/works/w17.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true"></span>
+      <img src="img/works/w67.jpg" width="824" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w33.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w61.jpg" width="538" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w04.jpg" width="602" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w02.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w22.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w51.jpg" width="600" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w19.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w44.jpg" width="268" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      </div>
+    </div>
+    <div class="strip strip--rev" aria-hidden="true">
+      <div class="strip__set">
+      <img src="img/works/w32.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w16.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w14.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w05.jpg" width="712" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w56.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w69.jpg" width="434" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w59.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <span class="tone"><img src="img/works/w62.jpg" width="558" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true"></span>
+      <img src="img/works/w45.jpg" width="630" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w29.jpg" width="660" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w49.jpg" width="266" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w10.jpg" width="652" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w42.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w11.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w38.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w06.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w65.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w24.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w41.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w36.jpg" width="358" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w09.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w23.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w70.jpg" width="434" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w55.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w27.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w60.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w28.jpg" width="420" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w53.jpg" width="266" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w43.jpg" width="600" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w40.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w08.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w13.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w63.jpg" width="624" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w12.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      </div>
+      <div class="strip__set" aria-hidden="true">
+      <img src="img/works/w32.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w16.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w14.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w05.jpg" width="712" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w56.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w69.jpg" width="434" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w59.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <span class="tone"><img src="img/works/w62.jpg" width="558" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true"></span>
+      <img src="img/works/w45.jpg" width="630" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w29.jpg" width="660" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w49.jpg" width="266" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w10.jpg" width="652" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w42.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w11.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w38.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w06.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w65.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w24.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w41.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w36.jpg" width="358" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w09.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w23.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w70.jpg" width="434" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w55.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w27.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w60.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w28.jpg" width="420" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w53.jpg" width="266" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w43.jpg" width="600" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w40.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w08.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w13.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w63.jpg" width="624" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      <img src="img/works/w12.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hold" aria-hidden="true"></div>
+
+<section class="do wrap" id="about">
+  <img class="peek" alt="" aria-hidden="true">
+  <div class="head">
+    <h2 class="head__t" data-r="wipe">What I can do for you</h2>
+    <span class="head__n" data-r style="--d:.25s">/05</span>
+  </div>
+  <div class="rows">
+    <div class="row" data-img="img/works/w38.jpg"><span class="row__n">01</span><div class="row__txt"><div class="row__t">Product UI<span class="row__ar ar" aria-hidden="true">↗</span></div><div class="row__d">Interfaces, flows and prototypes for one product over time</div></div><div class="pills"><span class="pill pill--light">Qvocab</span><span class="pill pill--light">Whinder</span><span class="pill pill--light">Petfood</span></div><span class="row__go ar" aria-hidden="true">↗</span></div>
+    <div class="row" data-img="img/works/w13.jpg" data-rot="5"><span class="row__n">02</span><div class="row__txt"><div class="row__t">Websites<span class="row__ar ar" aria-hidden="true">↗</span></div><div class="row__d">From structure and visuals to a working site built with AI tools</div></div><div class="pills"><span class="pill pill--light">Breeze</span><span class="pill pill--light">HoSS</span><span class="pill pill--light">Kordie</span></div><span class="row__go ar" aria-hidden="true">↗</span></div>
+    <div class="row" data-img="img/peek-presentations.jpg" data-rot="-5"><span class="row__n">03</span><div class="row__txt"><div class="row__t">Presentations<span class="row__ar ar" aria-hidden="true">↗</span></div><div class="row__d">Decks, banners and ads in the same visual language as the product</div></div><div class="pills"><span class="pill pill--light">HoSS</span><span class="pill pill--light">Kordie</span></div><span class="row__go ar" aria-hidden="true">↗</span></div>
+    <div class="row" data-img="img/works/w60.jpg" data-rot="5"><span class="row__n">04</span><div class="row__txt"><div class="row__t">Social creatives<span class="row__ar ar" aria-hidden="true">↗</span></div><div class="row__d">Ad creatives and social media banners, including AI-generated visuals</div></div><div class="pills"><span class="pill pill--light">Kordie</span></div><span class="row__go ar" aria-hidden="true">↗</span></div>
+  </div>
+</section>
+
+<div class="hold hold--do" id="do-hold" aria-hidden="true"></div>
+
+
+
+
+
+
+
+
+<section class="contact contact--dark wrap" id="contact">
+    <div class="head">
+    <h2 class="head__t" data-r="wipe">Get in touch</h2>
+    <span class="head__n" data-r style="--d:.25s">/06</span>
+  </div>
+  <div class="kicker" data-r style="--d:.3s">Open to a full-time role or a long-term contract · I speak English, Ukrainian and Russian</div>
+  <div class="cgrid">
+    <form class="cform" novalidate>
+      <div class="crow2"><div class="cfield"><label for="cf-name">Your name</label><input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Name"></div><div class="cfield"><label for="cf-contact">Your contact</label><input id="cf-contact" name="contact" type="text" placeholder="@username, phone or e-mail"></div></div>
+      <div class="cfield">
+        <span class="clab">How should I contact you?</span>
+        <div class="chips" role="radiogroup"><label class="chip"><input type="radio" name="via" value="Telegram"><span>Telegram</span></label><label class="chip"><input type="radio" name="via" value="WhatsApp"><span>WhatsApp</span></label><label class="chip"><input type="radio" name="via" value="Instagram"><span>Instagram</span></label><label class="chip"><input type="radio" name="via" value="Email"><span>Email</span></label></div>
+      </div>
+      <div class="cfield">
+        <span class="clab">What do you need?</span>
+        <div class="chips"><label class="chip"><input type="checkbox" name="need" value="Full-time role"><span>Full-time role</span></label><label class="chip"><input type="checkbox" name="need" value="Long-term contract"><span>Long-term contract</span></label><label class="chip"><input type="checkbox" name="need" value="Product UI"><span>Product UI</span></label><label class="chip"><input type="checkbox" name="need" value="Website"><span>Website</span></label><label class="chip"><input type="checkbox" name="need" value="Presentations"><span>Presentations</span></label><label class="chip"><input type="checkbox" name="need" value="Social creatives"><span>Social creatives</span></label></div>
+      </div>
+      <div class="cfield">
+        <span class="clab">Budget</span>
+        <div class="chips" role="radiogroup"><label class="chip"><input type="radio" name="budget" value="Under €1,000"><span>Under €1,000</span></label><label class="chip"><input type="radio" name="budget" value="€1,000–2,500"><span>€1,000–2,500</span></label><label class="chip"><input type="radio" name="budget" value="€2,500–5,000"><span>€2,500–5,000</span></label><label class="chip"><input type="radio" name="budget" value="€5,000+"><span>€5,000+</span></label><label class="chip"><input type="radio" name="budget" value="Not sure yet"><span>Not sure yet</span></label></div>
+      </div>
+      <div class="cfield"><label for="cf-msg">About the project</label><textarea id="cf-msg" name="msg" rows="1" placeholder="Product, task, timing — whatever you already know"></textarea></div>
+      <div class="csend"><button type="submit" class="send-btn"><span>Send<br>request</span><span class="ar">↗</span></button><p class="cnote" aria-live="polite"></p></div>
+    </form>
+    <aside class="cdirect">
+      <span class="clab">Or directly</span>
+      <a class="crow" href="https://t.me/alinamatiushyna" target="_blank" rel="noopener"><span class="crow__t">Telegram</span><span class="crow__s">@alinamatiushyna <span class="ar">↗</span></span></a>
+      <div class="crow crow--todo"><span class="crow__t">WhatsApp</span><span class="crow__s">—</span></div>
+      <div class="crow crow--todo"><span class="crow__t">Instagram</span><span class="crow__s">—</span></div>
+      <div class="crow"><span class="crow__t">Email</span><span class="crow__s"><span class="mail__a">dismalina@gmail.com</span> <button type="button" class="mail__copy">Copy</button></span></div>
+    </aside>
+  </div>
+</section>
+</main>
+<a class="talk" href="#contact">Let’s talk</a>
+
+<footer class="foot wrap">
+  <a href="#">Back to top <span class="ar ar-up">↑</span></a>
+  <nav aria-label="Social"><a href="https://dribbble.com/AlinaMatiushyna" target="_blank" rel="noopener">Dribbble <span class="ar">↗</span></a><a href="https://www.behance.net/AlinaMatiyushyna" target="_blank" rel="noopener">Behance <span class="ar">↗</span></a><a href="https://linkedin.com/in/am-uix/" target="_blank" rel="noopener">LinkedIn <span class="ar">↗</span></a><a href="https://t.me/alinamatiushyna" target="_blank" rel="noopener">Telegram <span class="ar">↗</span></a></nav>
+  <span>© 2026 Alina Matiushyna</span>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  if(!('IntersectionObserver' in window)) return;
+  root.classList.add('js');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target.__r||e.target;t.classList.add('in');io.unobserve(e.target);}});},{threshold:.01,rootMargin:'0px 0px -2% 0px'});
+  document.querySelectorAll('[data-r]').forEach(function(el){var w=el.getAttribute('data-r')==='wipe'?el.parentElement:el;if(w!==el){var p=document.createElement('i');p.style.cssText='position:absolute;width:1px;height:1px;';w.style.position=w.style.position||'relative';el.parentElement.insertBefore(p,el);p.__r=el;io.observe(p);}else io.observe(el);});
+})();
+</script>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // 1. stacked screens: a block sticks when its bottom reaches the screen bottom
+  var stack=[].slice.call(document.querySelectorAll('.hero, main>section, .foot'));
+  function setTops(){var vh=innerHeight;stack.forEach(function(el){var base=0;el.style.top=Math.min(base,vh-el.offsetHeight)+'px';});}
+  setTops();addEventListener('resize',setTops);addEventListener('load',setTops);
+  if(reduce) return;
+  // 2. hero title: letters rise one by one
+  document.querySelectorAll('.hero__h1 .ln>span').forEach(function(s){var t=s.textContent;s.textContent='';s.classList.add('split');s.setAttribute('aria-hidden','true');var i=+(s.parentElement.previousElementSibling?14:0);
+    for(var k=0;k<t.length;k++){var c=t[k];if(c===' '){s.appendChild(document.createTextNode(' '));continue}var e=document.createElement('span');e.className=c==='·'?'ch ch--dot':'ch';e.textContent=c;e.style.setProperty('--i',i++);s.appendChild(e);}});
+  // 3. hero follows the mouse a little
+  var glows=document.querySelectorAll('.hero__glow'),ava=document.querySelector('.hero__ava-wrap'),hero=document.querySelector('.hero');
+  if(matchMedia('(hover:hover)').matches){hero.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect(),mx=(e.clientX-r.left)/r.width-.5,my=(e.clientY-r.top)/r.height-.5;
+    glows[0]&&(glows[0].style.translate=(-mx*40)+'px '+(-my*30)+'px');glows[1]&&(glows[1].style.translate=(mx*40)+'px '+(my*30)+'px');ava&&(ava.style.translate=(mx*10)+'px '+(my*8)+'px');});
+    hero.addEventListener('pointerleave',function(){glows.forEach(function(g){g.style.translate='0 0'});ava&&(ava.style.translate='0 0')});}
+  // 4. scroll-linked: hero recedes under the dark block, What I do rows slide in from the right
+  var heroIn=document.querySelector('.hero__in'),proj=document.querySelector('.projects'),rows=[].slice.call(document.querySelectorAll('.do .row')),doSec=document.querySelector('.do'),doHold=document.getElementById('do-hold'),doHead=document.querySelector('.do .head');
+  var ease=function(p){return 1-Math.pow(1-p,3)},cl=function(v){return Math.max(0,Math.min(1,v))};
+  var ticking=false;
+  function frame(){ticking=false;var vh=innerHeight;
+    var p=cl(1-proj.getBoundingClientRect().top/vh);heroIn.style.transform='translateY('+(-p*70)+'px) scale('+(1-p*.06)+')';heroIn.style.opacity=1-p*.7;
+    var narrow=innerWidth<820;
+    var dt=doSec.getBoundingClientRect().top,hd=doHead;hd.style.transform='';rows.forEach(function(r,i){var hb=doHold.getBoundingClientRect(),P=hb.height>10?cl((1.6*vh-hb.top)/(1.55*vh)):cl(1-dt/(vh*.92));var q=ease(cl((P-i*.19)/.42));var off=(1-q)*((narrow?20:14)+i*(narrow?4:7));r.style.transform='translateX('+off+'vw)';r.style.opacity=.15+.85*q;});}
+  function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
+  addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);frame();
+})();
+</script>
+<script>
+// size the two work strips so they fill the Behance / Dribbble screen exactly
+(function(){var s=document.querySelector('.more .strips');if(!s)return;function fit(){if(innerWidth<821){document.documentElement.style.removeProperty('--sh');return}var g=parseFloat(getComputedStyle(s).rowGap)||20;var hgt=Math.max(140,Math.floor((s.clientHeight-g)/2));document.documentElement.style.setProperty('--sh',hgt+'px')}fit();addEventListener('resize',fit);addEventListener('load',fit)})();
+</script>
+<script>
+// What I do: project preview follows the cursor over the service list (viewport coordinates, re-checked on scroll)
+(function(){
+  var sec=document.querySelector('.do'),pk=sec&&sec.querySelector('.peek');if(!pk||!matchMedia('(hover:hover)').matches)return;
+  document.body.appendChild(pk);
+  var mx=-999,my=-999,x=0,y=0,cur=null;
+  function show(r){if(r===cur)return;cur=r;if(!r){pk.classList.remove('on');return}
+    pk.src=r.getAttribute('data-img');pk.style.setProperty('--rot',(r.getAttribute('data-rot')||-5)+'deg');
+    if(!pk.classList.contains('on')){x=mx+170;y=my}pk.classList.add('on');}
+  function check(){var el=document.elementFromPoint(mx,my);var r=el&&el.closest?el.closest('.do .row[data-img]'):null;show(r)}
+  addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;check()},{passive:true});
+  addEventListener('scroll',check,{passive:true});
+  document.addEventListener('mouseleave',function(){show(null)});
+  [].forEach.call(document.querySelectorAll('.do .row[data-img]'),function(r){var i=new Image();i.src=r.getAttribute('data-img')});
+  (function loop(){x+=(mx+170-x)*.32;y+=(my-y)*.32;pk.style.left=x+'px';pk.style.top=y+'px';requestAnimationFrame(loop)})();
+})();
+</script>
+<script>
+// More: slide the latest-projects row to reveal the 4th card, and back
+(function(){var s=document.querySelector('.projects'),b=s&&s.querySelector('.more-btn');if(!b)return;
+  b.addEventListener('click',function(){var on=s.classList.toggle('shifted');b.setAttribute('aria-expanded',on);b.querySelector('.more-btn__t').textContent=on?'Back':'More';b.querySelector('.ar').textContent=on?'←':'→';b.setAttribute('data-ar',on?'←':'→');});})();
+</script>
+<script>
+// copy the e-mail address; fall back to selecting it
+(function(){var b=document.querySelector('.mail__copy'),a=document.querySelector('.mail__a');if(!b)return;
+  b.addEventListener('click',function(){var t=a.textContent;function done(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1600)}
+    function sel(){var r=document.createRange();r.selectNodeContents(a);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected — press Ctrl+C';setTimeout(function(){b.textContent='Copy'},2400)}
+    try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}});})();
+</script>
+<script>
+// request form: compose the message from the choices; open e-mail with it filled in (no server here)
+(function(){var f=document.querySelector('.cform');if(!f)return;var note=f.querySelector('.cnote'),ci=f.querySelector('#cf-contact');
+  var ph={Telegram:'@username',WhatsApp:'Phone number',Instagram:'@username',Email:'your@email.com'};
+  [].forEach.call(f.querySelectorAll('input[name=via]'),function(r){r.addEventListener('change',function(){ci.placeholder=ph[r.value]||ci.placeholder;ci.focus()})});
+  f.addEventListener('submit',function(e){e.preventDefault();var d=new FormData(f);
+    if(!(d.get('contact')||'').trim()){note.textContent='Please add a contact so I can reply.';ci.focus();return}
+    var t='Name: '+(d.get('name')||'-')+'\nContact via '+(d.get('via')||'-')+': '+d.get('contact')+'\nNeed: '+(d.getAll('need').join(', ')||'-')+'\nBudget: '+(d.get('budget')||'-')+'\n\n'+(d.get('msg')||'');
+    try{navigator.clipboard.writeText(t)}catch(err){}
+    location.href='mailto:dismalina@gmail.com?subject='+encodeURIComponent('Portfolio request')+'&body='+encodeURIComponent(t);
+    note.textContent='Your e-mail app should open with the request filled in. If it did not, the text is copied: send it to dismalina@gmail.com or on Telegram.';});})();
+</script>
+<script>
+// glass background videos play at 0.75 speed
+[].forEach.call(document.querySelectorAll('.hero__bg,.contact__glow'),function(v){function s(){v.playbackRate=.75}s();v.addEventListener('loadedmetadata',s);v.addEventListener('play',s)});
+</script>
+<script>
+// floating "Let's talk": visible between the end of Hero and the contact block
+(function(){var b=document.querySelector('.talk'),hero=document.querySelector('.hero'),ct=document.getElementById('contact');if(!b||!hero||!ct)return;
+  function upd(){var it=document.querySelector('.intro'),y=0,x=it;while(x){y+=x.offsetTop;x=x.offsetParent}var past=scrollY>y+it.offsetHeight*.6,near=ct.getBoundingClientRect().top<innerHeight*.6;b.classList.toggle('on',past&&!near)}
+  addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();})();
+</script>
+</body>
+</html>
