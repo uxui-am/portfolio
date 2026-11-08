@@ -917,6 +917,7 @@ html.dotcur input,html.dotcur textarea,html.dotcur [contenteditable]{cursor:text
   .contact--dark{min-height:0}
   .foot nav{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 18px}
 }
+.hero-cv{position:absolute;margin:0!important}
 </style>
 
 <script>
@@ -1421,6 +1422,13 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   hero.addEventListener('mouseleave',function(){inside=false;wake()});
   hero.addEventListener('pointerdown',function(e){if(still)return;var r=cv.getBoundingClientRect();rings.push({x:e.clientX-r.left,y:e.clientY-r.top,t:0});if(rings.length>4)rings.shift();wake()});
   var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(build,150)});build();})();
+</script>
+<script>
+// CV button sits exactly halfway between the bottom of "portfolio" and the bottom of the first screen
+(function(){var hero=document.querySelector('.hero'),w=document.querySelector('.hero__word'),b=document.querySelector('.hero-cv');if(!hero||!w||!b)return;
+  function place(){var p=b.offsetParent||hero,pr=p.getBoundingClientRect(),hr=hero.getBoundingClientRect(),wr=w.getBoundingClientRect();
+    b.style.top=Math.round((wr.bottom+hr.bottom)/2-pr.top-b.offsetHeight/2)+'px';b.style.left=Math.round((hr.left+hr.right)/2-pr.left-b.offsetWidth/2)+'px'}
+  place();addEventListener('resize',place);addEventListener('load',place);if(document.fonts)document.fonts.ready.then(place);setTimeout(place,1500);})();
 </script>
 </body>
 </html>
