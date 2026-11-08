@@ -901,6 +901,22 @@ html.dotcur input,html.dotcur textarea,html.dotcur [contenteditable]{cursor:text
 .hero-dots{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
 .hero__in{position:relative;z-index:1}
 .hero-cv{margin-top:clamp(12px,calc(100vh - 820px),64px)}
+/* ===== mobile (<=820px) ===== */
+@media (max-width:820px){
+  .hero__h1{font-size:clamp(44px,13.4vw,72px)}
+  .hero__ava{width:96px;height:96px}
+  .hero__lead{font-size:15px}
+  .hero-cv{margin-top:20px}
+  .cgrid{grid-template-columns:minmax(0,1fr)!important;gap:40px}
+  .crow2{display:flex;flex-direction:column;gap:18px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip span{white-space:nowrap}
+  .cfield textarea{min-height:88px}
+  .send-btn,.send-btn:hover{width:100%;height:52px;aspect-ratio:auto;border-radius:999px;flex-direction:row;gap:.4em;font-size:15px;white-space:nowrap;transform:none}
+  .cdirect .crow__s{font-size:14px}
+  .contact--dark{min-height:0}
+  .foot nav{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 18px}
+}
 </style>
 
 <script>
