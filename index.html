@@ -1059,6 +1059,15 @@ html.dotcur input,html.dotcur textarea,html.dotcur [contenteditable]{cursor:text
 @keyframes flRed{0%,45%{color:var(--accent)}100%{color:var(--ink)}}
 .hero__h1 .ch--dot.flip{animation:dotFlip .65s cubic-bezier(.65,0,.35,1) 160ms both,dotRed 1.5s ease 160ms both}
 @keyframes dotRed{0%,45%{background-color:var(--accent)}100%{background-color:var(--ink)}}
+/* bottom-left: socials, quiet like the footer */
+.hero-soc{display:flex;gap:28px;animation:fadeUp .6s cubic-bezier(.22,1,.36,1) .9s both}
+.hero-soc a{font:500 14px/1 var(--text);text-transform:uppercase;letter-spacing:.02em;color:var(--muted,#6C6F76);text-decoration:none;transition:color .2s}
+.hero-soc a:hover,.hero-soc a:focus-visible{color:var(--accent)}
+.hero-soc .ar{font-size:.85em}
+@media (max-width:820px){.hero-soc{gap:14px}.hero-soc a{font-size:12px}}
+@media (prefers-reduced-motion:reduce){.hero-soc{animation:none}}
+.hero-soc a{white-space:nowrap}
+@media (max-width:820px){.hero-soc{gap:10px}.hero-soc a{font-size:11px;letter-spacing:0}.hero .hero-acts .hero-link,.hero .hero-acts .hero-link:hover{font-size:13px!important;padding:0 14px!important;height:40px!important}}
 </style>
 
 <script>
@@ -1079,7 +1088,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
     <h1 class="hero__h1" aria-label="UX/UI &amp; Visual Design"><span class="ln"><span>UX·UI &amp; Visual</span></span><span class="ln"><span>Design</span></span></h1>
     <p class="hero__lead">I help businesses make complex things feel simple — from websites and landing pages to presentations, social creatives and print, powered by AI.</p>
     <div class="hero__word">portfolio</div>
-    <div class="hero-acts"><a class="hero-scroll" href="#work">Latest projects <span class="ar" aria-hidden="true">↓</span></a><a class="hero-link hero-git" href="#contact"><span class="u">Let’s connect</span> <span class="ar" aria-hidden="true">↗</span></a></div>
+    <div class="hero-acts"><nav class="hero-soc" aria-label="Social"><a href="https://dribbble.com/AlinaMatiushyna" target="_blank" rel="noopener">Dribbble <span class="ar">↗</span></a><a href="https://www.behance.net/AlinaMatiyushyna" target="_blank" rel="noopener">Behance <span class="ar">↗</span></a><a href="https://linkedin.com/in/am-uix/" target="_blank" rel="noopener">LinkedIn <span class="ar">↗</span></a></nav><a class="hero-link hero-git" href="#contact"><span class="u">Let’s connect</span> <span class="ar" aria-hidden="true">↗</span></a></div>
   </div>
   <div class="ticker" aria-label="Skills">
     <div class="ticker__track">
