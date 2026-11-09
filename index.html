@@ -968,6 +968,23 @@ html.dotcur input,html.dotcur textarea,html.dotcur [contenteditable]{cursor:text
 .hero__h1 .ch--dot::before{width:.165em;height:1.28em;top:50%}
 .ticker,.ticker__track,.ticker__track span{text-transform:none!important;font-weight:400!important;font-family:var(--text)!important}
 .ticker__track{font-size:clamp(15px,1.05vw,20px)!important;gap:clamp(32px,2.9vw,56px)!important;padding-top:clamp(12px,1.1vw,21px)!important;padding-bottom:clamp(12px,1.1vw,21px)!important}
+/* hero = Figma 327:1256 (1440x900), scaled by --u so proportions hold on any desktop screen */
+@media (min-width:821px){
+  :root{--u:min(calc(100vw / 1440),calc(100vh / 900))}
+  .hero{justify-content:flex-start!important;padding-top:0!important}
+  .hero__in{gap:0!important;padding-top:calc(131 * var(--u))!important;padding-bottom:0!important}
+  .hero__ava-wrap,.hero__ava{width:calc(131 * var(--u))!important;height:calc(131 * var(--u))!important}
+  .hero__name{font-size:calc(23.46 * var(--u))!important;line-height:1!important;margin:calc(25 * var(--u)) 0 0!important}
+  .hero__h1{font-size:calc(144.37 * var(--u))!important;line-height:.86!important;margin:calc(19 * var(--u)) 0 0!important}
+  .hero__lead{font-size:calc(14.44 * var(--u))!important;line-height:1.6!important;max-width:calc(500 * var(--u))!important;margin:calc(12 * var(--u)) auto 0!important}
+  .hero__word{font-size:calc(99.25 * var(--u))!important;line-height:.87!important;margin-top:calc(-7 * var(--u))!important}
+  .hero-link{font-size:calc(16 * var(--u))!important}
+  .hero .hero-acts{gap:calc(16 * var(--u))!important}
+  .ticker__track{font-size:calc(15 * var(--u))!important;gap:calc(40 * var(--u))!important;padding-top:calc(16 * var(--u))!important;padding-bottom:calc(16 * var(--u))!important;line-height:calc(19 * var(--u))!important}
+}
+.hero-link .ar{transition:none}
+.hero .hero-link.hero-git:hover .ar{transform:none;animation:arNE .55s cubic-bezier(.22,1,.36,1)!important}
+.hero .hero-link.hero-cv:hover .ar{transform:none;animation:arS .55s cubic-bezier(.22,1,.36,1)!important}
 </style>
 
 <script>
