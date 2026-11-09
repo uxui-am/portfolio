@@ -1144,6 +1144,15 @@ a:hover .arr-s,button:hover .arr-s{animation:arS .55s cubic-bezier(.22,1,.36,1)!
 a:hover .arr-e,button:hover .arr-e{animation:arE .55s cubic-bezier(.22,1,.36,1)!important}
 a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!important}
 @media (prefers-reduced-motion:reduce){.arr-ne,.arr-s,.arr-e,.arr-n{animation:none!important}}
+/* Case study: plain text link at the end of the tags row, outline on hover (like hero socials) */
+.case__foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.case__more{display:inline-flex;align-items:center;gap:.35em;height:44px;padding:0 18px;margin-right:-18px;border-radius:999px;font:500 16px/1 var(--display);text-transform:uppercase;color:#FFFFFF;text-decoration:none;white-space:nowrap;transition:box-shadow .2s}
+.case__more:hover,.case__more:focus-visible{box-shadow:inset 0 0 0 1.5px #FFFFFF}
+.case__more:focus{outline:none}.case__more:focus-visible{outline:2px solid #FFFFFF;outline-offset:3px}
+@media (max-width:820px){.case__more{font-size:14px;height:40px;padding:0 14px;margin-right:-14px}}
+.case__foot{flex-wrap:nowrap!important;align-items:flex-start}
+.case__foot .pills{flex:1 1 auto;min-width:0}
+.case__more{flex:none;margin-left:auto;margin-top:-6px}
 </style>
 
 <script>
@@ -1211,11 +1220,10 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
       <span class="case__lab">One design language, online and on site</span>
       <a class="cover" href="#" aria-label="Case study: HoSS">
         <video src="img/hoss-cover-3.mp4" poster="img/hoss-cover-3-poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
-        <span class="vc vc--light">Case study <span class="ar">↗</span></span>
       </a>
       <div>
         <h3 class="case__t">HoSS: website and UI system for an international hospitality conference</h3>
-        <div class="pills"><span class="pill pill--dark">Figma</span><span class="pill pill--dark">Design system</span><span class="pill pill--dark">Desktop and mobile</span></div>
+        <div class="case__foot"><div class="pills"><span class="pill pill--dark">Figma</span><span class="pill pill--dark">Design system</span><span class="pill pill--dark">Desktop and mobile</span></div><a class="case__more" href="#">Case study <span class="ar" aria-hidden="true">↗</span></a></div>
       </div>
     </article>
 
@@ -1232,11 +1240,10 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
           <span class="l t-play"><img src="img/tile-play.webp" alt=""></span>
           <span class="l logo"><img src="img/logo.webp" alt=""></span>
         </span>
-        <span class="vc vc--dark">Case study <span class="ar">↗</span></span>
       </a>
       <div>
         <h3 class="case__t">Qvocab: vocabulary trainer, a Chrome extension and a web app</h3>
-        <div class="pills"><span class="pill pill--dark">Figma</span><span class="pill pill--dark">Claude Code</span></div>
+        <div class="case__foot"><div class="pills"><span class="pill pill--dark">Figma</span><span class="pill pill--dark">Claude Code</span></div><a class="case__more" href="#">Case study <span class="ar" aria-hidden="true">↗</span></a></div>
       </div>
     </article>
 
@@ -1245,11 +1252,10 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
       <a class="cover cover--shade" href="#" aria-label="Case study: Breeze">
         <video src="img/breeze-cover.mp4" poster="img/breeze-poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
         <img class="breeze-word" src="img/breeze-word.png" alt="Breeze">
-        <span class="vc vc--light">Case study <span class="ar">↗</span></span>
       </a>
       <div>
         <h3 class="case__t">Breeze: apartment complex website, from visual concept to booking</h3>
-        <div class="pills"><span class="pill pill--dark">Figma</span><span class="pill pill--dark">Animation</span><span class="pill pill--dark">AI-assisted build</span></div>
+        <div class="case__foot"><div class="pills"><span class="pill pill--dark">Figma</span><span class="pill pill--dark">Animation</span><span class="pill pill--dark">AI-assisted build</span></div><a class="case__more" href="#">Case study <span class="ar" aria-hidden="true">↗</span></a></div>
       </div>
     </article>
 
