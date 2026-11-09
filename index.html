@@ -992,6 +992,15 @@ html.dotcur input,html.dotcur textarea,html.dotcur [contenteditable]{cursor:text
 .hero .hero-acts .hero-link:hover,.hero .hero-acts .hero-link:focus-visible{font-family:var(--display)!important;font-weight:600!important;text-transform:uppercase;letter-spacing:0}
 .hero .hero-acts .hero-link:hover .u,.hero .hero-acts .hero-link:focus-visible .u{text-decoration:none}
 .hero__h1 .ch--dot{vertical-align:middle!important;position:relative;top:-.06em}
+/* hero actions = site buttons: caps pills, same size; Resume black, Get in touch red; swap on hover */
+.hero .hero-acts{gap:calc(24 * var(--u,1px))!important}
+.hero .hero-acts .hero-link,.hero .hero-acts .hero-link:hover,.hero .hero-acts .hero-link:focus-visible{font-family:var(--display)!important;font-weight:600!important;text-transform:uppercase;letter-spacing:0;font-size:calc(16 * var(--u,1px))!important;line-height:1;padding:.85em 1.5em!important;margin:0!important;border-radius:999px!important;color:#FFFFFF!important;background-image:none!important;transition:background-color .25s!important}
+.hero .hero-acts .hero-link .u,.hero .hero-acts .hero-link:hover .u{text-decoration:none}
+.hero .hero-acts .hero-cv{background-color:var(--ink)!important}
+.hero .hero-acts .hero-git{background-color:var(--accent)!important}
+.hero .hero-acts .hero-cv:hover{background-color:var(--accent)!important}
+.hero .hero-acts .hero-git:hover{background-color:var(--ink)!important}
+@media (max-width:820px){.hero .hero-acts .hero-link,.hero .hero-acts .hero-link:hover{font-size:15px!important}.hero .hero-acts{gap:12px!important}}
 </style>
 
 <script>
