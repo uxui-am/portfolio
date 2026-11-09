@@ -1580,5 +1580,16 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   function eq(){ls.forEach(function(l){l.style.width=''});var w=0;ls.forEach(function(l){w=Math.max(w,l.getBoundingClientRect().width)});ls.forEach(function(l){l.style.width=Math.ceil(w)+'px'})}
   eq();if(document.fonts)document.fonts.ready.then(eq);addEventListener('resize',eq);})();
 </script>
+<script>
+// smooth glide for every in-page link (#work, #contact, back to top), eased, ~0.9s
+(function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;var raf=0;
+  function docY(el){var y=0;while(el){y+=el.offsetTop;el=el.offsetParent}return y}
+  function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+  function glide(to){cancelAnimationFrame(raf);var from=scrollY,d=to-from;if(Math.abs(d)<2)return;var dur=Math.min(1200,Math.max(600,Math.abs(d)*.35)),t0=performance.now();
+    (function f(t){var k=Math.min(1,(t-t0)/dur);scrollTo(0,from+d*ease(k));if(k<1)raf=requestAnimationFrame(f)})(t0)}
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var id=a.getAttribute('href');
+    var el=id==='#'?null:document.querySelector(id);if(id!=='#'&&!el)return;e.preventDefault();glide(el?Math.min(docY(el),document.documentElement.scrollHeight-innerHeight):0)});
+  ['wheel','touchstart','keydown'].forEach(function(n){addEventListener(n,function(){cancelAnimationFrame(raf)},{passive:true})});})();
+</script>
 </body>
 </html>
