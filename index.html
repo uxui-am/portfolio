@@ -4,12 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Alina Matiushyna, UX/UI & Visual Designer. Product UI, websites, presentations and social creatives.">
-
 <title>Alina Matiushyna Portfolio</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;600;700&family=Onest:wght@300;400;600&family=Fraunces:ital,opsz,wght@1,9..144,400..700&family=Fustat:wght@400;600;700&display=swap">
@@ -1415,7 +1413,7 @@ a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!
 .cs-lang .cs-o input:checked+span{background:transparent;color:#FFFFFF;box-shadow:inset 0 0 0 1px #5D5F66}
 .cs-privacy{margin:16px 0 0;font-size:12px;line-height:1.3;letter-spacing:.03em;text-transform:uppercase;color:#5D5F66}
 .cs-note{margin-top:8px}
-/* bottom row as in Figma: button, then two quiet notes */
+/* Bottom row: two quiet notes, then the submit button. */
 .cs-send{margin-top:clamp(48px,12.2vh,130px);align-items:center;gap:27px;flex-wrap:nowrap}
 .cs-aside{margin:0;width:201px;font-size:15px;line-height:1.27;color:#7A7C83}
 .cs-privacy,.cs-lang{display:none}
@@ -1767,7 +1765,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
     <form class="cs-form" novalidate>
       <p class="cs-mad" data-r style="--d:.1s">Hi Alina, my name is <span class="cs-nw cs-nw--caret"><input class="cs-in" id="cs-name" name="name" type="text" autocomplete="name" placeholder="your name" aria-label="Your name"><span class="cs-caret" aria-hidden="true"></span>.</span><br class="cs-br1"> I&rsquo;m looking for a designer to help with&nbsp;<span class="cs-sel" data-kind="checkbox"><span class="cs-sel__btn" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true"><span class="cs-sel__val">service</span><svg class="cs-car" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span><span class="cs-menu" role="group" aria-label="Services"><label class="cs-o"><input type="checkbox" name="need" value="product UI"><span>Product UI</span></label><label class="cs-o"><input type="checkbox" name="need" value="websites"><span>Websites</span></label><label class="cs-o"><input type="checkbox" name="need" value="landing pages"><span>Landing pages</span></label><label class="cs-o"><input type="checkbox" name="need" value="presentations"><span>Presentations</span></label><label class="cs-o"><input type="checkbox" name="need" value="social media carousels"><span>Social media carousels</span></label><label class="cs-o"><input type="checkbox" name="need" value="ad creatives"><span>Ad creatives</span></label><label class="cs-o"><input type="checkbox" name="need" value="branding"><span>Branding</span></label><label class="cs-o"><input type="checkbox" name="need" value="other" data-other><span>Other…</span></label><input class="cs-other" name="other_text" type="text" placeholder="Tell me what you need" aria-label="Other service"></span></span>. You can reach me <span class="cs-nw">at <input class="cs-in" id="cs-contact" name="contact" type="email" autocomplete="email" placeholder="your e-mail" aria-label="Your e-mail">.</span></p>
       <input type="checkbox" name="botcheck" class="cs-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <div class="cs-send" data-r style="--d:.25s"><button type="submit" class="cs-btn">Send request <span class="ar">↗</span></button><p class="cs-aside">Your details are used only to reply to your request.</p><p class="cs-aside">We can discuss your<br>project in EN,&nbsp;UA,&nbsp;RU</p></div>
+      <div class="cs-send" data-r style="--d:.25s"><p class="cs-aside">Your details are used only to reply to your request.</p><p class="cs-aside">We can discuss your<br>project in EN,&nbsp;UA,&nbsp;RU</p><button type="submit" class="cs-btn">Send request <span class="ar">↗</span></button></div>
       <p class="cs-note" aria-live="polite"></p>
     </form>
     <aside class="cs-direct">
@@ -1980,18 +1978,32 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   var cv=document.createElement('canvas');cv.className='hero-dots';cv.setAttribute('aria-hidden','true');hero.insertBefore(cv,hero.firstChild);
   var ctx=cv.getContext('2d'),S=28,DS=2.5,REACH=160,STR=.55,COLOR='#ECEDF0',HOT='#B9BDC5';
   var W=0,H=0,dpr=1,dots=[],px=-1e4,py=-1e4,inside=false,rings=[],raf=0,last=0,G=0,ax=0,ay=0,av0=document.querySelector('.avail i');
+  var headline=hero.querySelector('.hero__h1'),redLetters=headline?[].slice.call(headline.querySelectorAll('.ch:not(.ch--dot)')):[];
   var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
   function build(){var r=hero.getBoundingClientRect();W=r.width;H=r.height;dpr=Math.min(devicePixelRatio||1,2);
     cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);
     var ox=(W%S-S)/2+S/2,oy=(H%S-S)/2+S/2;dots=[];
-    for(var y=oy;y<H+S/2;y+=S)for(var x=ox;x<W+S/2;x+=S)dots.push({x:x,y:y,s:1,v:0,g:0});draw()}
+    for(var y=oy;y<H+S/2;y+=S)for(var x=ox;x<W+S/2;x+=S)dots.push({x:x,y:y,s:1,v:0,g:0,red:0});draw()}
   function draw(){ctx.clearRect(0,0,W,H);ctx.fillStyle=COLOR;ctx.beginPath();
-    for(var i=0;i<dots.length;i++){var d=dots[i],r=DS/2*d.s;ctx.moveTo(d.x+r,d.y);ctx.arc(d.x,d.y,r,0,6.2832)}ctx.fill();ctx.fillStyle=HOT;for(var j=0;j<dots.length;j++){var e=dots[j],a=Math.min(1,Math.max(0,(e.s-1)/1.4));if(a<.02)continue;ctx.globalAlpha=a;ctx.beginPath();ctx.arc(e.x,e.y,DS/2*e.s,0,6.2832);ctx.fill()}ctx.globalAlpha=1;ctx.fillStyle='#22C55E';for(var q=0;q<dots.length;q++){var o=dots[q];if(o.g<.02)continue;ctx.globalAlpha=Math.min(1,o.g);ctx.beginPath();ctx.arc(o.x,o.y,DS/2*Math.max(o.s,1+o.g*.9),0,6.2832);ctx.fill()}ctx.globalAlpha=1}
+    for(var i=0;i<dots.length;i++){var d=dots[i],r=DS/2*d.s;ctx.moveTo(d.x+r,d.y);ctx.arc(d.x,d.y,r,0,6.2832)}ctx.fill();ctx.fillStyle=HOT;for(var j=0;j<dots.length;j++){var e=dots[j],a=Math.min(1,Math.max(0,(e.s-1)/1.4));if(a<.02)continue;ctx.globalAlpha=a;ctx.beginPath();ctx.arc(e.x,e.y,DS/2*e.s,0,6.2832);ctx.fill()}ctx.globalAlpha=1;ctx.fillStyle='#22C55E';for(var q=0;q<dots.length;q++){var o=dots[q];if(o.g<.02)continue;ctx.globalAlpha=Math.min(1,o.g);ctx.beginPath();ctx.arc(o.x,o.y,DS/2*Math.max(o.s,1+o.g*.9),0,6.2832);ctx.fill()}ctx.globalAlpha=1;ctx.fillStyle='#E11D2E';for(var n=0;n<dots.length;n++){var rd=dots[n];if(rd.red<.01)continue;ctx.globalAlpha=rd.red;ctx.beginPath();ctx.arc(rd.x,rd.y,DS/2*rd.s,0,6.2832);ctx.fill()}ctx.globalAlpha=1}
   function step(t){raf=0;var dt=Math.min(.05,(t-(last||t))/1000);last=t;var busy=false,damp=Math.exp(-dt*11);
     rings=rings.filter(function(g){g.t+=dt;return g.t<(g.life||1.4)});
     if(av0){var ar=av0.getBoundingClientRect(),cr=cv.getBoundingClientRect();ax=ar.left+ar.width/2-cr.left;ay=ar.top+ar.height/2-cr.top}
     var zone=inside&&Math.hypot(px-ax,py-ay)<300,GT=zone?340:0;G+=(GT-G)*Math.min(1,dt*(zone?2.2:3.5));if(Math.abs(GT-G)>1)busy=true;
-    for(var i=0;i<dots.length;i++){var d=dots[i],ts=1,gg=0;
+    // Sample the actual red animation, gated by its active interval and cursor proximity.
+    var redZones=[],canvasRect=cv.getBoundingClientRect();
+    if(inside&&!still)redLetters.forEach(function(letter){var face=letter.querySelector('.fi');if(!face)return;
+      var active=face.getAnimations().some(function(a){var timing=a.effect.getTiming();return a.animationName==='flRed'&&a.currentTime>=timing.delay&&a.currentTime<timing.delay+timing.duration});
+      if(!active)return;busy=true;
+      var b=letter.getBoundingClientRect(),x=px+canvasRect.left,y=py+canvasRect.top;
+      var near=Math.hypot(Math.max(b.left-x,0,x-b.right),Math.max(b.top-y,0,y-b.bottom));if(near>65)return;
+      var rgb=getComputedStyle(face).color.match(/[\d.]+/g);if(!rgb)return;
+      var redness=Math.max(0,Math.min(1,(+rgb[0]-Math.max(+rgb[1],+rgb[2]))/196));
+      if(redness>.02)redZones.push({left:b.left-canvasRect.left,right:b.right-canvasRect.left,top:b.top-canvasRect.top,bottom:b.bottom-canvasRect.top,strength:redness*(1-near/65)});
+    });
+    for(var i=0;i<dots.length;i++){var d=dots[i],ts=1,gg=0,red=0;
+      redZones.forEach(function(z){var distance=Math.hypot(Math.max(z.left-d.x,0,d.x-z.right),Math.max(z.top-d.y,0,d.y-z.bottom));var cursorDistance=Math.hypot(d.x-px,d.y-py);if(distance<90&&cursorDistance<REACH){var f=(1-distance/90)*(1-cursorDistance/REACH);red=Math.max(red,f*z.strength*.65)}});
+      d.red+=(red-d.red)*Math.min(1,dt*18);if(Math.abs(red-d.red)>.003||d.red>.01)busy=true;
       if(inside){var dx=d.x-px,dy=d.y-py,dist=Math.sqrt(dx*dx+dy*dy);if(dist<REACH){var f=1-dist/REACH,g=f*f*(3-2*f);ts+=g*2.2*STR}}
       for(var k=0;k<rings.length;k++){var R=rings[k],ddx=d.x-R.x,ddy=d.y-R.y,L=R.life||1.4,band=Math.abs(Math.sqrt(ddx*ddx+ddy*ddy)-R.t*(R.speed||900));
         if(band<70){var ff=1-band/70,fade=1-R.t/L;if(R.green)gg+=ff*ff*fade*1.4;else ts+=ff*ff*1.8*fade*STR}}
@@ -2002,6 +2014,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   function wake(){if(!raf&&!still)raf=requestAnimationFrame(step)}
   hero.addEventListener('mousemove',function(e){var r=cv.getBoundingClientRect();px=e.clientX-r.left;py=e.clientY-r.top;inside=true;wake()});
   hero.addEventListener('mouseleave',function(){inside=false;wake()});
+  if(headline)headline.addEventListener('mouseenter',wake);
   hero.addEventListener('pointerdown',function(e){if(still)return;var r=cv.getBoundingClientRect();rings.push({x:e.clientX-r.left,y:e.clientY-r.top,t:0});if(rings.length>4)rings.shift();wake()});
   var av=document.querySelector('.avail i'),avl=document.querySelector('.avail'),tm=0;
   function burst(){if(still||!av)return;var a=av.getBoundingClientRect(),r=cv.getBoundingClientRect();rings.push({x:a.left+a.width/2-r.left,y:a.top+a.height/2-r.top,t:0,green:true,speed:520,life:1.9});if(rings.length>6)rings.shift();wake()}
