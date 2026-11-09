@@ -1054,6 +1054,11 @@ html.dotcur input,html.dotcur textarea,html.dotcur [contenteditable]{cursor:text
 @media (prefers-reduced-motion:reduce){.hero-scroll,.hero-scroll .ar{animation:none}}
 /* CV: no pill on hover, just turns red */
 .hero-cvtop:hover,.hero-cvtop:focus-visible{background:transparent!important;color:var(--accent)!important;box-shadow:none!important}
+/* flip in red: letters roll in red, then settle back to black */
+.hero__h1 .ch.flip .fi{animation:flIn .65s cubic-bezier(.65,0,.35,1) var(--fd,0ms) both,flRed 1.5s ease var(--fd,0ms) both!important}
+@keyframes flRed{0%,45%{color:var(--accent)}100%{color:var(--ink)}}
+.hero__h1 .ch--dot.flip{animation:dotFlip .65s cubic-bezier(.65,0,.35,1) 160ms both,dotRed 1.5s ease 160ms both}
+@keyframes dotRed{0%,45%{background-color:var(--accent)}100%{background-color:var(--ink)}}
 </style>
 
 <script>
