@@ -985,6 +985,12 @@ html.dotcur input,html.dotcur textarea,html.dotcur [contenteditable]{cursor:text
 .hero-link .ar{transition:none}
 .hero .hero-link.hero-git:hover .ar{transform:none;animation:arNE .55s cubic-bezier(.22,1,.36,1)!important}
 .hero .hero-link.hero-cv:hover .ar{transform:none;animation:arS .55s cubic-bezier(.22,1,.36,1)!important}
+/* hero links: red highlight sweeps left to right on hover, text turns white */
+.hero .hero-acts .hero-link{background:linear-gradient(var(--accent),var(--accent)) left center/0% 100% no-repeat!important;border-radius:3px;padding:.18em .4em!important;margin:0 -.4em;transition:background-size .35s cubic-bezier(.65,0,.35,1),color .2s .1s!important}
+.hero .hero-acts .hero-link:hover,.hero .hero-acts .hero-link:focus-visible{background:linear-gradient(var(--accent),var(--accent)) left center/100% 100% no-repeat!important;color:#FFFFFF!important}
+.hero .hero-acts .hero-link:hover .u{text-decoration-color:transparent}
+.hero__h1 .ch--dot{overflow:visible!important}
+.hero__h1 .ln:first-child{overflow:visible}
 </style>
 
 <script>
