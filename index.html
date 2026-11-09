@@ -770,7 +770,7 @@ a.crow:hover .crow__t{color:var(--accent)}
 @media (max-width:820px){.ab3__pts{width:100%;flex-direction:column}.brd{display:none}}
 /* About: bottom points on a full-bleed dark band (sketch) */
 .intro{padding-bottom:0}
-.ab3__foot{--accent:#E9481B;margin-inline:calc(-1 * max(var(--side),var(--gut)));padding:clamp(32px,6vh,64px) max(var(--side),var(--gut)) clamp(40px,7vh,72px);background:var(--dark);border-top:0;color:#FFFFFF;align-items:center}
+.ab3__foot{margin-inline:calc(-1 * max(var(--side),var(--gut)));padding:clamp(32px,6vh,64px) max(var(--side),var(--gut)) clamp(40px,7vh,72px);background:var(--dark);border-top:0;color:#FFFFFF;align-items:center}
 .ab3__foot .ipt b{color:#FFFFFF}
 .ab3__foot .ipt p{color:#A9ABB1}
 .ab3__foot .ab3__cv{background:var(--accent);color:#FFFFFF}
@@ -917,7 +917,15 @@ html.dotcur input,html.dotcur textarea,html.dotcur [contenteditable]{cursor:text
   .contact--dark{min-height:0}
   .foot nav{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 18px}
 }
-.hero-cv{position:absolute;margin:0!important}
+.hero .hero-cv{position:absolute;margin:0!important}
+/* mobile: bigger photo higher up, plain scroll (no stacked screens) */
+@media (max-width:820px){
+  .hero__ava{width:156px;height:156px}
+  .hero{justify-content:flex-start}
+  .hero__in{padding-top:clamp(36px,5vh,56px)}
+  .hero,main>section,.foot{position:relative!important;top:auto!important}
+}
+@media (max-width:820px){.kicker{line-height:1.7}.kicker .sel{display:inline-block;line-height:1;margin-bottom:4px}}
 </style>
 
 <script>
@@ -1425,7 +1433,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 </script>
 <script>
 // CV button sits exactly halfway between the bottom of "portfolio" and the bottom of the first screen
-(function(){var hero=document.querySelector('.hero'),w=document.querySelector('.hero__word'),b=document.querySelector('.hero-cv');if(!hero||!w||!b)return;
+(function(){var hero=document.querySelector('.hero'),w=document.querySelector('.hero__word'),b=document.querySelector('.hero .hero-cv');if(!hero||!w||!b)return;
   function place(){var p=b.offsetParent||hero,pr=p.getBoundingClientRect(),hr=hero.getBoundingClientRect(),wr=w.getBoundingClientRect();
     b.style.top=Math.round((wr.bottom+hr.bottom)/2-pr.top-b.offsetHeight/2)+'px';b.style.left=Math.round((hr.left+hr.right)/2-pr.left-b.offsetWidth/2)+'px'}
   place();addEventListener('resize',place);addEventListener('load',place);if(document.fonts)document.fonts.ready.then(place);setTimeout(place,1500);})();
