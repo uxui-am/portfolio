@@ -1115,6 +1115,15 @@ html.dotcur input,html.dotcur textarea,html.dotcur [contenteditable]{cursor:text
 .hero-git.fx-btn,.projects__more .more-btn.fx-btn,.ab3__foot .ab3__cv.fx-btn{--fx:var(--accent)}
 .send-btn.fx-btn{--fx:#FFFFFF}
 @media (prefers-reduced-motion:reduce){.fx-btn::after{transition:none}}
+/* circle fill: slower and more visible */
+.fx-btn::after{transition:transform .7s cubic-bezier(.5,0,.2,1)}
+.xlink.fx-btn{--fx:var(--ink)}
+.xlink.fx-btn:hover,.xlink.fx-btn:focus-visible{color:#FFFFFF!important;box-shadow:inset 0 0 0 1px var(--ink)!important}
+.fx-btn::after{transition:transform .8s cubic-bezier(.65,0,.35,1)}
+.fx-btn{transition:color .35s ease .12s,box-shadow .3s!important}
+/* Experience: equal space above and below the kicker line */
+.more .kicker{margin-top:22px!important;margin-bottom:0!important}
+.more .strip-wrap,.more .strips{margin-top:22px!important}
 </style>
 
 <script>
@@ -1662,13 +1671,6 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
     var cs=t.querySelectorAll('.fl-ch'),busy=false,dur=650+i*55+900;
     t.addEventListener('mouseenter',function(){if(busy)return;busy=true;t.style.setProperty('--fc',getComputedStyle(t).color);
       cs.forEach(function(c){c.classList.remove('flip')});void t.offsetWidth;cs.forEach(function(c){c.classList.add('flip')});setTimeout(function(){busy=false;cs.forEach(function(c){c.classList.remove('flip')})},dur)})});})();
-</script>
-<script>
-// circle-fill hover: the fill grows from where the cursor enters the button
-(function(){var sel='.hero-soc a,.hero .hero-git,.projects__more .more-btn,.ab3__foot .ab3__cv,.send-btn';
-  [].forEach.call(document.querySelectorAll(sel),function(b){b.classList.add('fx-btn');
-    b.addEventListener('mouseenter',function(e){var r=b.getBoundingClientRect();b.style.setProperty('--ox',(e.clientX-r.left)+'px');b.style.setProperty('--oy',(e.clientY-r.top)+'px');b.style.setProperty('--od',Math.ceil(Math.hypot(r.width,r.height)*2.2)+'px')});
-    b.addEventListener('mouseleave',function(e){var r=b.getBoundingClientRect();b.style.setProperty('--ox',(e.clientX-r.left)+'px');b.style.setProperty('--oy',(e.clientY-r.top)+'px')});});})();
 </script>
 </body>
 </html>
