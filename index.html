@@ -1106,6 +1106,15 @@ html.dotcur input,html.dotcur textarea,html.dotcur [contenteditable]{cursor:text
 .fl-ch.flip .fi{animation:flIn .65s cubic-bezier(.65,0,.35,1) var(--fd,0ms) both,flRedB 1.5s ease var(--fd,0ms) both}
 @keyframes flRedB{0%,45%{color:var(--accent)}100%{color:var(--fc)}}
 @media (prefers-reduced-motion:reduce){.fl-ch.flip .fo,.fl-ch.flip .fi{animation:none}}
+/* circle-fill hover (ref: Breeze .fx): a circle grows from the point where the cursor enters */
+.fx-btn{position:relative;overflow:hidden;isolation:isolate}
+.fx-btn::after{content:'';position:absolute;z-index:-1;left:var(--ox,50%);top:var(--oy,50%);width:var(--od,420px);height:var(--od,420px);border-radius:50%;background:var(--fx,var(--ink));transform:translate(-50%,-50%) scale(0);transition:transform .5s cubic-bezier(.16,1,.3,1);pointer-events:none}
+.fx-btn.fx-btn.fx-btn.fx-btn:hover,.fx-btn.fx-btn.fx-btn.fx-btn:focus-visible{background:transparent!important;background-color:transparent!important;background-image:none!important}
+.fx-btn:hover::after,.fx-btn:focus-visible::after{transform:translate(-50%,-50%) scale(1)}
+.hero-soc a.fx-btn{--fx:var(--ink)}
+.hero-git.fx-btn,.projects__more .more-btn.fx-btn,.ab3__foot .ab3__cv.fx-btn{--fx:var(--accent)}
+.send-btn.fx-btn{--fx:#FFFFFF}
+@media (prefers-reduced-motion:reduce){.fx-btn::after{transition:none}}
 </style>
 
 <script>
@@ -1653,6 +1662,13 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
     var cs=t.querySelectorAll('.fl-ch'),busy=false,dur=650+i*55+900;
     t.addEventListener('mouseenter',function(){if(busy)return;busy=true;t.style.setProperty('--fc',getComputedStyle(t).color);
       cs.forEach(function(c){c.classList.remove('flip')});void t.offsetWidth;cs.forEach(function(c){c.classList.add('flip')});setTimeout(function(){busy=false;cs.forEach(function(c){c.classList.remove('flip')})},dur)})});})();
+</script>
+<script>
+// circle-fill hover: the fill grows from where the cursor enters the button
+(function(){var sel='.hero-soc a,.hero .hero-git,.projects__more .more-btn,.ab3__foot .ab3__cv,.send-btn';
+  [].forEach.call(document.querySelectorAll(sel),function(b){b.classList.add('fx-btn');
+    b.addEventListener('mouseenter',function(e){var r=b.getBoundingClientRect();b.style.setProperty('--ox',(e.clientX-r.left)+'px');b.style.setProperty('--oy',(e.clientY-r.top)+'px');b.style.setProperty('--od',Math.ceil(Math.hypot(r.width,r.height)*2.2)+'px')});
+    b.addEventListener('mouseleave',function(e){var r=b.getBoundingClientRect();b.style.setProperty('--ox',(e.clientX-r.left)+'px');b.style.setProperty('--oy',(e.clientY-r.top)+'px')});});})();
 </script>
 </body>
 </html>
