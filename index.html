@@ -1041,6 +1041,8 @@ html.dotcur input,html.dotcur textarea,html.dotcur [contenteditable]{cursor:text
 .avail{cursor:default;padding:8px 10px;margin:-8px -10px}
 @media (min-width:821px){.hero-top{top:calc(51 * var(--u) + 12 * var(--u))}}
 @media (max-width:820px){.hero-top{top:46px}}
+.hero .hero-acts .hero-link,.hero .hero-acts .hero-link:hover,.hero .hero-acts .hero-link:focus-visible{height:54px!important;padding:0 28px!important}
+.avail{background:rgba(255,255,255,.88);border-radius:999px}
 </style>
 
 <script>
@@ -1525,7 +1527,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 (function(){var hero=document.querySelector('.hero');if(!hero)return;
   var cv=document.createElement('canvas');cv.className='hero-dots';cv.setAttribute('aria-hidden','true');hero.insertBefore(cv,hero.firstChild);
   var ctx=cv.getContext('2d'),S=28,DS=2.5,REACH=160,STR=.55,COLOR='#ECEDF0',HOT='#B9BDC5';
-  var W=0,H=0,dpr=1,dots=[],px=-1e4,py=-1e4,inside=false,rings=[],raf=0,last=0;
+  var W=0,H=0,dpr=1,dots=[],px=-1e4,py=-1e4,inside=false,rings=[],raf=0,last=0,G=0,ax=0,ay=0,av0=document.querySelector('.avail i');
   var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
   function build(){var r=hero.getBoundingClientRect();W=r.width;H=r.height;dpr=Math.min(devicePixelRatio||1,2);
     cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);
@@ -1535,10 +1537,13 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
     for(var i=0;i<dots.length;i++){var d=dots[i],r=DS/2*d.s;ctx.moveTo(d.x+r,d.y);ctx.arc(d.x,d.y,r,0,6.2832)}ctx.fill();ctx.fillStyle=HOT;for(var j=0;j<dots.length;j++){var e=dots[j],a=Math.min(1,Math.max(0,(e.s-1)/1.4));if(a<.02)continue;ctx.globalAlpha=a;ctx.beginPath();ctx.arc(e.x,e.y,DS/2*e.s,0,6.2832);ctx.fill()}ctx.globalAlpha=1;ctx.fillStyle='#22C55E';for(var q=0;q<dots.length;q++){var o=dots[q];if(o.g<.02)continue;ctx.globalAlpha=Math.min(1,o.g);ctx.beginPath();ctx.arc(o.x,o.y,DS/2*Math.max(o.s,1+o.g*.9),0,6.2832);ctx.fill()}ctx.globalAlpha=1}
   function step(t){raf=0;var dt=Math.min(.05,(t-(last||t))/1000);last=t;var busy=false,damp=Math.exp(-dt*11);
     rings=rings.filter(function(g){g.t+=dt;return g.t<(g.life||1.4)});
+    if(av0){var ar=av0.getBoundingClientRect(),cr=cv.getBoundingClientRect();ax=ar.left+ar.width/2-cr.left;ay=ar.top+ar.height/2-cr.top}
+    var zone=inside&&Math.hypot(px-ax,py-ay)<300,GT=zone?340:0;G+=(GT-G)*Math.min(1,dt*(zone?2.2:3.5));if(Math.abs(GT-G)>1)busy=true;
     for(var i=0;i<dots.length;i++){var d=dots[i],ts=1,gg=0;
       if(inside){var dx=d.x-px,dy=d.y-py,dist=Math.sqrt(dx*dx+dy*dy);if(dist<REACH){var f=1-dist/REACH,g=f*f*(3-2*f);ts+=g*2.2*STR}}
       for(var k=0;k<rings.length;k++){var R=rings[k],ddx=d.x-R.x,ddy=d.y-R.y,L=R.life||1.4,band=Math.abs(Math.sqrt(ddx*ddx+ddy*ddy)-R.t*(R.speed||900));
         if(band<70){var ff=1-band/70,fade=1-R.t/L;if(R.green)gg+=ff*ff*fade*1.4;else ts+=ff*ff*1.8*fade*STR}}
+      if(G>1){var gd=Math.hypot(d.x-ax,d.y-ay);if(gd<G){var gf=Math.min(1,(G-gd)/110);gf=gf*gf*(3-2*gf);gg=Math.max(gg,gf*.95);ts+=gf*.5*STR}}
       d.g+=(gg-d.g)*Math.min(1,dt*14);if(d.g>.01)busy=true;
       d.v=(d.v+(ts-d.s)*180*dt)*damp;d.s+=d.v*dt;if(Math.abs(ts-d.s)>.004||Math.abs(d.v)>.02)busy=true}
     draw();if(busy||rings.length)raf=requestAnimationFrame(step);else last=0}
@@ -1548,7 +1553,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   hero.addEventListener('pointerdown',function(e){if(still)return;var r=cv.getBoundingClientRect();rings.push({x:e.clientX-r.left,y:e.clientY-r.top,t:0});if(rings.length>4)rings.shift();wake()});
   var av=document.querySelector('.avail i'),avl=document.querySelector('.avail'),tm=0;
   function burst(){if(still||!av)return;var a=av.getBoundingClientRect(),r=cv.getBoundingClientRect();rings.push({x:a.left+a.width/2-r.left,y:a.top+a.height/2-r.top,t:0,green:true,speed:520,life:1.9});if(rings.length>6)rings.shift();wake()}
-  if(avl){avl.addEventListener('mouseenter',function(){burst();clearInterval(tm);tm=setInterval(burst,1100)});avl.addEventListener('mouseleave',function(){clearInterval(tm)})}
+  
   var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(build,150)});build();})();
 </script>
 <script>
