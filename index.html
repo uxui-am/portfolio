@@ -4,10 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Alina Matiushyna, UX/UI & Visual Designer. Product UI, websites, presentations and social creatives.">
+
 <title>Alina Matiushyna Portfolio</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;600;700&family=Onest:wght@300;400;600&family=Fraunces:ital,opsz,wght@1,9..144,400..700&family=Fustat:wght@400;600;700&display=swap">
@@ -473,6 +475,10 @@ a:hover .ar,.cover:hover .vc .ar,.more-btn:hover .ar{animation:arNE .55s cubic-b
 .peek{border-radius:6px;transform:translate(-50%,-50%) rotate(calc(var(--rot,-5deg) * 1.4)) scale(.86);box-shadow:0 24px 60px -20px rgba(16,17,20,.35)}
 .peek.on{transform:translate(-50%,-50%) rotate(var(--rot,-5deg)) scale(1)}
 .do .row:last-child{border-bottom:0}
+/* services: arrow stays black (rows will lead to filtered project pages later); bigger project pills */
+.do .row__go{color:var(--ink)}
+.do .row .pills{gap:8px}
+.do .row .pill{padding:9px 18px;font-size:clamp(14px,1vw,16px);line-height:1.25}
 /* final block: dark, request form on the left, direct contacts on the right (ref: ponomar.academy) */
 .contact--dark{background:var(--dark);color:#FFFFFF;text-align:left;align-items:stretch;justify-content:flex-start;gap:clamp(18px,3vh,32px);padding-top:clamp(40px,7vh,96px);padding-bottom:clamp(40px,7vh,96px);min-height:100vh;min-height:100svh}
 .contact--dark .head{border-bottom-color:var(--dark-line)}
@@ -686,7 +692,7 @@ a.crow:hover .crow__t{color:var(--accent)}
 .istat:first-child{grid-column:2/5;padding-left:0}
 .istat+.istat{border-left:1px solid var(--line)}
 .istat b{font-family:var(--text);font-weight:300;font-size:clamp(64px,min(7vw,13vh),128px);line-height:.85;letter-spacing:-.05em;color:var(--ink)}
-.istat b sup{font-size:.42em;font-weight:400;color:var(--accent);vertical-align:.95em;margin-left:.04em;letter-spacing:0}
+.istat b sup{font-size:.62em;font-weight:400;color:var(--accent);vertical-align:.6em;margin-left:.04em;letter-spacing:0}
 .istat span{font-size:clamp(14px,1vw,16px);color:#3F4147}
 .istat--word b{font-weight:400;font-size:clamp(48px,min(5vw,9vh),92px);letter-spacing:-.05em}
 .intro__btn{position:absolute;top:0;left:clamp(16px,2vw,40px);transform:translateY(-50%);display:grid;place-items:center;width:clamp(120px,9vw,168px);aspect-ratio:1;border-radius:50%;background:var(--ink);color:#FFFFFF;text-decoration:none;font:600 15px var(--display);text-transform:uppercase;transition:transform .35s cubic-bezier(.22,1,.36,1),background .25s}
@@ -756,6 +762,8 @@ a.crow:hover .crow__t{color:var(--accent)}
 .ab3__main .ab3__stats{flex:none;display:flex;flex-direction:column;gap:clamp(28px,4.5vh,58px)}
 .ab3__main .ab3__stats .istat b{font-size:clamp(64px,6vw,120px)}
 .ab3__main .ab3__stats .istat span{font-size:clamp(14px,.95vw,18px)}
+/* stat captions in the same caps style as kickers */
+.istat span,.ab3__main .ab3__stats .istat span{font-size:13px;line-height:1.3;letter-spacing:.03em;text-transform:uppercase;color:var(--muted)}
 @media (min-width:1600px){.ab3__main .ab3__stats{flex-direction:row;gap:clamp(56px,4vw,90px)}}
 @media (max-width:820px){.ab3__main{flex-direction:column;align-items:flex-start}.ab3__main .ab3__stats{flex-direction:row;gap:32px}}
 .ab3__t{font-size:clamp(36px,min(5.3vw,8.6vh),84px)}
@@ -792,8 +800,9 @@ a.crow:hover .crow__t{color:var(--accent)}
 .ab3__main .ab3__stats,.ab3__main .ab3__stats{flex-direction:column;align-items:flex-end;gap:clamp(32px,5.5vh,64px)}
 @media (min-width:1600px){.ab3__main .ab3__stats{flex-direction:column}}
 .ab3__pts{display:flex;flex:1 1 auto;width:auto;justify-content:flex-start;gap:clamp(40px,6.8vw,120px)}
-.ab3__pts .ipt{flex:0 1 25em;max-width:25em}
-.ab3__pts .ipt:last-child{max-width:25em}
+.ab3__pts .ipt{flex:0 1 27em;max-width:27em}
+.ab3__pts .ipt:last-child{max-width:27em}
+@media (min-width:821px) and (max-width:1599px){.ab3__pts{gap:clamp(24px,3vw,120px)}}
 @media (max-width:820px){.ab3__main .ab3__stats{flex-direction:row;align-items:flex-start}.ab3__pts{flex-direction:column;gap:20px}.ab3__pts .ipt,.ab3__pts .ipt:last-child{max-width:none;flex:none}}
 @media (max-width:1299px){.ab3__pts .brd{display:none}}
 @media (min-width:821px){.ab3__main{gap:clamp(32px,3vw,64px)}.ab3__main .ab3__stats{width:clamp(190px,15vw,300px);align-items:flex-start}}
@@ -1165,6 +1174,199 @@ a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!
 @media (min-width:821px){.case__t{min-height:calc(3.6em + 10px)}}
 /* titles on dark sections flip without the red */
 .projects .fl-ch.flip .fi,.contact--dark .fl-ch.flip .fi{animation:flIn .65s cubic-bezier(.65,0,.35,1) var(--fd,0ms) both!important}
+
+/* ===== /05 Get in touch v2: sentence form, red choices, outline icons, footer inside one screen ===== */
+.contact--dark{display:flex;flex-direction:column;min-height:100vh;min-height:100svh;padding-bottom:0!important}
+.cs-kick{display:flex;flex-wrap:wrap;gap:8px 28px;font-size:13px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted-2)}
+.cs-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#3DDC84;margin-right:8px;vertical-align:2px}
+.cs-grid{flex:1;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(40px,6vw,120px);align-items:start;align-content:center;padding:clamp(24px,5vh,64px) 0}
+.cs-mad{margin:0;max-width:920px;font:300 clamp(24px,min(2.9vw,5vh),44px)/1.6 var(--text);letter-spacing:-.015em;color:var(--muted-2)}
+.cs-in{font:inherit;font-weight:400;letter-spacing:inherit;color:#FFFFFF;background:transparent;border:0;border-bottom:1px solid var(--dark-line);border-radius:0;padding:0 .08em;line-height:1.15;width:6em;max-width:100%;outline:none;transition:border-color .2s}
+.cs-in::placeholder{color:#55575D}
+.cs-in:focus{border-bottom-color:#FFFFFF}
+.cs-opts{display:inline}
+.cs-opt{position:relative;cursor:pointer;display:inline-block}
+.cs-opt input{position:absolute;opacity:0;pointer-events:none}
+.cs-opt span{display:inline-block;font:400 .5em/1 var(--text);letter-spacing:0;vertical-align:.32em;padding:.6em 1.15em;border-radius:999px;background:rgba(255,255,255,.08);color:#D4D5D9;margin:0 .12em;transition:background .2s,color .2s}
+.cs-opt:hover span{background:rgba(255,255,255,.16);color:#FFFFFF}
+.cs-opt input:checked+span{background:var(--accent);color:#FFFFFF}
+.cs-opt input:focus-visible+span{outline:2px solid #FFFFFF;outline-offset:2px}
+.cs-dd{position:relative;display:inline-block}
+.cs-dd__btn{font:inherit;font-weight:400;letter-spacing:inherit;color:#FFFFFF;background:transparent;border:0;border-bottom:1px solid var(--dark-line);padding:0 .08em;line-height:1.15;cursor:pointer;display:inline-flex;align-items:center;gap:.3em;transition:border-color .2s}
+.cs-dd__btn.ph .cs-dd__val{color:#55575D}
+.cs-dd__btn[aria-expanded=true],.cs-dd__btn:hover{border-bottom-color:#FFFFFF}
+.cs-car{width:.55em;height:.55em;fill:none;stroke:var(--muted-2);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
+.cs-dd__btn[aria-expanded=true] .cs-car{transform:rotate(180deg)}
+.cs-pop{position:absolute;left:0;top:calc(100% + 14px);z-index:20;width:min(460px,86vw);background:var(--dark-2);border:1px solid var(--dark-line);border-radius:16px;padding:18px;box-shadow:0 24px 60px -20px rgba(0,0,0,.6);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .25s,visibility 0s .25s}
+.cs-pop{font-size:14px;line-height:1.2;letter-spacing:0;font-weight:400}
+.cs-pop .cs-opt span{font-size:14px!important}
+.cs-pop--sm{width:auto;white-space:nowrap;padding:12px}
+.cs-dd.open .cs-pop{opacity:1;visibility:visible;transform:none;transition:opacity .2s,transform .25s}
+.cs-pop small{display:block;font:400 12px var(--text);letter-spacing:.03em;text-transform:uppercase;color:var(--muted-2);margin-bottom:12px;line-height:1.2}
+.cs-chips{display:flex;flex-wrap:wrap;gap:8px}
+.cs-pop--sm .cs-chips{flex-wrap:nowrap}
+.cs-pop .cs-opt span{font-size:14px;vertical-align:0;margin:0;padding:8px 15px;line-height:1.2}
+.cs-send{margin-top:clamp(20px,4vh,44px);display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.cs-btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 26px;border:0;border-radius:999px;box-shadow:inset 0 0 0 1px #FFFFFF;background:transparent;color:#FFFFFF;font:500 15px var(--display);letter-spacing:.02em;text-transform:uppercase;cursor:pointer;transition:background .2s,box-shadow .2s}
+.cs-btn .ar{font-size:1.15em}
+.cs-btn:hover{background:var(--accent);box-shadow:none}
+.cs-note{margin:0;max-width:40ch;font-size:14px;line-height:1.4;color:var(--muted-2)}
+.cs-direct{align-self:start;display:flex;flex-direction:column;gap:14px;margin-top:calc(-27px + .3em)}
+.cs-lab{font-size:13px;line-height:13px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted-2)}
+.cs-icons{display:flex;gap:14px}
+.cs-ic{display:flex;flex-direction:column;align-items:center;gap:10px;font:400 12px var(--text);color:var(--muted-2);text-decoration:none;background:none;border:0;padding:0;cursor:pointer}
+.cs-ib{width:60px;height:60px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--dark-line);display:flex;align-items:center;justify-content:center;color:#FFFFFF;transition:box-shadow .2s}
+.cs-ib svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.cs-ic:hover .cs-ib{box-shadow:inset 0 0 0 1px #FFFFFF}
+.cs-ic:hover .cs-t,.cs-ic.done .cs-t{color:#FFFFFF}
+.cs-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:22px 0;border-top:1px solid var(--dark-line);font-size:13px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted-2)}
+.cs-foot nav{display:flex;gap:24px;flex-wrap:wrap}
+.cs-foot a{color:#FFFFFF;text-decoration:none}
+.cs-foot a:hover{color:var(--accent)}
+.cs-foot a:hover .ar-up{animation:arN .55s cubic-bezier(.22,1,.36,1)}
+@media (max-width:900px){
+  .cs-grid{grid-template-columns:minmax(0,1fr);align-items:start}
+  .cs-direct{margin-top:0}
+}
+@media (max-width:640px){
+  .cs-mad{font-size:24px;line-height:1.75}
+  .cs-opt span{font-size:15px}
+  .cs-pop{position:fixed;left:16px;right:16px;top:auto;bottom:16px;width:auto}
+  .cs-pop--sm .cs-chips{flex-wrap:wrap}
+  .cs-foot{flex-direction:column;align-items:flex-start;gap:12px}
+}
+
+
+/* /05 v3: bigger sentence, role + channel as pills, services pill opens a panel, big send, direct block at the same text size */
+.cs-grid{grid-template-columns:minmax(0,63fr) minmax(0,37fr);gap:clamp(32px,4vw,80px)}
+.cs-mad{max-width:none;font-size:clamp(26px,min(3.3vw,5.4vh),56px);line-height:1.62}
+.cs-opt span{font-size:.46em;vertical-align:.34em;padding:.62em 1.15em;margin:0 .1em}
+.cs-ddp{font:400 .46em/1 var(--text);letter-spacing:0;vertical-align:.34em;display:inline-flex;align-items:center;gap:.55em;padding:.62em 1em .62em 1.15em;margin:0 .1em;border:0;border-radius:999px;background:rgba(255,255,255,.08);color:#D4D5D9;cursor:pointer;transition:background .2s,color .2s}
+.cs-ddp:hover{background:rgba(255,255,255,.16);color:#FFFFFF}
+.cs-ddp.has{background:var(--accent);color:#FFFFFF}
+.cs-ddp .cs-car{width:1em;height:1em;stroke:currentColor}
+.cs-ddp[aria-expanded=true] .cs-car{transform:rotate(180deg)}
+.cs-ddp__val{max-width:22em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cs-panel{display:grid;grid-template-rows:0fr;opacity:0;margin-top:0;transition:grid-template-rows .35s cubic-bezier(.22,1,.36,1),opacity .25s,margin-top .35s}
+.cs-panel>*{overflow:hidden;min-height:0}
+.cs-panel.open{grid-template-rows:auto auto;opacity:1;margin-top:clamp(10px,1.6vh,18px)}
+.cs-panel__lab{font-size:12px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted-2);padding-bottom:10px}
+.cs-panel .cs-chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center;max-width:820px}
+.cs-panel .cs-opt span{font-size:15px;vertical-align:0;margin:0;padding:9px 16px;line-height:1.2}
+.cs-other{display:none;font:400 15px var(--text);color:#FFFFFF;background:transparent;border:0;border-bottom:1px solid var(--dark-line);padding:8px 2px;min-width:240px;outline:none}
+.cs-other:focus{border-bottom-color:#FFFFFF}
+.cs-other::placeholder{color:#6C6F76}
+.cs-panel.other .cs-other{display:inline-block}
+.cs-send{margin-top:clamp(20px,4vh,48px)}
+.cs-btn{height:68px;padding:0 40px;font-size:18px;gap:12px}
+.cs-direct{justify-self:center;margin-top:1.62em;font-size:clamp(26px,min(3.3vw,5.4vh),56px);gap:.5em}
+.cs-lab{font:300 1em/1.25 var(--text);letter-spacing:-.015em;text-transform:none;color:var(--muted-2)}
+.cs-icons{gap:clamp(12px,1.2vw,20px)}
+.cs-ib{width:clamp(60px,5.2vw,84px);height:clamp(60px,5.2vw,84px)}
+.cs-ib svg{width:34%;height:34%}
+.cs-ic{font-size:13px}
+
+/* /05 v3b: same voice as the About statement (Onest + Fraunces italics, same size), fits one screen */
+.cs-mad,.cs-direct{font-size:clamp(28px,min(calc(4.375vw - 15px),6.4vh),72px)}
+.cs-mad{font-weight:400;line-height:1.34;letter-spacing:-.04em;color:#FFFFFF}
+.cs-mad .it,.cs-lab .it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.02em}
+.cs-in,.cs-dd__btn{font-weight:400}
+.cs-in::placeholder{color:#5D5F66}
+.cs-opt span,.cs-ddp{font-size:.4em;letter-spacing:0;vertical-align:.38em}
+.cs-lab{font-weight:400;line-height:1.1;letter-spacing:-.04em;color:#FFFFFF}
+.cs-direct{margin-top:1.34em;gap:.45em}
+.cs-grid{padding:clamp(16px,3vh,48px) 0}
+.cs-send{margin-top:clamp(16px,3vh,40px)}
+.cs-nw{white-space:nowrap}
+.cs-panel{display:none;opacity:1;margin-top:clamp(10px,1.6vh,18px)}
+.cs-panel.open{display:block;animation:csDrop .35s cubic-bezier(.22,1,.36,1)}
+.cs-panel>*{overflow:visible}
+.cs-panel__lab{display:block}
+@keyframes csDrop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.cs-dd{position:relative}
+.cs-panel{position:absolute;left:0;top:calc(100% + 10px);z-index:30;width:min(520px,80vw);margin:0;padding:18px;background:var(--dark-2);border:1px solid var(--dark-line);border-radius:16px;box-shadow:0 24px 60px -20px rgba(0,0,0,.6);font:400 15px/1.2 var(--text);letter-spacing:0;white-space:normal}
+.cs-panel .cs-chips{max-width:none}
+@media (max-width:640px){.cs-panel{position:fixed;left:16px;right:16px;top:auto;bottom:16px;width:auto}}
+/* /05 v4: choices look like selected text; hover/click opens the options right under them */
+.cs-sel{position:relative;display:inline-block}
+.cs-sel__btn{font:inherit;letter-spacing:inherit;color:#FFFFFF;background:rgba(255,255,255,.14);border:0;border-radius:2px;padding:0 .14em;margin:0 .02em;line-height:1.12;cursor:pointer;transition:background .2s}
+.cs-sel__btn:hover,.cs-sel.open .cs-sel__btn{background:rgba(255,255,255,.24)}
+.cs-sel__btn.ph{color:#8E9097}
+.cs-sel__btn:focus-visible{outline:2px solid #FFFFFF;outline-offset:2px}
+.cs-menu{position:absolute;left:0;top:100%;z-index:30;display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:12px 0 0;font:400 clamp(16px,1.25vw,20px)/1.2 var(--text);letter-spacing:-.01em;white-space:nowrap;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .25s cubic-bezier(.22,1,.36,1),visibility 0s .25s}
+.cs-sel[data-kind=checkbox] .cs-menu{white-space:normal;width:min(560px,80vw)}
+.cs-sel.open .cs-menu{opacity:1;visibility:visible;transform:none;transition:opacity .2s,transform .25s cubic-bezier(.22,1,.36,1)}
+.cs-menu::before{content:"";position:absolute;inset:4px -14px -14px;z-index:-1;background:var(--dark-2);border:1px solid var(--dark-line);border-radius:12px;box-shadow:0 24px 60px -20px rgba(0,0,0,.6)}
+.cs-menu{padding:18px 0 0}
+.cs-o{position:relative;cursor:pointer}
+.cs-o input{position:absolute;opacity:0;pointer-events:none}
+.cs-o span{display:inline-block;padding:6px 10px;border-radius:2px;color:#D4D5D9;transition:background .15s,color .15s}
+.cs-o:hover span{color:#FFFFFF;background:rgba(255,255,255,.08)}
+.cs-o input:checked+span{color:#FFFFFF;background:rgba(255,255,255,.18)}
+.cs-o input:focus-visible+span{outline:2px solid #FFFFFF;outline-offset:1px}
+.cs-other{display:none;font:inherit;color:#FFFFFF;background:transparent;border:0;border-bottom:1px solid var(--dark-line);padding:6px 2px;min-width:220px;outline:none}
+.cs-sel.other .cs-other{display:inline-block}
+/* send: red from the start */
+.cs-btn{background:var(--accent);box-shadow:none}
+.cs-btn:hover{background:#FFFFFF;color:var(--ink)}
+/* direct block: same text size, two lines, label top on the "I'm looking for" line */
+.cs-direct{margin-top:var(--cs-dt,1.4em)}
+.cs-lab{line-height:1.1}
+.cs-ib{width:clamp(64px,5.6vw,92px);height:clamp(64px,5.6vw,92px)}
+.cs-ib svg{width:36%;height:36%}
+.cs-t{font:400 13px var(--text);letter-spacing:.03em;text-transform:uppercase;color:var(--muted-2)}
+/* footer: copyright and back to top in one quiet style */
+.cs-foot a{color:var(--muted-2)}
+.cs-foot a:hover{color:#FFFFFF}
+@media (max-width:640px){.cs-menu{font-size:16px}.cs-direct{margin-top:0}}
+/* /05 v5: choices look like the name field (underline + chevron); filled values in italic; calmer text */
+.cs-mad{color:#C4C6CB}
+.cs-sel__btn{background:transparent!important;border:0;border-bottom:1px solid var(--dark-line);border-radius:0;padding:0 .08em;margin:0;display:inline-flex;align-items:center;gap:.28em;color:#FFFFFF;line-height:1.15}
+.cs-sel__btn:hover,.cs-sel.open .cs-sel__btn{border-bottom-color:#FFFFFF}
+.cs-sel__btn .cs-car{width:.42em;height:.42em;fill:none;stroke:var(--muted-2);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
+.cs-sel.open .cs-car{transform:rotate(180deg)}
+.cs-sel__btn.ph{color:#5D5F66}
+.cs-sel__btn:not(.ph) .cs-sel__val,.cs-in:not(:placeholder-shown){font-family:var(--serif);font-style:italic;letter-spacing:-.02em;color:#FFFFFF}
+.cs-lab{color:#7A7C83}
+.cs-ib{background:rgba(255,255,255,.09);box-shadow:none}
+.cs-ic:hover .cs-ib{background:rgba(255,255,255,.18);box-shadow:none}
+.cs-send{margin-top:clamp(40px,8.9vh,96px)}
+.cs-tok{white-space:nowrap}
+.cs-x{display:inline-block;font:400 .42em/1 var(--text);font-style:normal;letter-spacing:0;vertical-align:.55em;margin:0 .1em 0 .18em;padding:.15em .3em;border-radius:2px;color:var(--muted-2);cursor:pointer;transition:color .15s,background .15s}
+.cs-x:hover,.cs-x:focus-visible{color:#FFFFFF;background:rgba(255,255,255,.14);outline:none}
+.cs-sel[data-kind=checkbox]{display:inline}
+.cs-sel[data-kind=checkbox] .cs-sel__btn{display:inline;text-align:left;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.cs-sel[data-kind=checkbox] .cs-sel__btn .cs-car{display:inline-block;vertical-align:.1em;margin-left:.25em}
+.cs-sel__btn.ph{white-space:nowrap}
+.cs-ib{background:rgba(255,255,255,.05)}
+.cs-ic:hover .cs-ib{background:rgba(255,255,255,.12)}
+/* italic only for the client's name and the chosen services */
+.cs-sel__btn:not(.ph) .cs-sel__val,.cs-in:not(:placeholder-shown){font-family:var(--text);font-style:normal;letter-spacing:inherit}
+#cs-name:not(:placeholder-shown),.cs-sel[data-kind=checkbox] .cs-sel__btn:not(.ph) .cs-sel__val{font-family:var(--serif);font-style:italic;letter-spacing:-.02em}
+/* direct block spans the sentence: label on the first line, icon labels end on the last field line */
+.cs-direct{justify-content:space-between}
+.cs-lab{font-size:.667em;white-space:nowrap;line-height:1.2;letter-spacing:-.03em}
+.cs-sel[data-kind=radio] .cs-menu{flex-wrap:nowrap;width:max-content}
+.cs-br1{display:none}
+@media (min-width:901px){.cs-br1{display:inline}}
+@media (min-width:901px){.cs-direct{justify-self:start;margin-left:3.7vw;margin-right:0}}
+/* icons row as wide as the "Or write to me directly" line */
+.cs-direct{width:max-content}
+.cs-icons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.25vw,24px);width:0;min-width:100%}
+.cs-ic{width:100%}
+.cs-ib{width:100%;height:auto;aspect-ratio:1}
+.cs-ib svg{width:32%;height:32%}
+.cs-br{display:none}
+@media (max-width:900px){
+  .cs-grid{grid-template-columns:minmax(0,1fr)}
+  .cs-direct{justify-self:start;margin-top:0}
+}
+@media (max-width:640px){
+  .cs-mad,.cs-direct{font-size:26px}
+  .cs-opt span,.cs-ddp{font-size:15px}
+  .cs-btn{height:60px;padding:0 32px;font-size:16px}
+}
+
 </style>
 
 <script>
@@ -1212,7 +1414,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
     </div>
   </div>
   <div class="ab3__foot" data-r style="--d:.3s">
-    <div class="ab3__pts"><div class="ipt"><b>Visual craft</b><p>My background in graphic design informs everything I make — from typography and layout to the details that give a design its character.</p></div><div class="ipt"><b>AI in the workflow</b><p>I use AI throughout my design process — to explore ideas, experiment with visuals, build prototypes, and automate repetitive tasks.</p></div><div class="ipt"><b>End to end</b><p>I work across the full design process,<br class="brd"> connecting the initial idea with the details<br class="brd"> that bring it to life.</p></div></div>
+    <div class="ab3__pts"><div class="ipt"><b>Visual craft</b><p>My background in graphic design informs<br class="brd"> everything I make — from typography and layout<br class="brd"> to the details that give a design its character.</p></div><div class="ipt"><b>AI in the workflow</b><p>I use AI throughout my design process — to<br class="brd"> explore ideas, experiment with visuals, build<br class="brd"> prototypes, and automate repetitive tasks.</p></div><div class="ipt"><b>End to end</b><p>I work across the full design process,<br class="brd"> connecting the initial idea with the details<br class="brd"> that bring it to life.</p></div></div>
     <a class="tk-btn hero-cv ab3__cv cvb" href="Alina-Matiushyna-CV.pdf" target="_blank" rel="noopener">CV <svg class="dl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10.5 5 5 5-5"/><path d="M5 20h14"/></svg></a>
   </div>
 </section>
@@ -1451,10 +1653,10 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
     <span class="head__n" data-r style="--d:.25s">/04</span>
   </div>
   <div class="rows">
-    <div class="row" data-img="img/works/w38.jpg"><span class="row__n">01</span><div class="row__txt"><div class="row__t">Product UI<span class="row__ar ar" aria-hidden="true">↗</span></div><div class="row__d">Interfaces, flows and prototypes for one product over time</div></div><div class="pills"><span class="pill pill--light">Qvocab</span><span class="pill pill--light">Whinder</span><span class="pill pill--light">Petfood</span></div><span class="row__go ar" aria-hidden="true">↗</span></div>
-    <div class="row" data-img="img/peek-breeze.jpg" data-rot="5"><span class="row__n">02</span><div class="row__txt"><div class="row__t">Websites<span class="row__ar ar" aria-hidden="true">↗</span></div><div class="row__d">From structure and visuals to a working site built with AI tools</div></div><div class="pills"><span class="pill pill--light">Breeze</span><span class="pill pill--light">HoSS</span><span class="pill pill--light">Kordie</span></div><span class="row__go ar" aria-hidden="true">↗</span></div>
-    <div class="row" data-img="img/peek-presentations.jpg" data-rot="-5"><span class="row__n">03</span><div class="row__txt"><div class="row__t">Presentations<span class="row__ar ar" aria-hidden="true">↗</span></div><div class="row__d">Decks, banners and ads in the same visual language as the product</div></div><div class="pills"><span class="pill pill--light">HoSS</span><span class="pill pill--light">Kordie</span></div><span class="row__go ar" aria-hidden="true">↗</span></div>
-    <div class="row" data-img="img/works/w60.jpg" data-rot="5"><span class="row__n">04</span><div class="row__txt"><div class="row__t">Social creatives<span class="row__ar ar" aria-hidden="true">↗</span></div><div class="row__d">Ad creatives and social media banners, including AI-generated visuals</div></div><div class="pills"><span class="pill pill--light">Kordie</span></div><span class="row__go ar" aria-hidden="true">↗</span></div>
+    <div class="row" data-img="img/works/w38.jpg"><span class="row__n">01</span><div class="row__txt"><div class="row__t">Product UI<span class="row__ar ar" aria-hidden="true">↗</span></div><div class="row__d">Interfaces, flows and prototypes for one product over time</div></div><div class="pills"><span class="pill pill--light">Qvocab</span><span class="pill pill--light">Whinder</span><span class="pill pill--light">TIS</span><span class="pill pill--light">E-Spaces XR</span><span class="pill pill--light">Petfood</span></div><span class="row__go ar" aria-hidden="true">↗</span></div>
+    <div class="row" data-img="img/peek-breeze.jpg" data-rot="5"><span class="row__n">02</span><div class="row__txt"><div class="row__t">Websites<span class="row__ar ar" aria-hidden="true">↗</span></div><div class="row__d">From structure and visuals to a working site built with AI tools</div></div><div class="pills"><span class="pill pill--light">Breeze</span><span class="pill pill--light">HoSS</span><span class="pill pill--light">Kordie</span><span class="pill pill--light">Virtual Moon</span><span class="pill pill--light">E100</span></div><span class="row__go ar" aria-hidden="true">↗</span></div>
+    <div class="row" data-img="img/peek-presentations.jpg" data-rot="-5"><span class="row__n">03</span><div class="row__txt"><div class="row__t">Presentations<span class="row__ar ar" aria-hidden="true">↗</span></div><div class="row__d">Decks, banners and ads in the same visual language as the product</div></div><div class="pills"><span class="pill pill--light">HoSS</span><span class="pill pill--light">Kordie</span><span class="pill pill--light">Praxis</span><span class="pill pill--light">Cetis</span></div><span class="row__go ar" aria-hidden="true">↗</span></div>
+    <div class="row" data-img="img/works/w60.jpg" data-rot="5"><span class="row__n">04</span><div class="row__txt"><div class="row__t">Social creatives<span class="row__ar ar" aria-hidden="true">↗</span></div><div class="row__d">Ad creatives and social media banners, including AI-generated visuals</div></div><div class="pills"><span class="pill pill--light">Kordie</span><span class="pill pill--light">HoSS</span><span class="pill pill--light">E100</span></div><span class="row__go ar" aria-hidden="true">↗</span></div>
   </div>
 </section>
 
@@ -1472,42 +1674,29 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
     <h2 class="head__t" data-r="wipe">Get in touch</h2>
     <span class="head__n" data-r style="--d:.25s">/05</span>
   </div>
-  <div class="kicker" data-r style="--d:.3s">Open to a full-time role or a long-term contract · I speak English, Ukrainian and Russian</div>
-  <div class="cgrid">
-    <form class="cform" novalidate>
-      <div class="crow2"><div class="cfield"><label for="cf-name">Your name</label><input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Name"></div><div class="cfield"><label for="cf-contact">Your contact</label><input id="cf-contact" name="contact" type="text" placeholder="@username, phone or e-mail"></div></div>
-      <div class="cfield">
-        <span class="clab">How should I contact you?</span>
-        <div class="chips" role="radiogroup"><label class="chip"><input type="radio" name="via" value="Telegram"><span>Telegram</span></label><label class="chip"><input type="radio" name="via" value="WhatsApp"><span>WhatsApp</span></label><label class="chip"><input type="radio" name="via" value="Instagram"><span>Instagram</span></label><label class="chip"><input type="radio" name="via" value="Email"><span>Email</span></label></div>
-      </div>
-      <div class="cfield">
-        <span class="clab">What do you need?</span>
-        <div class="chips"><label class="chip"><input type="checkbox" name="need" value="Full-time role"><span>Full-time role</span></label><label class="chip"><input type="checkbox" name="need" value="Long-term contract"><span>Long-term contract</span></label><label class="chip"><input type="checkbox" name="need" value="Product UI"><span>Product UI</span></label><label class="chip"><input type="checkbox" name="need" value="Website"><span>Website</span></label><label class="chip"><input type="checkbox" name="need" value="Presentations"><span>Presentations</span></label><label class="chip"><input type="checkbox" name="need" value="Social creatives"><span>Social creatives</span></label></div>
-      </div>
-      <div class="cfield">
-        <span class="clab">Budget</span>
-        <div class="chips" role="radiogroup"><label class="chip"><input type="radio" name="budget" value="Under €1,000"><span>Under €1,000</span></label><label class="chip"><input type="radio" name="budget" value="€1,000–2,500"><span>€1,000–2,500</span></label><label class="chip"><input type="radio" name="budget" value="€2,500–5,000"><span>€2,500–5,000</span></label><label class="chip"><input type="radio" name="budget" value="€5,000+"><span>€5,000+</span></label><label class="chip"><input type="radio" name="budget" value="Not sure yet"><span>Not sure yet</span></label></div>
-      </div>
-      <div class="cfield"><label for="cf-msg">About the project</label><textarea id="cf-msg" name="msg" rows="1" placeholder="Product, task, timing — whatever you already know"></textarea></div>
-      <div class="csend"><button type="submit" class="send-btn"><span>Send request</span><span class="ar">↗</span></button><p class="cnote" aria-live="polite"></p></div>
+  <div class="cs-kick" data-r style="--d:.3s"><span><i class="cs-dot" aria-hidden="true"></i>Open to a full-time remote role or freelance projects</span><span>I speak English, Ukrainian and Russian</span></div>
+  <div class="cs-grid">
+    <form class="cs-form" novalidate>
+      <p class="cs-mad">Hi Alina, my name is <span class="cs-nw"><input class="cs-in" id="cs-name" name="name" type="text" autocomplete="name" placeholder="your name" aria-label="Your name">.</span><br class="cs-br1"> I&rsquo;m looking for a <span class="cs-sel" data-kind="radio" data-ph="work type"><span class="cs-sel__btn ph" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true"><span class="cs-sel__val">work type</span><svg class="cs-car" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span><span class="cs-menu" role="group" aria-label="Type of work"><label class="cs-o"><input type="radio" name="role" value="full-time"><span>full-time</span></label><label class="cs-o"><input type="radio" name="role" value="part-time"><span>part-time</span></label><label class="cs-o"><input type="radio" name="role" value="freelance"><span>freelance</span></label></span></span> designer to help with <span class="cs-sel" data-kind="checkbox"><span class="cs-sel__btn" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true"><span class="cs-sel__val">service</span><svg class="cs-car" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span><span class="cs-menu" role="group" aria-label="Services"><label class="cs-o"><input type="checkbox" name="need" value="product UI"><span>Product UI</span></label><label class="cs-o"><input type="checkbox" name="need" value="websites"><span>Websites</span></label><label class="cs-o"><input type="checkbox" name="need" value="landing pages"><span>Landing pages</span></label><label class="cs-o"><input type="checkbox" name="need" value="presentations"><span>Presentations</span></label><label class="cs-o"><input type="checkbox" name="need" value="social media carousels"><span>Social media carousels</span></label><label class="cs-o"><input type="checkbox" name="need" value="ad creatives"><span>Ad creatives</span></label><label class="cs-o"><input type="checkbox" name="need" value="branding"><span>Branding</span></label><label class="cs-o"><input type="checkbox" name="need" value="other" data-other><span>Other…</span></label><input class="cs-other" name="other_text" type="text" placeholder="Tell me what you need" aria-label="Other service"></span></span>. You can reach me on <span class="cs-sel" data-kind="radio" data-ph="messenger"><span class="cs-sel__btn" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true"><span class="cs-sel__val">messenger</span><svg class="cs-car" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span><span class="cs-menu" role="group" aria-label="Channel"><label class="cs-o"><input type="radio" name="via" value="Email" data-ph="your e-mail"><span>Email</span></label><label class="cs-o"><input type="radio" name="via" value="Telegram" data-ph="@username"><span>Telegram</span></label><label class="cs-o"><input type="radio" name="via" value="WhatsApp" data-ph="phone number"><span>WhatsApp</span></label></span></span> <span class="cs-nw">at <input class="cs-in" id="cs-contact" name="contact" type="text" autocomplete="email" placeholder="your contact" aria-label="Your contact">.</span></p>
+      <div class="cs-send"><button type="submit" class="cs-btn">Send request <span class="ar">↗</span></button><p class="cs-note" aria-live="polite"></p></div>
     </form>
-    <aside class="cdirect">
-      <span class="clab">Or directly</span>
-      <a class="crow" href="https://t.me/alinamatiushyna" target="_blank" rel="noopener"><span class="crow__t">Telegram</span><span class="crow__s">@alinamatiushyna <span class="ar">↗</span></span></a>
-      <div class="crow crow--todo"><span class="crow__t">WhatsApp</span><span class="crow__s">—</span></div>
-      <div class="crow crow--todo"><span class="crow__t">Instagram</span><span class="crow__s">—</span></div>
-      <div class="crow"><span class="crow__t">Email</span><span class="crow__s"><span class="mail__a">dismalina@gmail.com</span> <button type="button" class="mail__copy">Copy</button></span></div>
+    <aside class="cs-direct">
+      <span class="cs-lab">Or write to me directly</span>
+      <div class="cs-icons">
+        <a class="cs-ic" href="https://t.me/alinamatiushyna" target="_blank" rel="noopener" aria-label="Telegram"><span class="cs-ib"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 4.5 3 11.3l5.8 2.1L17.5 7.6l-6.6 7.1.3 5.6 3.1-3.9 4.2 3.1z" transform="translate(-1 -.2)"/></svg></span><span class="cs-t">Telegram</span></a>
+        <a class="cs-ic" href="https://wa.me/380674860219" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="cs-ib"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2a8.5 8.5 0 1 1 3.1 3z"/><path d="M9 8.3c.2-.4.5-.4.8-.4l.6 1.4c.1.2 0 .4-.1.6l-.5.6c.6 1.2 1.5 2.1 2.7 2.7l.6-.5c.2-.1.4-.2.6-.1l1.4.6c0 .3 0 .6-.4.8-.6.5-1.4.6-2.2.3a8 8 0 0 1-3.8-3.8c-.3-.8-.2-1.6.3-2.2z"/></svg></span><span class="cs-t">WhatsApp</span></a>
+        <button type="button" class="cs-ic cs-mailcopy" data-mail="dismalina@gmail.com" aria-label="Copy e-mail address"><span class="cs-ib"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg></span><span class="cs-t">Email</span></button>
+      </div>
     </aside>
   </div>
+  <footer class="cs-foot">
+    <span>© 2026 Alina Matiushyna</span>
+    <a href="#">Back to top <span class="ar ar-up">↑</span></a>
+  </footer>
 </section>
 </main>
 <a class="talk" href="#contact">Let’s talk</a>
 
-<footer class="foot wrap">
-  <a href="#">Back to top <span class="ar ar-up">↑</span></a>
-  <nav aria-label="Social"><a href="https://dribbble.com/AlinaMatiushyna" target="_blank" rel="noopener">Dribbble <span class="ar">↗</span></a><a href="https://www.behance.net/AlinaMatiyushyna" target="_blank" rel="noopener">Behance <span class="ar">↗</span></a><a href="https://linkedin.com/in/am-uix/" target="_blank" rel="noopener">LinkedIn <span class="ar">↗</span></a><a href="https://t.me/alinamatiushyna" target="_blank" rel="noopener">Telegram <span class="ar">↗</span></a></nav>
-  <span>© 2026 Alina Matiushyna</span>
-</footer>
 
 <script>
 (function(){
@@ -1572,6 +1761,50 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 // More: slide the latest-projects row to reveal the 4th card, and back
 (function(){var s=document.querySelector('.projects'),b=s&&s.querySelector('.more-btn');if(!b)return;
   b.addEventListener('click',function(){var on=s.classList.toggle('shifted');b.setAttribute('aria-expanded',on);b.querySelector('.more-btn__t').textContent=on?'Back':'More';b.querySelector('.ar').textContent=on?'←':'→';b.setAttribute('data-ar',on?'←':'→');});})();
+</script>
+<script>
+// /05 sentence form: inputs grow with text; choices open on hover (desktop) or tap; copy e-mail; compose request into e-mail
+(function(){var f=document.querySelector('.cs-form');if(!f)return;
+  var meas=document.createElement('span');meas.style.cssText='position:absolute;visibility:hidden;white-space:pre;left:-9999px;top:0';document.body.appendChild(meas);
+  function grow(el){var cs=getComputedStyle(el);meas.style.font=cs.font;meas.style.letterSpacing=cs.letterSpacing;meas.textContent=el.value||el.placeholder;el.style.width=Math.ceil(meas.getBoundingClientRect().width+parseFloat(cs.fontSize)*.3)+'px'}
+  var ins=[].slice.call(f.querySelectorAll('.cs-in'));ins.forEach(function(el){el.addEventListener('input',function(){grow(el);align()});grow(el)});
+  var contact=f.querySelector('#cs-contact'),hover=matchMedia('(hover:hover)').matches;
+  var sels=[].slice.call(f.querySelectorAll('.cs-sel'));
+  function setOpen(s,o){if(!o)s.pinned=false;s.classList.toggle('open',o);s.querySelector('.cs-sel__btn').setAttribute('aria-expanded',o?'true':'false')}
+  sels.forEach(function(s){var btn=s.querySelector('.cs-sel__btn'),val=s.querySelector('.cs-sel__val'),multi=s.getAttribute('data-kind')==='checkbox',other=s.querySelector('[data-other]'),otherT=s.querySelector('.cs-other'),t=null;
+    function upd(){var c=[].slice.call(s.querySelectorAll('input:checked'));
+      if(multi){var v=c.filter(function(i){return !i.hasAttribute('data-other')}).map(function(i){return {t:i.value,i:i}});if(other&&other.checked)v.push({t:(otherT.value||'').trim()||'something else',i:other});val.textContent='';if(!v.length)val.textContent='service';v.forEach(function(o,k){var tok=document.createElement('span');tok.className='cs-tok';tok.appendChild(document.createTextNode(o.t));var x=document.createElement('span');x.className='cs-x';x.setAttribute('role','button');x.setAttribute('tabindex','0');x.setAttribute('aria-label','Remove '+o.t);x.textContent='×';x.__inp=o.i;tok.appendChild(x);val.appendChild(tok);if(k<v.length-1)val.appendChild(document.createTextNode(', '))});btn.classList.toggle('ph',!v.length);s.classList.toggle('other',!!(other&&other.checked))}
+      else if(!c[0]){var d=s.getAttribute('data-ph')||'';if(d){val.textContent=d;btn.classList.add('ph')}}else if(c[0]){btn.classList.remove('ph');val.textContent=c[0].value;var ph=c[0].getAttribute('data-ph');if(ph){contact.placeholder=ph;contact.autocomplete=c[0].value==='Email'?'email':(c[0].value==='WhatsApp'?'tel':'off');grow(contact)}}}
+    function rm(x){x.__inp.checked=false;x.__inp.dispatchEvent(new Event('change',{bubbles:true}))}
+    btn.addEventListener('keydown',function(e){if(e.key!=='Enter'&&e.key!==' ')return;e.preventDefault();e.stopPropagation();var x=e.target.closest&&e.target.closest('.cs-x');if(x){rm(x);return}var o=!s.classList.contains('open');sels.forEach(function(y){if(y!==s)setOpen(y,false)});setOpen(s,o)});
+    btn.addEventListener('click',function(e){e.stopPropagation();var x=e.target.closest('.cs-x');if(x){rm(x);return}var o=!s.classList.contains('open');sels.forEach(function(x){if(x!==s)setOpen(x,false)});setOpen(s,o)});
+    if(hover){s.addEventListener('mouseenter',function(){clearTimeout(t);sels.forEach(function(x){if(x!==s)setOpen(x,false)});setOpen(s,true)});
+      s.addEventListener('mouseleave',function(){if(s.pinned)return;if(s.contains(document.activeElement)&&document.activeElement.classList.contains('cs-other'))return;t=setTimeout(function(){setOpen(s,false)},250)})}
+    s.querySelector('.cs-menu').addEventListener('click',function(e){e.stopPropagation()});
+    [].forEach.call(s.querySelectorAll('input[type=radio],input[type=checkbox]'),function(i){i.addEventListener('change',function(){upd();if(multi)s.pinned=true;if(!multi){setOpen(s,false);if(s.contains(contact)===false&&i.getAttribute('data-ph'))contact.focus()}if(i===other&&other.checked)otherT.focus()})});
+    if(otherT)otherT.addEventListener('input',function(){upd();align()});
+    s.addEventListener('change',function(){align()});upd();});
+  document.addEventListener('click',function(){sels.forEach(function(x){setOpen(x,false)})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')sels.forEach(function(x){setOpen(x,false)})});
+  // direct block: put its label on the second line of the sentence
+  var mad=f.querySelector('.cs-mad'),dir=document.querySelector('.cs-direct');
+  function align(){if(!dir)return;if(innerWidth<=900){dir.style.removeProperty('--cs-dt');dir.style.height='';return}dir.style.setProperty('--cs-dt','0px');
+    var r=document.createRange(),txt=null,w=document.createTreeWalker(mad,NodeFilter.SHOW_TEXT),n;while((n=w.nextNode())){var k=n.data.search(/\S/);if(k>=0){r.setStart(n,k);r.setEnd(n,k+1);txt=r.getBoundingClientRect();break}}
+    var lab=dir.querySelector('.cs-lab');var lr=document.createRange();lr.setStart(lab.firstChild,0);lr.setEnd(lab.firstChild,1);var lt=lr.getBoundingClientRect();
+    if(txt)dir.style.setProperty('--cs-dt',Math.round((txt.top+txt.bottom)/2-(lt.top+lt.bottom)/2)+'px');dir.style.height='';var last=f.querySelector('#cs-contact').getBoundingClientRect(),dt=dir.getBoundingClientRect();var hh=Math.round(last.bottom-parseFloat(getComputedStyle(mad).fontSize)*.31-dt.top);if(hh>dt.height)dir.style.height=hh+'px'}
+  function all(){ins.forEach(grow);align()}
+  addEventListener('resize',all);addEventListener('load',all);if(document.fonts)document.fonts.ready.then(all);setTimeout(all,300);
+  var note=f.querySelector('.cs-note');
+  f.addEventListener('submit',function(e){e.preventDefault();var d=new FormData(f);
+    if(!(d.get('contact')||'').trim()){note.textContent='Please add a contact so I can reply.';contact.focus();return}
+    var need=d.getAll('need').filter(function(x){return x!=='other'});if(d.getAll('need').indexOf('other')>=0)need.push((d.get('other_text')||'').trim()||'something else');
+    var t='Hi Alina, my name is '+(d.get('name')||'-')+'. I\'m looking for a '+(d.get('role')||'')+' designer to help with '+(need.join(', ')||'-')+'. You can reach me on '+d.get('via')+' at '+d.get('contact')+'.';
+    try{navigator.clipboard.writeText(t)}catch(err){}
+    location.href='mailto:dismalina@gmail.com?subject='+encodeURIComponent('Portfolio request')+'&body='+encodeURIComponent(t);
+    note.textContent='Your e-mail app should open with the request filled in. If it did not, the text is copied: send it to dismalina@gmail.com or on Telegram.';});
+  var mc=document.querySelector('.cs-mailcopy');if(mc){var lab=mc.querySelector('.cs-t');mc.addEventListener('click',function(){var a=mc.getAttribute('data-mail');function done(m){lab.textContent=m;mc.classList.add('done');setTimeout(function(){lab.textContent='Email';mc.classList.remove('done')},1800)}
+    try{navigator.clipboard.writeText(a).then(function(){done('Copied')},function(){done(a)})}catch(e){done(a)}})}
+})();
 </script>
 <script>
 // copy the e-mail address; fall back to selecting it
