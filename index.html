@@ -935,6 +935,15 @@ html.dotcur input,html.dotcur textarea,html.dotcur [contenteditable]{cursor:text
 .hero-git{background:var(--accent);color:#FFFFFF;box-shadow:none}
 .hero-git:hover{background:var(--ink);color:#FFFFFF}
 @media (max-width:820px){.hero .hero-acts .tk-btn{height:46px;padding:0 20px}}
+/* corners: black CV left, red Get in touch right, no outlines on hover */
+.hero .hero-acts{justify-content:space-between}
+.hero .hero-cv,.hero a.cvb.hero-cv{background:var(--ink);color:#FFFFFF;box-shadow:none}
+.hero .hero-cv:hover,.hero a.cvb.hero-cv:hover{background:#2B2D33;color:#FFFFFF;box-shadow:none}
+.hero .hero-git,.hero .hero-git:hover{box-shadow:none}
+.hero .hero-git:hover{background:#B8121F;color:#FFFFFF}
+.hero .hero-acts .tk-btn:focus{outline:none}
+.hero .hero-acts .tk-btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+@media (max-width:820px){.hero .hero-cv,.hero a.cvb.hero-cv{background:var(--ink)}}
 </style>
 
 <script>
@@ -1441,10 +1450,12 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(build,150)});build();})();
 </script>
 <script>
-// CV button sits exactly halfway between the bottom of "portfolio" and the bottom of the first screen
-(function(){var hero=document.querySelector('.hero'),w=document.querySelector('.hero__word'),b=document.querySelector('.hero .hero-acts');if(!hero||!w||!b)return;
-  function place(){var p=b.offsetParent||hero,pr=p.getBoundingClientRect(),hr=hero.getBoundingClientRect(),wr=w.getBoundingClientRect();
-    b.style.top=Math.round((wr.bottom+hr.bottom)/2-pr.top-b.offsetHeight/2)+'px';b.style.left=Math.round((hr.left+hr.right)/2-pr.left-b.offsetWidth/2)+'px'}
+// hero actions: CV in the bottom-left corner, Get in touch in the bottom-right corner of the first screen
+(function(){var hero=document.querySelector('.hero'),b=document.querySelector('.hero .hero-acts'),inn=document.querySelector('.hero__in');if(!hero||!b||!inn)return;
+  function place(){var p=b.offsetParent||hero,pr=p.getBoundingClientRect(),hr=hero.getBoundingClientRect();
+    var g=parseFloat(getComputedStyle(inn).paddingLeft)||24,bot=Math.max(24,Math.round(innerHeight*.045));
+    b.style.left=Math.round(hr.left+g-pr.left)+'px';b.style.width=Math.round(hr.width-2*g)+'px';
+    b.style.top=Math.round(hr.bottom-bot-b.offsetHeight-pr.top)+'px'}
   place();addEventListener('resize',place);addEventListener('load',place);if(document.fonts)document.fonts.ready.then(place);setTimeout(place,1500);})();
 </script>
 </body>
