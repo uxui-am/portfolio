@@ -1161,6 +1161,8 @@ a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!
 /* card titles: underline on hover, no red */
 .case__tl:hover,.case__tl:focus-visible,.case:has(.cover:hover) .case__tl{color:inherit!important;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
 .case__tl,.case__tl:hover,.case__tl:focus-visible,.case:has(.cover:hover) .case__tl{text-decoration:none!important;color:inherit!important}
+/* project card titles always reserve 3 lines so tags line up across cards */
+@media (min-width:821px){.case__t{min-height:calc(3.6em + 10px)}}
 /* titles on dark sections flip without the red */
 .projects .fl-ch.flip .fi,.contact--dark .fl-ch.flip .fi{animation:flIn .65s cubic-bezier(.65,0,.35,1) var(--fd,0ms) both!important}
 </style>
@@ -1233,7 +1235,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
       </a>
       <div>
         <h3 class="case__t"><a class="case__tl" href="#">HoSS: website and UI system for an international hospitality conference</a></h3>
-        <div class="pills"><span class="pill pill--dark">Figma</span><span class="pill pill--dark">Design system</span><span class="pill pill--dark">Desktop and mobile</span></div>
+        <div class="pills"><span class="pill pill--dark">Figma</span><span class="pill pill--dark">40+ pages</span><span class="pill pill--dark">18 layouts</span><span class="pill pill--dark">130+ components</span></div>
       </div>
     </article>
 
