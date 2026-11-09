@@ -4,10 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Alina Matiushyna, UX/UI & Visual Designer. Product UI, websites, presentations and social creatives.">
+
 <title>Alina Matiushyna Portfolio</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;600;700&family=Onest:wght@300;400;600&family=Fraunces:ital,opsz,wght@1,9..144,400..700&family=Fustat:wght@400;600;700&display=swap">
@@ -1357,7 +1359,7 @@ a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!
 /* contact icons: playful hover — plane flies away and back, WhatsApp rings, envelope opens */
 .cs-ib{overflow:hidden}
 .cs-ib svg{transition:transform .3s cubic-bezier(.22,1,.36,1)}
-.cs-ic--tg:hover svg{animation:csFly .55s cubic-bezier(.4,0,.2,1)}
+
 @keyframes csFly{0%{transform:none}38%{transform:translate(170%,-170%) rotate(10deg);opacity:0}39%{transform:translate(-120%,120%);opacity:0}62%{transform:none;opacity:1}100%{transform:none}}
 .cs-ic--wa:hover svg{animation:csRing .7s ease-in-out}
 @keyframes csRing{0%,100%{transform:none}15%{transform:rotate(-16deg) scale(1.08)}30%{transform:rotate(13deg) scale(1.08)}45%{transform:rotate(-10deg) scale(1.06)}60%{transform:rotate(7deg)}75%{transform:rotate(-3deg)}}
@@ -1374,6 +1376,20 @@ a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!
 @keyframes csSnap{0%,100%{transform:none}30%{transform:scale(.82)}55%{transform:scale(1.12) rotate(-6deg)}}
 .cs-ic--ig:hover svg circle{animation:csLens .6s ease}
 @keyframes csLens{0%,100%{r:4}40%{r:2.6}}
+/* Telegram: plane hovers in place, speed lines stream behind it */
+.cs-ic--tg svg{overflow:visible}.cs-ic--tg .tg-lines{opacity:0;stroke-dasharray:2 2.4;transition:opacity .2s}
+.cs-ic--tg:hover .tg-lines{opacity:1;animation:tgLines .45s linear infinite}
+@keyframes tgLines{to{stroke-dashoffset:4.4}}
+.cs-ic--tg:hover .tg-plane{animation:tgHover 1.1s ease-in-out infinite}
+@keyframes tgHover{0%,100%{transform:translate(1px,-1px)}50%{transform:translate(1.8px,-2.4px)}}
+@media (prefers-reduced-motion:reduce){.cs-ic--tg .tg-lines,.cs-ic--tg .tg-plane{animation:none!important}}
+/* four direct channels in one row */
+.cs-icons{grid-template-columns:repeat(4,minmax(0,1fr));min-width:max(100%,340px)}
+.cs-ib svg{width:36%;height:36%}
+.cs-t{white-space:nowrap}
+/* privacy line next to the button */
+.cs-side{display:flex;flex-direction:column;gap:6px}
+.cs-privacy{margin:0;font-size:13px;line-height:1.4;color:#7A7C83}
 .cs-br{display:none}
 @media (max-width:900px){
   .cs-grid{grid-template-columns:minmax(0,1fr)}
@@ -1405,7 +1421,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
     <h1 class="hero__h1" aria-label="UX/UI &amp; Visual Design"><span class="ln"><span>UX·UI &amp; Visual</span></span><span class="ln"><span>Design</span></span></h1>
     <p class="hero__lead">I help businesses make complex things feel simple — from websites and landing pages to presentations, social creatives and print, powered by AI.</p>
     <div class="hero__word">portfolio</div>
-    <div class="hero-acts"><nav class="hero-soc" aria-label="Social"><a href="https://dribbble.com/AlinaMatiushyna" target="_blank" rel="noopener">Dribbble <span class="ar">↗</span></a><a href="https://www.behance.net/AlinaMatiyushyna" target="_blank" rel="noopener">Behance <span class="ar">↗</span></a></nav><a class="hero-link hero-git" href="#contact"><span class="u">Let’s connect</span> <span class="ar" aria-hidden="true">↗</span></a></div>
+    <div class="hero-acts"><nav class="hero-soc" aria-label="Social"><a href="https://dribbble.com/AlinaMatiushyna" target="_blank" rel="noopener">Dribbble <span class="ar">↗</span></a><a href="https://www.behance.net/AlinaMatiyushyna" target="_blank" rel="noopener">Behance <span class="ar">↗</span></a></nav><a class="hero-link hero-git" href="#contact"><span class="u">Get in touch</span> <span class="ar" aria-hidden="true">↗</span></a></div>
   </div>
   <div class="ticker" aria-label="Skills">
     <div class="ticker__track">
@@ -1692,19 +1708,20 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
     <h2 class="head__t" data-r="wipe">Get in touch</h2>
     <span class="head__n" data-r style="--d:.25s">/05</span>
   </div>
-  <div class="cs-kick" data-r style="--d:.3s"><span><i class="cs-dot" aria-hidden="true"></i>Open to a full-time remote role or freelance projects</span><span>I speak English, Ukrainian and Russian</span></div>
+  <div class="cs-kick" data-r style="--d:.3s"><span><i class="cs-dot" aria-hidden="true"></i>Open to a full-time or part-time remote role or freelance projects</span><span>I speak English, Ukrainian and Russian</span></div>
   <div class="cs-grid">
     <form class="cs-form" novalidate>
       <p class="cs-mad" data-r style="--d:.1s">Hi Alina, my name is <span class="cs-nw"><input class="cs-in" id="cs-name" name="name" type="text" autocomplete="name" placeholder="your name" aria-label="Your name">.</span><br class="cs-br1"> I&rsquo;m looking for a <span class="cs-sel" data-kind="radio" data-ph="work type"><span class="cs-sel__btn ph" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true"><span class="cs-sel__val">work type</span><svg class="cs-car" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span><span class="cs-menu" role="group" aria-label="Type of work"><label class="cs-o"><input type="radio" name="role" value="full-time"><span>full-time</span></label><label class="cs-o"><input type="radio" name="role" value="part-time"><span>part-time</span></label><label class="cs-o"><input type="radio" name="role" value="freelance"><span>freelance</span></label></span></span> designer to help with <span class="cs-sel" data-kind="checkbox"><span class="cs-sel__btn" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true"><span class="cs-sel__val">service</span><svg class="cs-car" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span><span class="cs-menu" role="group" aria-label="Services"><label class="cs-o"><input type="checkbox" name="need" value="product UI"><span>Product UI</span></label><label class="cs-o"><input type="checkbox" name="need" value="websites"><span>Websites</span></label><label class="cs-o"><input type="checkbox" name="need" value="landing pages"><span>Landing pages</span></label><label class="cs-o"><input type="checkbox" name="need" value="presentations"><span>Presentations</span></label><label class="cs-o"><input type="checkbox" name="need" value="social media carousels"><span>Social media carousels</span></label><label class="cs-o"><input type="checkbox" name="need" value="ad creatives"><span>Ad creatives</span></label><label class="cs-o"><input type="checkbox" name="need" value="branding"><span>Branding</span></label><label class="cs-o"><input type="checkbox" name="need" value="other" data-other><span>Other…</span></label><input class="cs-other" name="other_text" type="text" placeholder="Tell me what you need" aria-label="Other service"></span></span>. You can reach me <span class="cs-nw">at <input class="cs-in" id="cs-contact" name="contact" type="email" autocomplete="email" placeholder="your e-mail" aria-label="Your e-mail">.</span></p>
       <input type="checkbox" name="botcheck" class="cs-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <div class="cs-send" data-r style="--d:.25s"><button type="submit" class="cs-btn">Send request <span class="ar">↗</span></button><p class="cs-note" aria-live="polite"></p></div>
+      <div class="cs-send" data-r style="--d:.25s"><button type="submit" class="cs-btn">Send request <span class="ar">↗</span></button><div class="cs-side"><p class="cs-privacy">Your details are used only to reply to your request.</p><p class="cs-note" aria-live="polite"></p></div></div>
     </form>
     <aside class="cs-direct">
       <span class="cs-lab" data-r style="--d:.3s">Or write to me directly</span>
       <div class="cs-icons">
-        <a class="cs-ic cs-ic--tg" data-r style="--d:.35s" href="https://t.me/alinamatiushyna" target="_blank" rel="noopener" aria-label="Telegram"><span class="cs-ib"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 4.5 3 11.3l5.8 2.1L17.5 7.6l-6.6 7.1.3 5.6 3.1-3.9 4.2 3.1z" transform="translate(-1 -.2)"/></svg></span><span class="cs-t">Telegram</span></a>
+        <a class="cs-ic cs-ic--tg" data-r style="--d:.35s" href="https://t.me/alinamatiushyna" target="_blank" rel="noopener" aria-label="Telegram"><span class="cs-ib"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="tg-lines"><path d="M0.5 21.5l5-5"/><path d="M-0.5 16.6l3.4-3.4"/><path d="M5.2 24.2l3.4-3.4"/></g><g class="tg-plane"><path d="M20.5 4.5 3 11.3l5.8 2.1L17.5 7.6l-6.6 7.1.3 5.6 3.1-3.9 4.2 3.1z" transform="translate(-1 -.2)"/></g></svg></span><span class="cs-t">Telegram</span></a>
         <a class="cs-ic cs-ic--wa" data-r style="--d:.45s" href="https://wa.me/380674860219" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="cs-ib"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2a8.5 8.5 0 1 1 3.1 3z"/><path d="M9 8.3c.2-.4.5-.4.8-.4l.6 1.4c.1.2 0 .4-.1.6l-.5.6c.6 1.2 1.5 2.1 2.7 2.7l.6-.5c.2-.1.4-.2.6-.1l1.4.6c0 .3 0 .6-.4.8-.6.5-1.4.6-2.2.3a8 8 0 0 1-3.8-3.8c-.3-.8-.2-1.6.3-2.2z"/></svg></span><span class="cs-t">WhatsApp</span></a>
         <a class="cs-ic cs-ic--ig" data-r style="--d:.55s" href="https://www.instagram.com/uxui_am/" target="_blank" rel="noopener" aria-label="Instagram"><span class="cs-ib"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.2 6.8v.01"/></svg></span><span class="cs-t">Instagram</span></a>
+        <button type="button" class="cs-ic cs-ic--em cs-mailcopy" data-r style="--d:.65s" data-mail="dismalina@gmail.com" aria-label="Copy e-mail address"><span class="cs-ib"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg></span><span class="cs-t">Email</span></button>
       </div>
     </aside>
   </div>
@@ -1714,7 +1731,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   </footer>
 </section>
 </main>
-<a class="talk" href="#contact">Let’s talk</a>
+<a class="talk" href="#contact">Get in touch</a>
 
 
 <script>
