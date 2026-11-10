@@ -1933,6 +1933,12 @@ a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!
 
 
 }
+/* Reveal the project year badge promptly when it enters the viewport. */
+.projects .kicker--top{transition-duration:.25s;transition-delay:0s}
+.projects .kicker--top .sel{transition:background-size .3s ease,color .2s ease}
+.projects__more .more-btn[hidden]{display:none!important}
+@media(max-width:820px){.do{padding-top:54px!important}}
+@media(max-width:820px){.cs-lab{font-size:1em!important;color:#C4C6CB;white-space:normal}}
 </style>
 
 <script>
@@ -2338,7 +2344,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 <script>
 // More: slide the latest-projects row to reveal the 4th card, and back
 (function(){var s=document.querySelector('.projects'),b=s&&s.querySelector('.more-btn');if(!b)return;
-  b.addEventListener('click',function(){var on=s.classList.toggle('shifted');b.setAttribute('aria-expanded',on);b.querySelector('.more-btn__t').textContent=on?'Back':'More';b.querySelector('.ar').textContent=on?'←':'→';b.setAttribute('data-ar',on?'←':'→');});})();
+  b.addEventListener('click',function(){s.classList.add('shifted');b.setAttribute('aria-expanded','true');b.hidden=true;});})();
 </script>
 <script>
 // /05 sentence form: inputs grow with text; choices open on hover (desktop) or tap; copy e-mail; compose request into e-mail
