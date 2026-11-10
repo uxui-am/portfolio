@@ -1871,6 +1871,33 @@ a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!
   .sw-li{row-gap:4px!important}
 }
 @media(max-width:820px){.contact{padding-top:54px!important}}
+/* Keep mobile contact text and multi-line service menus within the form. */
+@media(max-width:820px){
+  .cs-form.has-email .cs-reach,.cs-form.has-email .cs-reach-label,.cs-form.has-email .cs-email-wrap{display:block}
+  .cs-form.has-email .cs-reach-label{white-space:nowrap}
+  .cs-email-wrap{white-space:nowrap}
+  .cs-form.has-email #cs-contact{max-width:calc(100% - 16px)!important;min-width:0;box-sizing:border-box}
+  .cs-sel[data-kind=checkbox]{display:inline-block;max-width:100%;vertical-align:baseline}
+  .cs-sel[data-kind=checkbox] .cs-menu{top:100%;max-width:calc(100vw - 60px)}
+}
+/* After scrolling begins, halve the gap from the hero CTA to About me. */
+@media(max-width:820px){
+  #about-me{transition:padding-top .25s ease}
+  .hero-gap-compact #about-me{padding-top:36px!important}
+  @supports(height:100lvh){.hero-gap-compact #about-me{padding-top:max(0px,calc((max(96px,calc(100lvh - 100svh + 40px)) - max(24px,env(safe-area-inset-bottom,0px))) / 2))!important}}
+  @media(prefers-reduced-motion:reduce){#about-me{transition:none}}
+}
+/* Mobile notes: languages above the send button, privacy below it. */
+@media(max-width:820px){
+  .cs-send{display:flex;flex-direction:column;align-items:stretch;flex-wrap:nowrap}
+  .cs-send .cs-aside{flex:none;width:100%;font-size:14px}
+  .cs-send .cs-aside:nth-of-type(2){order:1;white-space:nowrap}
+  .cs-language-br{display:none}
+  .cs-send .cs-btn{order:2!important}
+  .cs-send .cs-aside:first-of-type{order:3}
+}
+@media(max-width:360px){.cs-send .cs-aside:nth-of-type(2){font-size:12px}}
+@media(max-width:820px){.cs-privacy-br{display:none}}
 </style>
 
 <script>
@@ -1910,7 +1937,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   <div class="ab3__main" data-r style="--d:.1s">
     <div class="ab3__left">
     <p class="ab3__t"><span class="about-line">I design <em class="it">websites</em> and&nbsp;<em class="it">digital interfaces</em>,</span> <span class="about-line">creating a consistent visual language</span> <span class="about-line">that extends into <em class="it">marketing materials</em>.</span></p>
-    <p class="ab3__p"><span class="about-process-line">My process spans briefs, wireframes, prototypes, design systems and&nbsp;developer handoff. I really</span> <span class="about-process-line">enjoy using AI tools to explore ideas and&nbsp;turn designs into working projects. I have experience</span> <span class="about-process-line">collaborating with marketers and&nbsp;developers in international, cross-functional teams.</span></p>
+    <p class="ab3__p"><span class="about-process-line">My process spans briefs, wireframes, prototypes, design systems and&nbsp;developer handoff.</span> <span class="about-process-line">I integrate AI throughout my design process to explore ideas, develop visuals, build prototypes, and streamline everyday tasks.</span> <span class="about-process-line">I have experience collaborating with marketers and&nbsp;developers in international, cross-functional teams.</span></p>
     </div>
     <div class="ab3__stats">
       <div class="istat"><b aria-label="5+"><span class="stat-count" data-count="5" aria-hidden="true"><span class="stat-count-value">5</span></span><sup aria-hidden="true">+</sup></b><span>years in UX/UI design</span></div>
@@ -2177,9 +2204,9 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   <div class="cs-kick" data-r style="--d:.3s"><span><i class="cs-dot" aria-hidden="true"></i>Open to work (full-time, part-time, freelance)</span></div>
   <div class="cs-grid">
     <form class="cs-form" novalidate>
-      <p class="cs-mad" data-r style="--d:.1s">Hi Alina, my name is <span class="cs-nw cs-nw--caret"><input class="cs-in" id="cs-name" name="name" type="text" autocomplete="name" placeholder="your name" aria-label="Your name"><span class="cs-caret" aria-hidden="true"></span>.</span><br class="cs-br1"> I&rsquo;m looking for a designer to help with&nbsp;<span class="cs-sel" data-kind="checkbox"><span class="cs-sel__btn" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true"><span class="cs-sel__val">service</span><svg class="cs-car" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span><span class="cs-menu" role="group" aria-label="Services"><label class="cs-o"><input type="checkbox" name="need" value="apps"><span>Apps</span></label><label class="cs-o"><input type="checkbox" name="need" value="websites"><span>Websites</span></label><label class="cs-o"><input type="checkbox" name="need" value="landing pages"><span>Landing pages</span></label><label class="cs-o"><input type="checkbox" name="need" value="presentations"><span>Presentations</span></label><label class="cs-o"><input type="checkbox" name="need" value="social media carousels"><span>Social media carousels</span></label><label class="cs-o"><input type="checkbox" name="need" value="ad creatives"><span>Ad creatives</span></label><label class="cs-o"><input type="checkbox" name="need" value="branding"><span>Branding</span></label><label class="cs-o"><input type="checkbox" name="need" value="other" data-other><span>Other…</span></label><input class="cs-other" name="other_text" type="text" placeholder="Tell me what you need" aria-label="Other service"></span></span>. You can reach <span class="cs-nw">me&nbsp;at <input class="cs-in" id="cs-contact" name="contact" type="email" autocomplete="email" placeholder="your e-mail" aria-label="Your e-mail">.</span></p>
+      <p class="cs-mad" data-r style="--d:.1s">Hi Alina, my name is <span class="cs-nw cs-nw--caret"><input class="cs-in" id="cs-name" name="name" type="text" autocomplete="name" placeholder="your name" aria-label="Your name"><span class="cs-caret" aria-hidden="true"></span>.</span><br class="cs-br1"> I&rsquo;m looking for a designer to help with&nbsp;<span class="cs-sel" data-kind="checkbox"><span class="cs-sel__btn" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true"><span class="cs-sel__val">service</span><svg class="cs-car" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span><span class="cs-menu" role="group" aria-label="Services"><label class="cs-o"><input type="checkbox" name="need" value="apps"><span>Apps</span></label><label class="cs-o"><input type="checkbox" name="need" value="websites"><span>Websites</span></label><label class="cs-o"><input type="checkbox" name="need" value="landing pages"><span>Landing pages</span></label><label class="cs-o"><input type="checkbox" name="need" value="presentations"><span>Presentations</span></label><label class="cs-o"><input type="checkbox" name="need" value="social media carousels"><span>Social media carousels</span></label><label class="cs-o"><input type="checkbox" name="need" value="ad creatives"><span>Ad creatives</span></label><label class="cs-o"><input type="checkbox" name="need" value="branding"><span>Branding</span></label><label class="cs-o"><input type="checkbox" name="need" value="other" data-other><span>Other…</span></label><input class="cs-other" name="other_text" type="text" placeholder="Tell me what you need" aria-label="Other service"></span></span>. <span class="cs-reach"><span class="cs-reach-label">You can reach <span class="cs-nw">me&nbsp;at</span></span> <span class="cs-email-wrap"><input class="cs-in" id="cs-contact" name="contact" type="email" autocomplete="email" enterkeyhint="done" placeholder="your e-mail" aria-label="Your e-mail">.</span></span></p>
       <input type="checkbox" name="botcheck" class="cs-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <div class="cs-send" data-r style="--d:.25s"><p class="cs-aside">Your details are used only to reply to your request.</p><p class="cs-aside">We can discuss your<br>project in EN,&nbsp;UA,&nbsp;RU</p><button type="submit" class="cs-btn">Send request <span class="ar">↗</span></button></div>
+      <div class="cs-send" data-r style="--d:.25s"><p class="cs-aside">Your details are used only <br class="cs-privacy-br">to reply to your request.</p><p class="cs-aside">We can discuss your <br class="cs-language-br">project in EN,&nbsp;UA,&nbsp;RU</p><button type="submit" class="cs-btn">Send request <span class="ar">↗</span></button></div>
       <p class="cs-note" aria-live="polite"></p>
     </form>
     <aside class="cs-direct">
@@ -2282,7 +2309,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 // /05 sentence form: inputs grow with text; choices open on hover (desktop) or tap; copy e-mail; compose request into e-mail
 (function(){var f=document.querySelector('.cs-form');if(!f)return;
   var meas=document.createElement('span');meas.style.cssText='position:absolute;visibility:hidden;white-space:pre;left:-9999px;top:0';document.body.appendChild(meas);
-  function grow(el){var cs=getComputedStyle(el);meas.style.font=cs.font;meas.style.letterSpacing=cs.letterSpacing;meas.textContent=el.value||el.placeholder;el.style.width=Math.ceil(meas.getBoundingClientRect().width+parseFloat(cs.fontSize)*.3)+'px'}
+  function grow(el){if(el.id==='cs-contact')f.classList.toggle('has-email',!!el.value);var cs=getComputedStyle(el);meas.style.font=cs.font;meas.style.letterSpacing=cs.letterSpacing;meas.textContent=el.value||el.placeholder;el.style.width=Math.ceil(meas.getBoundingClientRect().width+parseFloat(cs.fontSize)*.3)+'px'}
   var ins=[].slice.call(f.querySelectorAll('.cs-in'));ins.forEach(function(el){el.addEventListener('input',function(){grow(el);align()});grow(el)});
   var contact=f.querySelector('#cs-contact'),hover=matchMedia('(hover:hover)').matches;
   var sels=[].slice.call(f.querySelectorAll('.cs-sel'));
@@ -2312,7 +2339,10 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   addEventListener('resize',all);addEventListener('load',all);var ct=document.getElementById('contact');if(ct&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){setTimeout(all,1300);setTimeout(all,2000)}})},{threshold:.2}).observe(ct)}if(document.fonts)document.fonts.ready.then(all);setTimeout(all,300);
   var note=f.querySelector('.cs-note');
   var done=document.querySelector('.cs-done'),dt=null;if(done)document.body.appendChild(done);function hideDone(){if(!done)return;done.classList.remove('on');setTimeout(function(){done.hidden=true},300)}function showDone(){if(!done)return;done.hidden=false;requestAnimationFrame(function(){done.classList.add('on')});clearTimeout(dt);dt=setTimeout(hideDone,6000)}if(done){done.addEventListener('click',function(e){if(e.target===done||e.target.closest('.cs-done__x'))hideDone()});document.addEventListener('keydown',function(e){if(e.key==='Escape')hideDone()})}
-  f.addEventListener('submit',function(e){e.preventDefault();var d=new FormData(f);
+  f.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.matches('input')){e.preventDefault();if(e.target===contact)contact.blur()}});
+  var sendButton=f.querySelector('.cs-btn');
+  sendButton.addEventListener('click',function(e){if(e.detail===0&&document.activeElement&&document.activeElement.matches('input'))e.preventDefault()});
+  f.addEventListener('submit',function(e){e.preventDefault();if(e.submitter!==sendButton)return;var d=new FormData(f);
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((d.get('contact')||'').trim())){note.textContent='Please add your e-mail so I can reply.';contact.focus();return}
     var need=d.getAll('need').filter(function(x){return x!=='other'});if(d.getAll('need').indexOf('other')>=0)need.push((d.get('other_text')||'').trim()||'something else');
     var t='Hi Alina, my name is '+(d.get('name')||'-')+'. I\'m looking for a designer to help with '+(need.join(', ')||'-')+'. You can reach me at '+d.get('contact')+'.';
@@ -2558,7 +2588,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 // size the open-menu underline so it ends where the menu ends
 (function(){[].forEach.call(document.querySelectorAll('.cs-sel'),function(s){var b=s.querySelector('.cs-sel__btn'),m=s.querySelector('.cs-menu');if(!b||!m)return;
   function size(){m.style.left='';var vw=document.documentElement.clientWidth,mr0=m.getBoundingClientRect(),dx=Math.min(0,vw-30-mr0.right);if(mr0.left+dx<30)dx=30-mr0.left;if(dx)m.style.left=dx+'px';var br=b.getBoundingClientRect(),mr=m.getBoundingClientRect();b.style.setProperty('--lw',Math.max(br.width,Math.round(mr.right+14-br.left))+'px')}
-  new MutationObserver(function(){if(s.classList.contains('open'))requestAnimationFrame(size)}).observe(s,{attributes:true,attributeFilter:['class']});addEventListener('resize',size);});})();
+  new MutationObserver(function(){if(s.classList.contains('open'))requestAnimationFrame(size)}).observe(s,{attributes:true,attributeFilter:['class']});addEventListener('resize',size);if('ResizeObserver' in window)new ResizeObserver(function(){if(s.classList.contains('open'))size()}).observe(s);});})();
 </script>
 
 <script>
@@ -2578,6 +2608,14 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   }
   fit();addEventListener('resize',fit,{passive:true});
   if(window.visualViewport)visualViewport.addEventListener('resize',fit,{passive:true});
+})();
+</script>
+
+<script>
+// Preserve the initial mobile screen, then tighten its gap to the next section.
+(function(){
+  function compact(){if(scrollY>24)document.documentElement.classList.add('hero-gap-compact');else if(scrollY<=0)document.documentElement.classList.remove('hero-gap-compact')}
+  addEventListener('scroll',compact,{passive:true});compact();
 })();
 </script>
 </body>
