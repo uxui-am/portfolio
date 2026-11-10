@@ -769,7 +769,7 @@ a.crow:hover .crow__t{color:var(--accent)}
 .ab3__cv:hover{background:var(--accent);color:#FFFFFF;box-shadow:none}
 /* bottom points span exactly the statement width (lines up with it), fixed line breaks */
 .intro{--st:clamp(36px,min(5.3vw,8.6vh),84px)}
-.ab3__t{font-size:var(--st)}
+.ab3__t{font-size:calc(var(--st) * .9)}
 .ab3__pts{flex:none;display:flex;justify-content:space-between;gap:24px;width:min(calc(var(--st) * 14.1),100%)}
 .ab3__pts .ipt{flex:none}
 .ab3__cv{margin-left:auto}
@@ -1212,7 +1212,7 @@ a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!
 .cs-direct{align-self:start;display:flex;flex-direction:column;gap:14px;margin-top:calc(-27px + .3em)}
 .cs-lab{font-size:13px;line-height:13px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted-2)}
 .cs-icons{display:flex;gap:14px}
-.cs-ic{display:flex;flex-direction:column;align-items:center;gap:10px;font:400 12px var(--text);color:var(--muted-2);text-decoration:none;background:none;border:0;padding:0;cursor:pointer}
+.cs-ic{display:flex;flex-direction:column;align-items:center;gap:16px;font:400 12px var(--text);color:var(--muted-2);text-decoration:none;background:none;border:0;padding:0;cursor:pointer}
 .cs-ib{width:60px;height:60px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--dark-line);display:flex;align-items:center;justify-content:center;color:#FFFFFF;transition:box-shadow .2s}
 .cs-ib svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .cs-ic:hover .cs-ib{box-shadow:inset 0 0 0 1px #FFFFFF}
@@ -1453,6 +1453,130 @@ a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!
   .cs-btn{height:60px;padding:0 32px;font-size:16px}
 }
 
+
+/* Shared About measure follows the approved statement line breaks. */
+@media (min-width:1600px){
+  .intro{--about-copy:calc(var(--st) * 14.8);--about-stats:clamp(190px,15vw,300px)}
+  .ab3__main{display:flex;justify-content:space-between;gap:48px}
+  .ab3__left{flex:0 1 var(--about-copy);width:var(--about-copy);min-width:0}
+  .ab3__t{max-width:none;width:100%;font-size:calc(var(--st) * .9);text-wrap:initial}
+  .ab3__t .about-line{display:block;white-space:nowrap}
+  .ab3__p{max-width:none;width:100%;text-wrap:pretty}
+  .ab3__foot{display:flex;justify-content:space-between;gap:48px}
+  .ab3__pts{display:grid;flex:0 1 var(--about-copy);grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;width:var(--about-copy);min-width:0}
+  .ab3__pts .ipt,.ab3__pts .ipt:last-child{max-width:none;min-width:0}
+  .ab3__pts .ipt p{font-size:clamp(13px,.78125vw,15px);line-height:1.5}
+  .ab3__cv{margin-left:auto}
+}
+/* Wide About footer: CV aligns with the stats; principles have more breathing room. */
+@media (min-width:1600px){
+  .ab3__foot{display:grid;grid-template-columns:minmax(0,1fr) var(--about-stats);column-gap:48px}
+  .ab3__pts{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:48px;width:calc(var(--about-copy) + 48px);max-width:100%}
+  .ab3__cv{margin-left:var(--about-cv-offset,0px);justify-self:start;align-self:center}
+}
+@media (min-width:1600px){
+.ab3__foot{padding-block:clamp(32px,6vh,64px)}.ab3__foot a.ab3__cv{margin-top:0;margin-bottom:0}
+.ab3__p .about-process-line{display:block}
+.ab3__pts .ipt p{font-size:14px}
+}
+/* Approved shorter statement, using the existing type scale. */
+.ab3__t{font-size:clamp(32px,3.888889vw,72px)}
+@media (min-width:821px){.ab3__t .about-line{display:block;white-space:nowrap}.ab3__t{text-wrap:initial}}
+@media (min-width:1600px){.ab3__t{font-size:clamp(56px,3.75vw,72px)}}
+@media (min-width:821px){.ab3__p{font-size:18px}}
+@media (min-width:1600px){.ab3__p{font-size:20px;line-height:1.5}.intro{--about-copy:clamp(942px,58.90625vw,1131px)}}
+@media (min-width:821px){.ab3__p{max-width:none;width:100%}.ab3__p .about-process-line{display:block}}
+/* Desktop utilities: CV and language share one quiet group. */
+.hero-utilities{display:flex;align-items:center;gap:40px}
+.hero-utilities .hero-cvtop{margin-right:0;padding-inline:0}
+.hero-language{display:inline-flex;align-items:center;gap:7px;color:var(--ink);font:600 16px/1 var(--display)}
+.hero-language select{appearance:none;border:0;background:transparent;color:inherit;font:inherit;width:28px;padding:14px 0;cursor:pointer;border-radius:0}
+.hero-language select:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+.hero-language>span{pointer-events:none;font-family:var(--utility,"Fustat",sans-serif);font-size:16px;font-weight:600;line-height:1}
+@media(max-width:820px){.hero-language{display:none}.hero-utilities{gap:0}.hero-utilities .hero-cvtop{padding:0 18px;margin-right:-18px}}
+/* Desktop utilities match the approved Figma layout: 90/86 x 48, 4px gap. */
+.hero-cvtop__arrow{display:none}
+@media(min-width:821px){
+.hero-top{top:calc(51 * var(--u) + 24px)}
+.hero-utilities{gap:4px}
+.hero-utilities .hero-cvtop,.hero-language>summary{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:48px;box-sizing:border-box;padding:0 24px;margin:0;border:0;border-radius:999px;background:transparent;color:var(--ink);box-shadow:none;font:600 16px/1 var(--display);text-decoration:none;cursor:pointer;white-space:nowrap}
+.hero-utilities .hero-cvtop{width:90px;box-shadow:inset 0 0 0 1.5px var(--ink)}
+.hero-utilities .hero-cvtop .dl-ico{display:none}
+.hero-cvtop__arrow{display:inline-block;font:600 16px/1 var(--arrow)}
+.hero-utilities .hero-cvtop:hover,.hero-utilities .hero-cvtop:focus-visible{background:var(--accent)!important;color:#FFFFFF!important;box-shadow:inset 0 0 0 1.5px var(--accent)!important}
+.hero-language{display:block;position:relative;z-index:30;font:600 16px/1 var(--display)}
+.hero-language>summary{list-style:none;width:86px}
+.hero-language>summary:hover,.hero-language>summary:focus-visible{background:transparent!important;color:var(--ink)!important;box-shadow:none!important}
+.hero-language>summary:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.hero-language>summary::-webkit-details-marker{display:none}
+.hero-language__arrow{font-family:'Fustat',sans-serif;font-weight:600;font-size:16px;line-height:1}
+.hero-language__menu{position:absolute;right:0;top:calc(100% + 12px);min-width:180px;padding:8px;background:#FFFFFF;border:1px solid var(--line);border-radius:6px;box-shadow:0 12px 32px rgba(16,17,20,.12)}
+.hero-language__menu button{display:block;width:100%;padding:12px 16px;border:0;border-radius:999px;text-align:left;background:transparent;color:var(--ink);font:400 16px/1.3 var(--text);cursor:pointer}
+.hero-language__menu button[aria-current=true]{background:var(--pill)}
+.hero-language__menu button:disabled{opacity:.4;cursor:default}
+}
+
+/* hero top-right v2 (Figma: CV link + Language dropdown): quiet CV, outline on hover; dropdown EN · ES · UA · RU */
+.hu-v2{display:flex;align-items:center;gap:8px;pointer-events:auto}
+.hero-cv2{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 16px;border-radius:999px;font:600 16px/1 var(--display);text-transform:uppercase;color:var(--ink);text-decoration:none;background:transparent;box-shadow:inset 0 0 0 1.5px transparent;transition:box-shadow .2s,background .2s;pointer-events:auto}
+.hero-cv2 .ar{font:600 16px/1 var(--arrow);display:inline-block}
+.hero-cv2:hover,.hero-cv2:focus-visible{background:var(--ink);color:#FFFFFF;box-shadow:inset 0 0 0 1.5px var(--ink)}
+.hero-cv2:hover .ar{animation:arS .55s cubic-bezier(.22,1,.36,1)}
+.hero-cv2:focus-visible,.hero-lang__btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.hero-lang{position:relative;z-index:30;pointer-events:auto}
+.hero-lang__btn{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 14px 0 16px;border:0;border-radius:999px;background:#F2F2F3;font:600 16px/1 var(--display);color:var(--ink);cursor:pointer;transition:background .2s}
+.hero-lang__btn:hover{background:#E8E8EA}
+.hero-lang__btn .ar{font:600 16px/1 var(--arrow);display:inline-block;transition:transform .25s}
+.hero-lang__btn[aria-expanded=true] .ar{transform:rotate(180deg)}
+.hero-lang__menu{position:absolute;right:0;top:calc(100% + 8px);min-width:200px;margin:0;padding:6px;list-style:none;background:#FFFFFF;border:1px solid #E5E5E7;border-radius:18px;box-shadow:0 18px 40px -16px rgba(16,17,20,.25)}
+.hero-lang__menu[hidden]{display:none}
+.hero-lang__menu a{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:12px;text-decoration:none;color:var(--ink);font:400 15px/1.2 var(--text)}
+.hero-lang__menu a:hover,.hero-lang__menu a:focus-visible{background:#F2F2F3;outline:none}
+.hero-lang__menu b{width:20px;font:600 12px/1 var(--display);letter-spacing:.04em;color:#9A9CA2}
+.hero-lang__menu a[aria-selected=true] b{color:var(--ink)}
+.hero-lang__menu i{margin-left:auto;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.hero-lang__menu a[aria-disabled=true]{cursor:default}
+@media (max-width:820px){.hu-v2{gap:6px}.hero-cv2{height:34px;padding:0 12px;font-size:14px}.hero-cv2 .ar,.hero-lang__btn .ar{font-size:14px}.hero-lang__btn{height:34px;padding:0 12px 0 14px;font-size:14px}}
+/* mobile: no Dribbble/Behance, one big red Get in touch in the centre */
+@media (max-width:820px){
+  .hero .hero-acts .hero-soc{display:none!important}
+  .hero .hero-acts{justify-content:center!important}
+  .hero .hero-acts .hero-link.hero-git,.hero .hero-acts .hero-link.hero-git:hover,.hero .hero-acts .hero-link.hero-git:focus-visible{height:56px!important;padding:0 34px!important;margin:0 auto!important;border-radius:999px!important;background:var(--accent)!important;color:#FFFFFF!important;box-shadow:none!important;font-size:16px!important;font-weight:600!important}
+  .hero .hero-acts .hero-link.hero-git *{color:#FFFFFF!important}
+}
+
+/* CV moves to the bottom-left (desktop) as a white pill with ink outline; language pill gets the same outline */
+.hero-lang__btn{background:#FFFFFF;box-shadow:inset 0 0 0 1.5px var(--ink)}
+.hero-lang__btn:hover{background:#F2F2F3}
+.hero .hero-acts .hero-soc a.hero-soc-cv{display:inline-flex;align-items:center;gap:6px;height:40px!important;padding:0 16px!important;margin-right:10px;border-radius:999px;background:#FFFFFF!important;color:var(--ink)!important;box-shadow:inset 0 0 0 1.5px var(--ink)!important;font:600 16px/1 var(--display)!important;text-transform:uppercase}
+.hero .hero-acts .hero-soc a.hero-soc-cv .ar{font:600 16px/1 var(--arrow)}
+.hero .hero-acts .hero-soc a.hero-soc-cv:hover,.hero .hero-acts .hero-soc a.hero-soc-cv:focus-visible{background:var(--ink)!important;color:#FFFFFF!important}
+.hero .hero-acts .hero-soc a.hero-soc-cv:hover .ar{animation:arS .55s cubic-bezier(.22,1,.36,1)}
+
+
+
+/* language: EN in a circle; on hover (or tap) the pill opens to the left with all languages inside */
+.hl2{display:inline-flex;align-items:center;justify-content:flex-end;height:40px;min-width:40px;padding:0 5px;border-radius:999px;background:#FFFFFF;box-shadow:inset 0 0 0 1.5px var(--ink);pointer-events:auto;overflow:hidden;box-sizing:border-box}
+.hl2 a{flex:none;display:inline-flex;align-items:center;height:30px;padding:0 6px;max-width:48px;font:600 16px/1 var(--display);color:#9A9CA2;text-decoration:none;border-radius:999px;white-space:nowrap;transition:max-width .4s cubic-bezier(.22,1,.36,1),padding .4s cubic-bezier(.22,1,.36,1),opacity .25s .05s,color .2s}
+.hl2 a.on{color:var(--ink);order:-1}
+@media (hover:hover){.hl2 a[aria-disabled=true]:hover{color:var(--ink)}}
+.hl2:not(.open):not(:hover):not(:focus-within) a:not(.on){max-width:0;padding:0;opacity:0;transition:max-width .35s cubic-bezier(.22,1,.36,1),padding .35s cubic-bezier(.22,1,.36,1),opacity .15s}
+.hl2 a:focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
+.hl2{justify-content:center}
+.hl2:not(.open):not(:hover):not(:focus-within) a.on{padding:0}
+/* after a choice the pill closes at once, even under the cursor; it opens again on the next hover */
+.hl2.done a:not(.on){max-width:0!important;padding:0!important;opacity:0!important}
+.hl2.done a.on{padding:0!important}
+/* open pill: more air at both ends */
+.hl2{transition:padding .4s cubic-bezier(.22,1,.36,1)}
+.hl2.open:not(.done),.hl2:hover:not(.done),.hl2:focus-within:not(.done){padding:0 12px}
+@media (max-width:820px){.hl2.open:not(.done){padding:0 10px}}
+@media (max-width:820px){.hl2{height:34px;min-width:34px;padding:0 4px}.hl2 a{height:26px;font-size:14px;padding:0 5px}}
+/* headline: no rise on load, the red flip plays straight away instead */
+@keyframes chIn{from{transform:none}to{transform:none}}
+/* one hover for every hero button: red fill, white text (language picker keeps its own look) */
+.hero-cv2:hover,.hero-cv2:focus-visible{background:var(--accent);color:#FFFFFF;box-shadow:inset 0 0 0 1.5px var(--accent)}
+.hero-soc a:hover,.hero-soc a:focus-visible{background:var(--accent)!important;background-color:var(--accent)!important;color:#FFFFFF!important;box-shadow:none!important}
 </style>
 
 <script>
@@ -1463,7 +1587,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 
 
 <header class="hero">
-    <div class="hero-top"><span class="avail"><i aria-hidden="true"></i>Open to work</span><a class="hero-cvtop" href="Alina-Matiushyna-CV.pdf" target="_blank" rel="noopener">CV <svg class="dl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10.5 5 5 5-5"/><path d="M5 20h14"/></svg></a></div>
+    <div class="hero-top"><span class="avail"><i aria-hidden="true"></i>Open to work</span><div class="hero-utilities hu-v2"><a class="hero-cv2" href="Alina-Matiushyna-CV.pdf" target="_blank" rel="noopener">CV <span class="ar" aria-hidden="true">↓</span></a><nav class="hl2" aria-label="Website language" tabindex="-1"><a href="#" lang="en" title="English" class="on" aria-current="true">EN</a><a href="#" lang="es" title="Español" aria-disabled="true">ES</a><a href="#" lang="uk" title="Українська" aria-disabled="true">UA</a><a href="#" lang="ru" title="Русский" aria-disabled="true">RU</a></nav></div></div>
     <div class="hero__in wrap">
     <span class="hero__ava-wrap">
       <img class="hero__ava" src="img/avatar.png" alt="Portrait of Alina Matiushyna">
@@ -1473,7 +1597,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
     <h1 class="hero__h1" aria-label="UX/UI &amp; Visual Design"><span class="ln"><span>UX·UI &amp; Visual</span></span><span class="ln"><span>Design</span></span></h1>
     <p class="hero__lead">I help businesses make complex things feel simple — from websites and landing pages to presentations, social creatives and print, powered by AI.</p>
     <div class="hero__word">portfolio</div>
-    <div class="hero-acts"><nav class="hero-soc" aria-label="Social"><a href="https://dribbble.com/AlinaMatiushyna" target="_blank" rel="noopener">Dribbble <span class="ar">↗</span></a><a href="https://www.behance.net/AlinaMatiyushyna" target="_blank" rel="noopener">Behance <span class="ar">↗</span></a></nav><a class="hero-link hero-git" href="#contact"><span class="u">Get in touch</span> <span class="ar" aria-hidden="true">↗</span></a></div>
+    <div class="hero-acts"><nav class="hero-soc" aria-label="Social"><a href="https://dribbble.com/AlinaMatiushyna" target="_blank" rel="noopener">Dribbble <span class="ar arr-ne">↗</span></a><a href="https://www.behance.net/AlinaMatiyushyna" target="_blank" rel="noopener">Behance <span class="ar arr-ne">↗</span></a></nav><a class="hero-link hero-git" href="#contact"><span class="u">Get in touch</span> <span class="ar" aria-hidden="true">↗</span></a></div>
   </div>
   <div class="ticker" aria-label="Skills">
     <div class="ticker__track">
@@ -1491,8 +1615,8 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   </div>
   <div class="ab3__main" data-r style="--d:.1s">
     <div class="ab3__left">
-    <p class="ab3__t">I work confidently across <em class="it">digital products</em>, <em class="it">branding</em>, and <em class="it">visual communication</em>, adapting to a wide range of design challenges.</p>
-    <p class="ab3__p">I enjoy moving between disciplines — shaping an interface, developing an identity, or exploring a new visual direction. Whatever the format, I aim to meet user needs and business goals through clear, thoughtful design.</p>
+    <p class="ab3__t"><span class="about-line">I design <em class="it">websites</em> and&nbsp;<em class="it">digital interfaces</em>,</span> <span class="about-line">creating a consistent visual language</span> <span class="about-line">that extends into <em class="it">marketing materials</em>.</span></p>
+    <p class="ab3__p"><span class="about-process-line">My process spans briefs, wireframes, prototypes, design systems and&nbsp;developer handoff. I really</span> <span class="about-process-line">enjoy using AI tools to explore ideas and&nbsp;turn designs into working projects. I have experience</span> <span class="about-process-line">collaborating with marketers and&nbsp;developers in international, cross-functional teams.</span></p>
     </div>
     <div class="ab3__stats">
       <div class="istat"><b>5<sup>+</sup></b><span>years in UX/UI design</span></div>
@@ -1500,7 +1624,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
     </div>
   </div>
   <div class="ab3__foot" data-r style="--d:.3s">
-    <div class="ab3__pts"><div class="ipt"><b>Visual craft</b><p>My background in graphic design informs<br class="brd"> everything I make — from typography and layout<br class="brd"> to the details that give a design its character.</p></div><div class="ipt"><b>AI in the workflow</b><p>I use AI throughout my design process — to<br class="brd"> explore ideas, experiment with visuals, build<br class="brd"> prototypes, and automate repetitive tasks.</p></div><div class="ipt"><b>End to end</b><p>I work across the full design process,<br class="brd"> connecting the initial idea with the details<br class="brd"> that bring it to life.</p></div></div>
+    <div class="ab3__pts"><div class="ipt"><b>Visual craft</b><p>My background in graphic design informs<br class="brd"> everything I make — from typography and&nbsp;layout<br class="brd"> to the details that give a design its character.</p></div><div class="ipt"><b>AI in the workflow</b><p>I use AI throughout my design process — to<br class="brd"> explore ideas, experiment with visuals, build<br class="brd"> prototypes, and&nbsp;automate repetitive tasks.</p></div><div class="ipt"><b>End to end</b><p>I work across the full design process,<br class="brd"> connecting the initial idea with the details<br class="brd"> that bring it to life.</p></div></div>
     <a class="tk-btn hero-cv ab3__cv cvb" href="Alina-Matiushyna-CV.pdf" target="_blank" rel="noopener">CV <svg class="dl-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10.5 5 5 5-5"/><path d="M5 20h14"/></svg></a>
   </div>
 </section>
@@ -1763,7 +1887,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   <div class="cs-kick" data-r style="--d:.3s"><span><i class="cs-dot" aria-hidden="true"></i>Open to work (full-time, part-time, freelance)</span></div>
   <div class="cs-grid">
     <form class="cs-form" novalidate>
-      <p class="cs-mad" data-r style="--d:.1s">Hi Alina, my name is <span class="cs-nw cs-nw--caret"><input class="cs-in" id="cs-name" name="name" type="text" autocomplete="name" placeholder="your name" aria-label="Your name"><span class="cs-caret" aria-hidden="true"></span>.</span><br class="cs-br1"> I&rsquo;m looking for a designer to help with&nbsp;<span class="cs-sel" data-kind="checkbox"><span class="cs-sel__btn" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true"><span class="cs-sel__val">service</span><svg class="cs-car" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span><span class="cs-menu" role="group" aria-label="Services"><label class="cs-o"><input type="checkbox" name="need" value="product UI"><span>Product UI</span></label><label class="cs-o"><input type="checkbox" name="need" value="websites"><span>Websites</span></label><label class="cs-o"><input type="checkbox" name="need" value="landing pages"><span>Landing pages</span></label><label class="cs-o"><input type="checkbox" name="need" value="presentations"><span>Presentations</span></label><label class="cs-o"><input type="checkbox" name="need" value="social media carousels"><span>Social media carousels</span></label><label class="cs-o"><input type="checkbox" name="need" value="ad creatives"><span>Ad creatives</span></label><label class="cs-o"><input type="checkbox" name="need" value="branding"><span>Branding</span></label><label class="cs-o"><input type="checkbox" name="need" value="other" data-other><span>Other…</span></label><input class="cs-other" name="other_text" type="text" placeholder="Tell me what you need" aria-label="Other service"></span></span>. You can reach me <span class="cs-nw">at <input class="cs-in" id="cs-contact" name="contact" type="email" autocomplete="email" placeholder="your e-mail" aria-label="Your e-mail">.</span></p>
+      <p class="cs-mad" data-r style="--d:.1s">Hi Alina, my name is <span class="cs-nw cs-nw--caret"><input class="cs-in" id="cs-name" name="name" type="text" autocomplete="name" placeholder="your name" aria-label="Your name"><span class="cs-caret" aria-hidden="true"></span>.</span><br class="cs-br1"> I&rsquo;m looking for a designer to help with&nbsp;<span class="cs-sel" data-kind="checkbox"><span class="cs-sel__btn" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true"><span class="cs-sel__val">service</span><svg class="cs-car" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span><span class="cs-menu" role="group" aria-label="Services"><label class="cs-o"><input type="checkbox" name="need" value="product UI"><span>Product UI</span></label><label class="cs-o"><input type="checkbox" name="need" value="websites"><span>Websites</span></label><label class="cs-o"><input type="checkbox" name="need" value="landing pages"><span>Landing pages</span></label><label class="cs-o"><input type="checkbox" name="need" value="presentations"><span>Presentations</span></label><label class="cs-o"><input type="checkbox" name="need" value="social media carousels"><span>Social media carousels</span></label><label class="cs-o"><input type="checkbox" name="need" value="ad creatives"><span>Ad creatives</span></label><label class="cs-o"><input type="checkbox" name="need" value="branding"><span>Branding</span></label><label class="cs-o"><input type="checkbox" name="need" value="other" data-other><span>Other…</span></label><input class="cs-other" name="other_text" type="text" placeholder="Tell me what you need" aria-label="Other service"></span></span>. You can reach <span class="cs-nw">me&nbsp;at <input class="cs-in" id="cs-contact" name="contact" type="email" autocomplete="email" placeholder="your e-mail" aria-label="Your e-mail">.</span></p>
       <input type="checkbox" name="botcheck" class="cs-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="cs-send" data-r style="--d:.25s"><p class="cs-aside">Your details are used only to reply to your request.</p><p class="cs-aside">We can discuss your<br>project in EN,&nbsp;UA,&nbsp;RU</p><button type="submit" class="cs-btn">Send request <span class="ar">↗</span></button></div>
       <p class="cs-note" aria-live="polite"></p>
@@ -1881,7 +2005,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   function align(){if(!dir)return;if(innerWidth<=900){dir.style.removeProperty('--cs-dt');dir.style.height='';return}dir.style.setProperty('--cs-dt','0px');
     var r=document.createRange(),txt=null,w=document.createTreeWalker(mad,NodeFilter.SHOW_TEXT),n;while((n=w.nextNode())){var k=n.data.search(/\S/);if(k>=0){r.setStart(n,k);r.setEnd(n,k+1);txt=r.getBoundingClientRect();break}}
     var lab=dir.querySelector('.cs-lab');var lr=document.createRange();lr.setStart(lab.firstChild,0);lr.setEnd(lab.firstChild,1);var lt=lr.getBoundingClientRect();
-    if(txt)dir.style.setProperty('--cs-dt',Math.round((txt.top+txt.bottom)/2-(lt.top+lt.bottom)/2)+'px');dir.style.height='';var last=f.querySelector('#cs-contact').getBoundingClientRect(),dt=dir.getBoundingClientRect();var hh=Math.round(last.bottom-parseFloat(getComputedStyle(mad).fontSize)*.4-dt.top);if(hh>dt.height)dir.style.height=hh+'px'}
+    if(txt)dir.style.setProperty('--cs-dt',Math.round((txt.top+txt.bottom)/2-(lt.top+lt.bottom)/2)+'px');dir.style.height='';var last=f.querySelector('#cs-contact').getBoundingClientRect(),dt=dir.getBoundingClientRect();var hh=Math.round(last.bottom-parseFloat(getComputedStyle(mad).fontSize)*.4-dt.top-48);if(hh>dt.height)dir.style.height=hh+'px'}
   function all(){ins.forEach(grow);align()}
   addEventListener('resize',all);addEventListener('load',all);var ct=document.getElementById('contact');if(ct&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){setTimeout(all,1300);setTimeout(all,2000)}})},{threshold:.2}).observe(ct)}if(document.fonts)document.fonts.ready.then(all);setTimeout(all,300);
   var note=f.querySelector('.cs-note');
@@ -1942,7 +2066,9 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   var busy=false,dur=650+cs.length*80;
   function play(){if(busy)return;busy=true;cs=[].slice.call(h1.querySelectorAll('.ch'));h1.classList.add('flipping');setTimeout(function(){h1.classList.remove('flipping')},dur+60);cs.forEach(function(c){c.classList.remove('flip')});void h1.offsetWidth;cs.forEach(function(c){c.classList.add('flip')});setTimeout(function(){busy=false},dur+50)}
   
-  h1.addEventListener('mouseenter',play);})();
+  h1.addEventListener('mouseenter',play);
+  // play once on load, straight away (as soon as the fonts are in), to give the red accent at once
+  (document.fonts?document.fonts.ready:Promise.resolve()).then(function(){setTimeout(play,150)});})();
 </script>
 <script>
 // word reveal: hovering UX·UI, VISUAL or DESIGN swaps the word for a large picture of the same size
@@ -2001,6 +2127,11 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
       var redness=Math.max(0,Math.min(1,(+rgb[0]-Math.max(+rgb[1],+rgb[2]))/196));
       if(redness>.02)redZones.push({left:b.left-canvasRect.left,right:b.right-canvasRect.left,top:b.top-canvasRect.top,bottom:b.bottom-canvasRect.top,strength:redness*(1-near/65)});
     });
+    // hovered hero button that turns red tints the dots around it the same way
+    var hb=inside&&!still&&hero.querySelector('.hero-cv2:hover,.hero-soc a:hover,.hero-acts .hero-link:hover');
+    if(hb){var hcs=getComputedStyle(hb),rn=function(c){var m=c.match(/[\d.]+/g);if(!m||(m[3]!==undefined&&+m[3]<.05))return 0;return Math.max(0,Math.min(1,(+m[0]-Math.max(+m[1],+m[2]))/196))};
+      var hr=Math.max(rn(hcs.backgroundColor),rn(hcs.color));busy=true;
+      if(hr>.02){var bb=hb.getBoundingClientRect();redZones.push({left:bb.left-canvasRect.left,right:bb.right-canvasRect.left,top:bb.top-canvasRect.top,bottom:bb.bottom-canvasRect.top,strength:hr})}}
     for(var i=0;i<dots.length;i++){var d=dots[i],ts=1,gg=0,red=0;
       redZones.forEach(function(z){var distance=Math.hypot(Math.max(z.left-d.x,0,d.x-z.right),Math.max(z.top-d.y,0,d.y-z.bottom));var cursorDistance=Math.hypot(d.x-px,d.y-py);if(distance<90&&cursorDistance<REACH){var f=(1-distance/90)*(1-cursorDistance/REACH);red=Math.max(red,f*z.strength*.65)}});
       d.red+=(red-d.red)*Math.min(1,dt*18);if(Math.abs(red-d.red)>.003||d.red>.01)busy=true;
@@ -2032,7 +2163,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 </script>
 <script>
 // Resume button as wide as Get in touch
-(function(){var ls=document.querySelectorAll('.hero .hero-acts .hero-link');if(ls.length<2)return;
+(function(){var ls=document.querySelectorAll('.hero .hero-acts .hero-link:not(.hero-cvlink)');if(ls.length<2)return;
   function eq(){ls.forEach(function(l){l.style.width=''});var w=0;ls.forEach(function(l){w=Math.max(w,l.getBoundingClientRect().width)});ls.forEach(function(l){l.style.width=Math.ceil(w)+'px'})}
   eq();if(document.fonts)document.fonts.ready.then(eq);addEventListener('resize',eq);})();
 </script>
@@ -2060,6 +2191,23 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 // tag every arrow icon with its direction so the hover animation matches it
 (function(){[].forEach.call(document.querySelectorAll('.ar,.dl-ico,[data-ar]'),function(e){if(e.hasAttribute('data-ar')&&!e.classList.contains('ar'))return;var t=(e.textContent||'').trim(),c=e.classList.contains('dl-ico')||t==='↓'?'arr-s':t==='↗'?'arr-ne':t==='→'?'arr-e':t==='↑'?'arr-n':'';if(c)e.classList.add(c)});
   [].forEach.call(document.querySelectorAll('[data-ar]'),function(b){if(b.querySelector('.ar'))return;var t=b.getAttribute('data-ar');var s=b.querySelector('.ar');})})();
+</script>
+
+<script>
+// Align the CV button's right edge with the 12+ figure on wide screens.
+(function(){var about=document.querySelector('#about-me'),stats=about&&about.querySelector('.ab3__stats'),button=about&&about.querySelector('.ab3__cv');if(!stats||!button)return;function alignCV(){if(innerWidth<1600)return;var plus=stats.querySelector('.istat:last-child sup');if(!plus)return;var offset=Math.max(0,plus.getBoundingClientRect().right-stats.getBoundingClientRect().left-button.offsetWidth);about.style.setProperty('--about-cv-offset',offset+'px')}alignCV();addEventListener('resize',alignCV);addEventListener('load',alignCV);if(document.fonts)document.fonts.ready.then(alignCV)})();
+</script>
+<script>
+// hero language: opens on hover (tap on touch); a choice closes it straight away; only English exists for now
+(function(){var n=document.querySelector('.hl2');if(!n)return;var hover=matchMedia('(hover:hover)').matches;
+  function close(){n.classList.remove('open');n.classList.add('done');if(document.activeElement&&n.contains(document.activeElement))document.activeElement.blur()}
+  n.addEventListener('click',function(e){e.preventDefault();var a=e.target.closest('a');var opened=hover?!n.classList.contains('done'):n.classList.contains('open');
+    if(!opened){n.classList.remove('done');n.classList.add('open');return}
+    if(a)close()});
+  n.addEventListener('mouseleave',function(){n.classList.remove('done')});
+  document.addEventListener('click',function(e){if(!n.contains(e.target)){n.classList.remove('open');n.classList.remove('done')}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+})();
 </script>
 </body>
 </html>
