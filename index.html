@@ -1652,6 +1652,55 @@ a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!
   .sw-ic{position:absolute;right:0;top:20px;font-size:30px;transform:none!important}
 }
 @media (prefers-reduced-motion:reduce){.sw-row,.sw-panel,.sw-ic,.sw-li,.sw-pic img{transition:none}}
+
+/* Simplified service state approved in the reference: title, list, image, arrow. */
+.sw-panel{display:none}
+.sw-row:last-child{border-bottom:0}
+@media(min-width:821px){
+  .sw-row.is-open{min-height:180px;box-sizing:border-box;padding:18px 0;align-items:center}
+  .sw-li{margin-top:0;align-self:center}
+}
+
+/* Hover changes content only; the four service rows keep identical geometry. */
+@media(min-width:821px){
+  .sw-row,.sw-row.is-open,.sw.has-open .sw-row:not(.is-open){flex:1 1 0;min-height:0;box-sizing:border-box;padding:18px 0;align-items:center;transition:none}
+  .sw-row:last-child{border-bottom:1px solid transparent}
+}
+
+/* Reserve room for the longest service heading without moving the image or arrow. */
+@media(min-width:821px){
+.sw-main{width:517px}
+.sw-li{width:422px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.sw-li li{white-space:normal;align-items:baseline}
+}
+
+/* Social deliverables read left to right in one desktop line. */
+@media(min-width:821px){
+  .sw-row:nth-child(3) .sw-li{width:max-content;grid-template-columns:repeat(3,max-content);grid-template-rows:auto;column-gap:24px}
+}
+
+/* Let desktop columns fit each complete service label. */
+@media(min-width:821px){
+  .sw-li{width:max-content;grid-template-columns:repeat(2,max-content)}
+  .sw-li li{white-space:nowrap}
+}
+
+/* Share the original 470px list measure so previews stay at one horizontal position. */
+@media(min-width:821px){
+  .sw-li,.sw-row:nth-child(3) .sw-li{width:470px}
+}
+
+/* Balance the first/last labels within the fixed-height service section. */
+@media(min-width:821px){
+  .do .sw{padding-top:calc(clamp(16px,3vh,40px) + 1px)}
+  .sw-pic img{left:50%;width:264px;height:198px;transform:translate(-50%,-50%) rotate(var(--rot,4deg)) scale(.9)}
+  .sw-row.is-open .sw-pic img{transform:translate(-50%,-50%) rotate(var(--rot,4deg))}
+}
+
+@media(min-width:821px){.sw-pic img{max-width:none}}
+
+/* Slightly enlarge only the Breeze preview to compensate for its internal whitespace. */
+@media(min-width:821px){.sw-row:first-child .sw-pic img{width:276px;height:207px}}
 </style>
 
 <script>
@@ -1937,7 +1986,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
     <h2 class="head__t" data-r="wipe">My services</h2>
     <span class="head__n" data-r style="--d:.25s">/04</span>
   </div>
-  <div class="sw"><div class="sw-row"><div class="sw-main"><button class="sw-head" type="button" aria-expanded="false" aria-controls="sw-p0"><span class="sw-n">01</span><span class="sw-tt"><span class="sw-t">UX/UI design</span><span class="sw-tag">Websites & apps</span></span></button><div class="sw-panel" id="sw-p0" role="region"><div class="sw-in"><p class="sw-d">Websites and apps, from research to a working product. I turn complex information into a clear structure and a strong visual style.</p><div class="sw-pills"><span class="pill pill--light">Breeze</span><span class="pill pill--light">HoSS</span><span class="pill pill--light">Qvocab</span><span class="pill pill--light">Whinder</span><span class="pill pill--light">TIS</span></div></div></div></div><ul class="sw-li" style="--rows:3"><li>User research</li><li>User flows & wireframes</li><li>UI design</li><li>Design systems</li><li>Interactive prototypes</li><li>AI-assisted build</li></ul><div class="sw-pic" aria-hidden="true"><img src="img/peek-breeze.jpg" alt="" style="--rot:-4deg"></div><span class="sw-ic" aria-hidden="true">↗</span></div><div class="sw-row"><div class="sw-main"><button class="sw-head" type="button" aria-expanded="false" aria-controls="sw-p1"><span class="sw-n">02</span><span class="sw-tt"><span class="sw-t">Presentations</span><span class="sw-tag">Decks</span></span></button><div class="sw-panel" id="sw-p1" role="region"><div class="sw-in"><p class="sw-d">Decks that make complex content clear, built on the brand’s visual language.</p><div class="sw-pills"><span class="pill pill--light">HoSS</span><span class="pill pill--light">Kordie</span><span class="pill pill--light">Praxis</span><span class="pill pill--light">Cetis</span></div></div></div></div><ul class="sw-li" style="--rows:2"><li>Structure for complex content</li><li>Slide design</li><li>Brand templates</li><li>Event & sponsor decks</li></ul><div class="sw-pic" aria-hidden="true"><img src="img/works/w65.jpg" alt="" style="--rot:4deg"></div><span class="sw-ic" aria-hidden="true">↗</span></div><div class="sw-row"><div class="sw-main"><button class="sw-head" type="button" aria-expanded="false" aria-controls="sw-p2"><span class="sw-n">03</span><span class="sw-tt"><span class="sw-t">Social creatives</span><span class="sw-tag">Ads & social</span></span></button><div class="sw-panel" id="sw-p2" role="region"><div class="sw-in"><p class="sw-d">Banners, carousels and ad creatives that keep a brand recognisable in every format.</p><div class="sw-pills"><span class="pill pill--light">Kordie</span><span class="pill pill--light">HoSS</span><span class="pill pill--light">E100</span></div></div></div></div><ul class="sw-li" style="--rows:3"><li>Social media banners</li><li>Carousels</li><li>Ad creatives</li></ul><div class="sw-pic" aria-hidden="true"><img src="img/works/w60.jpg" alt="" style="--rot:-4deg"></div><span class="sw-ic" aria-hidden="true">↗</span></div><div class="sw-row"><div class="sw-main"><button class="sw-head" type="button" aria-expanded="false" aria-controls="sw-p3"><span class="sw-n">04</span><span class="sw-tt"><span class="sw-t">Graphic design</span><span class="sw-tag">Print & brand</span></span></button><div class="sw-panel" id="sw-p3" role="region"><div class="sw-in"><p class="sw-d">Visuals and print for brands and events: brand books, leaflets and event materials in one consistent style.</p><div class="sw-pills"><span class="pill pill--light">Cetis</span><span class="pill pill--light">Marketing House</span><span class="pill pill--light">HoSS</span></div></div></div></div><ul class="sw-li" style="--rows:2"><li>Brand books</li><li>Leaflets & programmes</li><li>Event stands & banners</li><li>Magazine layouts</li></ul><div class="sw-pic" aria-hidden="true"><img src="img/service-graphic.webp" alt="" style="--rot:4deg"></div><span class="sw-ic" aria-hidden="true">↗</span></div></div>
+  <div class="sw"><div class="sw-row"><div class="sw-main"><button class="sw-head" type="button" aria-expanded="false" aria-controls="sw-list0"><span class="sw-n">01</span><span class="sw-tt"><span class="sw-t">UX/UI design</span><span class="sw-tag">Websites & apps</span></span></button><div class="sw-panel" id="sw-p0" role="region"><div class="sw-in"><p class="sw-d">Websites and apps, from research to a working product. I turn complex information into a clear structure and a strong visual style.</p><div class="sw-pills"><span class="pill pill--light">Breeze</span><span class="pill pill--light">HoSS</span><span class="pill pill--light">Qvocab</span><span class="pill pill--light">Whinder</span><span class="pill pill--light">TIS</span></div></div></div></div><ul id="sw-list0" class="sw-li" style="--rows:3"><li>User research</li><li>User flows & wireframes</li><li>UI design</li><li>Design systems</li><li>Interactive prototypes</li><li>AI-assisted build</li></ul><div class="sw-pic" aria-hidden="true"><img src="img/peek-breeze.jpg" alt="" style="--rot:-4deg"></div><span class="sw-ic" aria-hidden="true">↗</span></div><div class="sw-row"><div class="sw-main"><button class="sw-head" type="button" aria-expanded="false" aria-controls="sw-list1"><span class="sw-n">02</span><span class="sw-tt"><span class="sw-t">Presentations</span><span class="sw-tag">Decks, slides, templates</span></span></button><div class="sw-panel" id="sw-p1" role="region"><div class="sw-in"><p class="sw-d">Decks that make complex content clear, built on the brand’s visual language.</p><div class="sw-pills"><span class="pill pill--light">HoSS</span><span class="pill pill--light">Kordie</span><span class="pill pill--light">Praxis</span><span class="pill pill--light">Cetis</span></div></div></div></div><ul id="sw-list1" class="sw-li" style="--rows:2"><li>Structure for complex content</li><li>Slide design</li><li>Brand templates</li><li>Event & sponsor decks</li></ul><div class="sw-pic" aria-hidden="true"><img src="img/works/w65.jpg" alt="" style="--rot:4deg"></div><span class="sw-ic" aria-hidden="true">↗</span></div><div class="sw-row"><div class="sw-main"><button class="sw-head" type="button" aria-expanded="false" aria-controls="sw-list2"><span class="sw-n">03</span><span class="sw-tt"><span class="sw-t">Social creatives</span><span class="sw-tag">Ads & social</span></span></button><div class="sw-panel" id="sw-p2" role="region"><div class="sw-in"><p class="sw-d">Banners, carousels and ad creatives that keep a brand recognisable in every format.</p><div class="sw-pills"><span class="pill pill--light">Kordie</span><span class="pill pill--light">HoSS</span><span class="pill pill--light">E100</span></div></div></div></div><ul id="sw-list2" class="sw-li" style="--rows:3"><li>Social media banners</li><li>Carousels</li><li>Ad creatives</li></ul><div class="sw-pic" aria-hidden="true"><img src="img/works/w60.jpg" alt="" style="--rot:-8deg"></div><span class="sw-ic" aria-hidden="true">↗</span></div><div class="sw-row"><div class="sw-main"><button class="sw-head" type="button" aria-expanded="false" aria-controls="sw-list3"><span class="sw-n">04</span><span class="sw-tt"><span class="sw-t">Graphic design</span><span class="sw-tag">Print & brand</span></span></button><div class="sw-panel" id="sw-p3" role="region"><div class="sw-in"><p class="sw-d">Visuals and print for brands and events: brand books, leaflets and event materials in one consistent style.</p><div class="sw-pills"><span class="pill pill--light">Cetis</span><span class="pill pill--light">Marketing House</span><span class="pill pill--light">HoSS</span></div></div></div></div><ul id="sw-list3" class="sw-li" style="--rows:2"><li>Brand books</li><li>Leaflets & programmes</li><li>Event stands & banners</li><li>Magazine layouts</li></ul><div class="sw-pic" aria-hidden="true"><img src="img/service-graphic.webp" alt="" style="--rot:4deg"></div><span class="sw-ic" aria-hidden="true">↗</span></div></div>
 
 </section>
 
