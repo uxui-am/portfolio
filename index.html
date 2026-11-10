@@ -2122,10 +2122,10 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
       var active=face.getAnimations().some(function(a){var timing=a.effect.getTiming();return a.animationName==='flRed'&&a.currentTime>=timing.delay&&a.currentTime<timing.delay+timing.duration});
       if(!active)return;busy=true;
       var b=letter.getBoundingClientRect(),x=px+canvasRect.left,y=py+canvasRect.top;
-      var near=Math.hypot(Math.max(b.left-x,0,x-b.right),Math.max(b.top-y,0,y-b.bottom));if(near>65)return;
+      var near=Math.hypot(Math.max(b.left-x,0,x-b.right),Math.max(b.top-y,0,y-b.bottom));if(near>90)return;
       var rgb=getComputedStyle(face).color.match(/[\d.]+/g);if(!rgb)return;
       var redness=Math.max(0,Math.min(1,(+rgb[0]-Math.max(+rgb[1],+rgb[2]))/196));
-      if(redness>.02)redZones.push({left:b.left-canvasRect.left,right:b.right-canvasRect.left,top:b.top-canvasRect.top,bottom:b.bottom-canvasRect.top,strength:redness*(1-near/65)});
+      if(redness>.02)redZones.push({left:b.left-canvasRect.left,right:b.right-canvasRect.left,top:b.top-canvasRect.top,bottom:b.bottom-canvasRect.top,strength:redness*(1-near/90)});
     });
     // hovered hero button that turns red tints the dots around it the same way
     var hb=inside&&!still&&hero.querySelector('.hero-cv2:hover,.hero-soc a:hover,.hero-acts .hero-link:hover');
@@ -2133,7 +2133,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
       var hr=Math.max(rn(hcs.backgroundColor),rn(hcs.color));busy=true;
       if(hr>.02){var bb=hb.getBoundingClientRect();redZones.push({left:bb.left-canvasRect.left,right:bb.right-canvasRect.left,top:bb.top-canvasRect.top,bottom:bb.bottom-canvasRect.top,strength:hr})}}
     for(var i=0;i<dots.length;i++){var d=dots[i],ts=1,gg=0,red=0;
-      redZones.forEach(function(z){var distance=Math.hypot(Math.max(z.left-d.x,0,d.x-z.right),Math.max(z.top-d.y,0,d.y-z.bottom));var cursorDistance=Math.hypot(d.x-px,d.y-py);if(distance<90&&cursorDistance<REACH){var f=(1-distance/90)*(1-cursorDistance/REACH);red=Math.max(red,f*z.strength*.65)}});
+      redZones.forEach(function(z){var distance=Math.hypot(Math.max(z.left-d.x,0,d.x-z.right),Math.max(z.top-d.y,0,d.y-z.bottom));var cursorDistance=Math.hypot(d.x-px,d.y-py);if(distance<120&&cursorDistance<REACH*1.25){var f=(1-distance/120)*(1-cursorDistance/(REACH*1.25));red=Math.max(red,Math.min(1,f*z.strength*1.1))}});
       d.red+=(red-d.red)*Math.min(1,dt*18);if(Math.abs(red-d.red)>.003||d.red>.01)busy=true;
       if(inside){var dx=d.x-px,dy=d.y-py,dist=Math.sqrt(dx*dx+dy*dy);if(dist<REACH){var f=1-dist/REACH,g=f*f*(3-2*f);ts+=g*2.2*STR}}
       for(var k=0;k<rings.length;k++){var R=rings[k],ddx=d.x-R.x,ddy=d.y-R.y,L=R.life||1.4,band=Math.abs(Math.sqrt(ddx*ddx+ddy*ddy)-R.t*(R.speed||900));
