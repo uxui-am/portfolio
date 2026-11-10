@@ -1838,6 +1838,8 @@ a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!
   .hu-v2:has(.hl2:is(.open,:hover,:focus-within):not(.done)) .hero-cv2{visibility:hidden}
 }
 @media(max-width:360px){.hero-top:has(.hl2:is(.open,:hover,:focus-within):not(.done)) .avail{visibility:hidden}}
+/* Mobile hero stays plain white through the next section boundary. */
+@media(max-width:820px){.hero{background:#FFFFFF!important}.hero-dots{display:none!important}#about-me{box-shadow:none!important;background:#FFFFFF!important}}
 </style>
 
 <script>
@@ -2336,8 +2338,8 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   function play(){if(busy)return;busy=true;cs=[].slice.call(h1.querySelectorAll('.ch'));h1.classList.add('flipping');setTimeout(function(){h1.classList.remove('flipping')},dur+60);cs.forEach(function(c){c.classList.remove('flip')});void h1.offsetWidth;cs.forEach(function(c){c.classList.add('flip')});setTimeout(function(){busy=false},dur+50)}
   
   h1.addEventListener('mouseenter',play);
-  // play once on load, straight away (as soon as the fonts are in), to give the red accent at once
-  (document.fonts?document.fonts.ready:Promise.resolve()).then(function(){setTimeout(play,150)});})();
+  // Start the initial flip immediately, without waiting for unrelated fonts.
+  play();})();
 </script>
 <script>
 // word reveal: hovering UX·UI, VISUAL or DESIGN swaps the word for a large picture of the same size
