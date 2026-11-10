@@ -1861,6 +1861,10 @@ a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!
   #about-me{padding-top:96px!important}
   @supports(height:100lvh){#about-me{padding-top:max(96px,calc(100lvh - 100svh + 40px))!important}}
 }
+/* Center the mobile ticker text within its fixed 51px band. */
+@media(max-width:820px){
+  .ticker__track{height:100%;box-sizing:border-box;align-items:center;padding-top:0!important;padding-bottom:0!important;line-height:20px!important}
+}
 </style>
 
 <script>
