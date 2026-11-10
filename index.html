@@ -1830,6 +1830,14 @@ a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!
 }
 /* Service arrows indicate expand/collapse rather than navigation. */
 .sw-row.is-open .sw-ic{animation:none}
+/* Mobile language options have separate, comfortable tap targets. */
+@media(max-width:820px){
+  .hl2 a{height:40px}
+  .hl2:is(.open,:hover,:focus-within):not(.done) a{justify-content:center;min-width:44px;max-width:56px;padding:0 10px;box-sizing:border-box}
+  .hl2:is(.open,:hover,:focus-within):not(.done){position:absolute;right:0;padding:0 8px;z-index:2}
+  .hu-v2:has(.hl2:is(.open,:hover,:focus-within):not(.done)) .hero-cv2{visibility:hidden}
+}
+@media(max-width:360px){.hero-top:has(.hl2:is(.open,:hover,:focus-within):not(.done)) .avail{visibility:hidden}}
 </style>
 
 <script>
