@@ -1856,6 +1856,11 @@ a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!
   .cs-menu .cs-o:nth-of-type(6){order:8}
   .cs-menu .cs-other{order:9}
 }
+/* Keep About me below even the expanded mobile viewport, without moving the CTA. */
+@media(max-width:820px){
+  #about-me{padding-top:96px!important}
+  @supports(height:100lvh){#about-me{padding-top:max(96px,calc(100lvh - 100svh + 40px))!important}}
+}
 </style>
 
 <script>
@@ -2471,8 +2476,11 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   [].forEach.call(document.querySelectorAll('.head__t'),function(t){var txt=t.textContent,i=0;t.setAttribute('aria-label',txt);
     t.innerHTML=txt.split(' ').map(function(w){return '<span class="fl-w">'+w.split('').map(function(c){var d=(i++)*55;return '<span class="fl-ch" aria-hidden="true" style="--fd:'+d+'ms"><span class="fo">'+c+'</span><span class="fi">'+c+'</span></span>'}).join('')+'</span>'}).join(' ');
     var cs=t.querySelectorAll('.fl-ch'),busy=false,dur=650+i*55+900;
-    t.addEventListener('mouseenter',function(){if(busy)return;busy=true;t.style.setProperty('--fc',getComputedStyle(t).color);
-      cs.forEach(function(c){c.classList.remove('flip')});void t.offsetWidth;cs.forEach(function(c){c.classList.add('flip')});setTimeout(function(){busy=false;cs.forEach(function(c){c.classList.remove('flip')})},dur)})});})();
+    function play(){if(busy)return;busy=true;t.style.setProperty('--fc',getComputedStyle(t).color);
+      cs.forEach(function(c){c.classList.remove('flip')});void t.offsetWidth;cs.forEach(function(c){c.classList.add('flip')});setTimeout(function(){busy=false;cs.forEach(function(c){c.classList.remove('flip')})},dur)}
+    t.addEventListener('mouseenter',play);
+    if('IntersectionObserver' in window){var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting)play()})},{threshold:.3,rootMargin:'0px 0px -24px 0px'});observer.observe(t)}
+  });})();
 </script>
 <script>
 // tag every arrow icon with its direction so the hover animation matches it
