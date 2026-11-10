@@ -1812,6 +1812,20 @@ a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!
 .cs-mad{position:relative;z-index:5}
 /* section titles wrap between words only */
 .fl-w{white-space:nowrap}
+/* Mobile hero: reserve browser chrome, then distribute the available space. */
+@media (max-width:820px){
+  .hero{--hero-screen:100vh;min-height:calc(var(--hero-screen) - env(safe-area-inset-top,0px))!important;padding-top:51px!important;justify-content:flex-start!important}
+  @supports (height:100svh){.hero{--hero-screen:100svh}}
+  .hero__in{min-height:calc(var(--hero-screen) - 51px - env(safe-area-inset-top,0px))!important;padding-top:76px!important;padding-bottom:max(24px,env(safe-area-inset-bottom,0px))!important;gap:8px!important;justify-content:space-between!important;flex:0 0 auto!important}
+  .hero__in > *{flex-shrink:0!important}
+  .hero__name,.hero__h1,.hero__lead,.hero__word,.hero .hero-acts{margin-top:0!important;margin-bottom:0!important}
+  .hero__h1 .ln{white-space:nowrap}
+  .hero__h1 .wd{display:inline!important}
+  .hero.hero--compact .hero__in{padding-top:64px!important}
+  .hero.hero--compact .hero__ava-wrap,.hero.hero--compact .hero__ava{width:72px!important;height:72px!important}
+  .hero.hero--compact .hero__h1{font-size:56px!important}
+  .hero.hero--short .hero__word{font-size:32px!important}
+}
 </style>
 
 <script>
@@ -2497,6 +2511,21 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 (function(){[].forEach.call(document.querySelectorAll('.cs-sel'),function(s){var b=s.querySelector('.cs-sel__btn'),m=s.querySelector('.cs-menu');if(!b||!m)return;
   function size(){m.style.left='';var vw=document.documentElement.clientWidth,mr0=m.getBoundingClientRect(),dx=Math.min(0,vw-30-mr0.right);if(mr0.left+dx<30)dx=30-mr0.left;if(dx)m.style.left=dx+'px';var br=b.getBoundingClientRect(),mr=m.getBoundingClientRect();b.style.setProperty('--lw',Math.max(br.width,Math.round(mr.right+14-br.left))+'px')}
   new MutationObserver(function(){if(s.classList.contains('open'))requestAnimationFrame(size)}).observe(s,{attributes:true,attributeFilter:['class']});addEventListener('resize',size);});})();
+</script>
+
+<script>
+// Use the small viewport height for the compact tier, including expanded Safari bars.
+(function(){
+  var hero=document.querySelector('.hero');if(!hero)return;
+  function fit(){
+    var mobile=matchMedia('(max-width:820px)').matches;
+    var height=parseFloat(getComputedStyle(hero).minHeight);
+    hero.classList.toggle('hero--compact',mobile&&(height<740||hero.clientWidth<375));
+    hero.classList.toggle('hero--short',mobile&&height<640);
+  }
+  fit();addEventListener('resize',fit,{passive:true});
+  if(window.visualViewport)visualViewport.addEventListener('resize',fit,{passive:true});
+})();
 </script>
 </body>
 </html>
