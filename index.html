@@ -2034,6 +2034,7 @@ a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!
 .cs-in::placeholder{transition:color .55s ease}
 .cs-sel__btn,.cs-sel__val,.cs-car{transition:color .55s ease,border-bottom-color .55s ease}
 @media(prefers-reduced-motion:reduce){.work-viewer[open]::backdrop,.work-viewer[open] .work-viewer-figure{animation:none}.cs-in,.cs-in::placeholder,.cs-sel__btn,.cs-sel__val,.cs-car{transition:none}}
+.more .strip img{cursor:default}
 </style>
 
 <script>
@@ -2175,7 +2176,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
       <img src="img/works/w66.jpg" data-full="img/works-large/w66.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
       <img src="img/works/w25.jpg" data-full="img/works-large/w25.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
       <span class="tone"><img src="img/works/w15.jpg" data-full="img/works-large/w15.jpg" width="634" height="400" alt="" loading="lazy" decoding="async"></span>
-      <img src="img/works/w68-updated.jpg" data-full="img/works-large/w68-updated.png" width="533" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w68-roomy.jpg" data-full="img/works-large/w68-roomy.png" width="533" height="400" alt="" loading="lazy" decoding="async">
       <img src="img/works/w31.jpg" data-full="img/works-large/w31.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
       <img src="img/works/w58.jpg" data-full="img/works-large/w58.jpg" width="454" height="400" alt="" loading="lazy" decoding="async">
       <img src="img/works/w34.jpg" data-full="img/works-large/w34.jpg" width="534" height="400" alt="" loading="lazy" decoding="async">
@@ -2207,7 +2208,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
       <img src="img/works/w66.jpg" data-full="img/works-large/w66.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
       <img src="img/works/w25.jpg" data-full="img/works-large/w25.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
       <span class="tone"><img src="img/works/w15.jpg" data-full="img/works-large/w15.jpg" width="634" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true"></span>
-      <img src="img/works/w68-updated.jpg" data-full="img/works-large/w68-updated.png" width="533" height="400" alt="" loading="lazy" decoding="async">
+      <img src="img/works/w68-roomy.jpg" data-full="img/works-large/w68-roomy.png" width="533" height="400" alt="" loading="lazy" decoding="async">
       <img src="img/works/w31.jpg" data-full="img/works-large/w31.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
       <img src="img/works/w58.jpg" data-full="img/works-large/w58.jpg" width="454" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
       <img src="img/works/w34.jpg" data-full="img/works-large/w34.jpg" width="534" height="400" alt="" loading="lazy" decoding="async" aria-hidden="true">
@@ -2814,6 +2815,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 <script>
 // Preview a tapped work image; drag gestures are stopped by the strip handler.
 (function(){
+  return; // Enlarged gallery disabled; moving strips and swipe remain available.
   var viewer=document.querySelector('.work-viewer'),image=viewer.querySelector('img'),closeButton=viewer.querySelector('.work-viewer-close'),previous=null,overflow='',paused=[];
   document.querySelectorAll('.more .strip').forEach(function(row){
     row.removeAttribute('aria-hidden');row.setAttribute('role','group');
