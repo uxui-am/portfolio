@@ -2042,6 +2042,9 @@ a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!
 }
 @keyframes portfolioFade{from{opacity:0}to{opacity:1}}
 @media(max-width:820px) and (prefers-reduced-motion:reduce){.hero__word{animation:none!important}}
+
+/* Bring mobile experience counters closer together. */
+@media(max-width:820px){.ab3__stats{grid-template-columns:1fr 1.4fr!important;column-gap:24px!important}}
 </style>
 
 <script>
@@ -2085,7 +2088,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
     </div>
     <div class="ab3__stats">
       <div class="istat"><b aria-label="5+"><span class="stat-count" data-count="5" aria-hidden="true"><span class="stat-count-value">5</span></span><sup aria-hidden="true">+</sup></b><span>years in UX/UI design</span></div>
-      <div class="istat"><b aria-label="12+"><span class="stat-count" data-count="12" aria-hidden="true"><span class="stat-count-value">12</span></span><sup aria-hidden="true">+</sup></b><span>years in graphic design</span></div>
+      <div class="istat"><b aria-label="12+"><span class="stat-count" data-count="12" aria-hidden="true"><span class="stat-count-value">12</span></span><sup aria-hidden="true">+</sup></b><span>years in graphic<br class="mbr"> design</span></div>
     </div>
   </div>
   <div class="ab3__foot" data-r style="--d:.3s">
@@ -2740,10 +2743,10 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 (function(){var list=document.querySelector('.sw'),rows=[].slice.call(document.querySelectorAll('.sw-row'));if(!rows.length)return;
   var hover=matchMedia('(hover:hover)').matches,t=0;
   function open(r){list.classList.toggle('has-open',!!r);rows.forEach(function(x){var l=x.querySelector('.sw-li');if(l)l.style.setProperty('--lh',l.scrollHeight+'px')});rows.forEach(function(x){var on=x===r;x.classList.toggle('is-open',on);x.querySelector('.sw-head').setAttribute('aria-expanded',on);x.querySelector('.sw-ic').textContent=on?'↑':'↓'})}
-  rows.forEach(function(r){r.querySelector('.sw-head').addEventListener('click',function(){open(r.classList.contains('is-open')&&!hover?null:r)});
+  rows.forEach(function(r){r.querySelector('.sw-head').addEventListener('click',function(){open(r.classList.contains('is-open')?null:r)});
     if(hover)r.addEventListener('mouseenter',function(){clearTimeout(t);t=setTimeout(function(){open(r)},120)})});
-  if(hover)list.addEventListener('mouseleave',function(){clearTimeout(t);t=setTimeout(function(){open(rows[0])},150)}); // main service (UX/UI) is open by default and comes back after hover
-  open(hover?rows[0]:null); // touch: everything collapsed, open by tap
+  if(hover)list.addEventListener('mouseleave',function(){clearTimeout(t);t=setTimeout(function(){open(null)},150)}); // Collapse all services when leaving the list
+  open(null); // Start with every service collapsed on all devices
 })();
 </script>
 <script>
